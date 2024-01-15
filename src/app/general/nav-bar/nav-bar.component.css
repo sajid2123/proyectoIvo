@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1031px;
+    height: 64px;
+    border-radius: 5px;
+  
+    background: #FFF;
+    overflow: hidden;
+    /* Added to handle overflow */
+  }
+  
+  .background {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 20px;
+    position: relative; 
+    
+  }
+  
+  body {
+    background-color: aliceblue;
+    margin: 20px;
+   
+  }
+  
+  #dPaso1,
+  #dPaso2,
+  #dPaso3 {
+    margin: 0 50px;
+  
+  }
+  
+  #vPaso1,
+  #vPaso2,
+  #vPaso3 {
+    width: 18px;
+    height: 16px;
+    margin: 0 15px;
+  }
+  
+  #vFlecha {
+    width: 14.018px;
+    height: 17.749px;
+    fill: #000;
+  }
+  
+  #lCrearCuenta,
+  #lConfirmarDatos {
+    color: #092C4C;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  #lDatos {
+    color: #092C4C;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  #vFlecha1,
+  #vFlecha2 {
+    width: 30px;
+    height: 20px;
+  }
+  
+  
+  
+  #horizontalBar {
+    position: absolute;
+    width: 380px;
+    height: 3px;
+    border-radius: 0px 0px 0px 5px;
+    background: #092C4C;
+    bottom: -18.5px;
+    margin-left: -25px;
+  }

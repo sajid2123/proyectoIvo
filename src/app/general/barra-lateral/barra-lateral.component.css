@@ -1,0 +1,145 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 222px;
+    height: 100vh;
+
+    border: 0px solid #000;
+    background: #FFF;
+    overflow: hidden;
+    /* Added to handle overflow */
+  }
+
+  .background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 222px;
+    height: 100vh;
+    flex-shrink: 0;
+    background: #092C4C;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+  }
+
+  .dOpciones {
+    width: 270px;
+    height: 135px;
+    padding: 0 0 0 35%;
+    margin-top: -340px;
+  }
+
+  .dUsuarios {
+    background-color: #DCECFB;
+    padding: 0 0 0 35%;
+    border-radius: 4px;
+    border: 1px solid var(--Primary-50, #FFECE5);
+    background: #DCECFB;
+    justify-content: space-between;
+    width: 90px;
+    height: 35px;
+  }
+
+
+
+  .dRoles,
+  .dServicios {
+  
+    background-color: #092C4C;
+    padding: 0 0 0 35%;
+    border-radius: 4px;
+    
+    background: #092C4C;
+    justify-content: space-between;
+    width: 90px;
+    height: 35px;
+  }
+
+  #lUsuario {
+    color: #092C4C;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145%;
+
+  }
+
+  #lRoles,
+  #lServicio {
+    width: 155px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #DCECFB;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+  }
+
+  #sLogo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    position: fixed;
+    margin-top: 30px;
+
+  }
+
+  #sRoles,
+  #sServicios,
+  #sUsuario {
+    margin-left: -80px;
+    margin-top: 7px;
+
+  }
+
+  #lUsuario,
+  #lRoles,
+  #lServicio {
+
+    margin: 12px;
+
+  }
+
+
+  .dCerrarSesion {
+    display: flex;
+    position: fixed;
+    margin-bottom: 50px;
+  }
+
+
+  #lCorreo {
+    color: #DCECFB;
+    font-feature-settings: 'cv04' on, 'cv03' on;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+  }
+
+  #lNombre {
+    color: #DCECFB;
+    font-feature-settings: 'cv04' on, 'cv01' on, 'cv03' on;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 145%;
+  }
+
+  #dDatos {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
