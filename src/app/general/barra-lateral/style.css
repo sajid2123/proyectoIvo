@@ -1,0 +1,40 @@
+/* Estilo para el navbar vertical */
+
+.navbar {
+    background-color: rgb(96, 96, 138);
+}
+
+.navbar-nav,
+.navbar-modified,
+.form-inline {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.nav-icono {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+
+/* Ajustes adicionales para asegurar que los elementos se apilen correctamente */
+
+.navbar-nav .nav-item {
+    width: 100%;
+}
+
+
+/* Media Query para pantallas grandes */
+
+@media (min-width: 992px) {
+    .navbar {
+        width: 15%;
+    }
+    form {
+        margin-bottom: 0.7em;
+    }
+}
