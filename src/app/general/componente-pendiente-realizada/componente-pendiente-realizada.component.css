@@ -1,0 +1,9 @@
+.enabled{
+    color: #092C4C;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.disabled{
+
+}
