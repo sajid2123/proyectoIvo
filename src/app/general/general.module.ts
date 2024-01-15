@@ -4,6 +4,7 @@ import { BarraLateralComponent } from './barra-lateral/barra-lateral.component';
 import { ConfirmaComponent } from './confirma/confirma.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MensajeConfirmacionComponent } from './mensaje-confirmacion/mensaje-confirmacion.component';
+import { ComponentePendienteRealizadaComponent } from './componente-pendiente-realizada/componente-pendiente-realizada.component';
 
 
 
@@ -12,7 +13,8 @@ import { MensajeConfirmacionComponent } from './mensaje-confirmacion/mensaje-con
     BarraLateralComponent,
     ConfirmaComponent,
     NavBarComponent,
-    MensajeConfirmacionComponent
+    MensajeConfirmacionComponent,
+    ComponentePendienteRealizadaComponent
   ],
   imports: [
     CommonModule

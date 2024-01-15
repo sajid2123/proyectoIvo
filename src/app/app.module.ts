@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
@@ -7,6 +8,7 @@ import { MensajeConfirmacionComponent } from './general/mensaje-confirmacion/men
 import { NavBarComponent } from './general/nav-bar/nav-bar.component';
 
 import { GeneralModule } from './general/general.module';
+import { RadiologoModule } from './radiologo/radiologo.module';
 
 
 @NgModule({
@@ -15,7 +17,10 @@ import { GeneralModule } from './general/general.module';
   ],
   imports: [
     BrowserModule,
-    GeneralModule
+    GeneralModule,
+    AppRoutingModule,
+    RadiologoModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
