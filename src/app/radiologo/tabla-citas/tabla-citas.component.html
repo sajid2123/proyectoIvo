@@ -1,0 +1,22 @@
+
+<div class="col-6 p-10">
+    <table datatable class="table table-hover  font">
+        <thead >
+            <tr style="background-color: #0062ca;">
+                <th>SIP</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of citas">
+                <td>{{ cita.sip }}</td>
+                <td>{{ cita.nombre }}</td>
+                <td>{{ cita.apellido }}</td>
+                <td>{{ cita.hora }}</td>
+            </tr>
+        
+        </tbody>
+    </table>
+</div>
