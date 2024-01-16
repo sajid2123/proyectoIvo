@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComponentePendienteRealizadaComponent } from 'src/app/general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 
 
 @Component({

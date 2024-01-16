@@ -1,4 +1,14 @@
-<p>componente-pagina-principal-radiologo works!</p>
 
-<!-- <barra-lateral></barra-lateral> -->
+<div class="row">
+    <h1 class="title font">Citas Pendientes</h1>
+</div>
+<div class="row">
+    <app-componente-pendiente-realizada 
+    [routaPendiente]="'./'"
+    [routaRealizada]="'citas-realizadas'"
+    [activeTab]="'pendiente'">
+    </app-componente-pendiente-realizada>
+</div>
+
+<router-outlet></router-outlet>
 
