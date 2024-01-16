@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BarraLateralComponent } from './barra-lateral/barra-lateral.component';
 import { ConfirmaComponent } from './confirma/confirma.component';
@@ -17,13 +18,15 @@ import { ComponentePendienteRealizadaComponent } from './componente-pendiente-re
     ComponentePendienteRealizadaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     BarraLateralComponent,
     NavBarComponent,
     MensajeConfirmacionComponent,
-    ConfirmaComponent
+    ConfirmaComponent,
+    ComponentePendienteRealizadaComponent
   ]
 })
 export class GeneralModule { }

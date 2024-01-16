@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-componente-pendiente-realizada',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./componente-pendiente-realizada.component.css']
 })
 export class ComponentePendienteRealizadaComponent {
+  @Input() routaPendiente!: string;
+  @Input() routaRealizada!: string;
+  @Input() activeTab: string = 'pendiente';
+ 
 
+  constructor() {}
+
+  setActiveTab(tabName: string):void {
+    this.activeTab = tabName;
+  }
 }

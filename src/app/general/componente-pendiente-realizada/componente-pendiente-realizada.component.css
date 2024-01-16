@@ -1,9 +1,19 @@
+a{
+    text-decoration: none;
+    color: black
+}
 .enabled{
     color: #092C4C;
-    border-bottom: 1px solid black;
-    font-weight: bold;
-    font-size: 1.2rem;
+    border-bottom: 2px solid black;
+    font-weight: 900;
+    font-size: 1.3rem;
+    cursor: pointer;
+    
 }
 .disabled{
-
+    font-size: 1.3rem;
+    color: #98A3B3;
+    border-bottom: 2px solid #98A3B3;
+    cursor: pointer;
 }
+
