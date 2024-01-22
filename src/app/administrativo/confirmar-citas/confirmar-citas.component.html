@@ -1,0 +1,67 @@
+<div class="barraLateral"></div>
+<div class="menu">
+  <button id="btnVolver">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+    </svg>
+  </button>
+  <a href="">Volver</a>
+  <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Crear cita</label>
+</div>
+<div class="lineaHorizontal"></div>
+
+<label id="lCrearCita">Crear Cita</label>
+
+<div class="nav">
+  <div class="datosCita">
+    <label id="lDatosCita">Datos de la cita</label>
+    <div class="barraHorizontal"></div>
+  </div>
+
+  <div class="lineaVertical"></div>
+
+  <div class="confirmarCita">
+    <label id="lConfirmarCita">Confirmar Cita</label>
+  </div>
+</div>
+
+<label id="lIntroduce">Introduce los datos de la cita</label>
+
+<!-- confirmar-citas.component.html -->
+<form>
+  <div class="form-especialidad">
+    <label id="lEspecialidad">Especialidad</label><br>
+    <input id="iEspecialidad" type="text" readonly name="especialidad" [(ngModel)]="datosCita.especialidad">
+  </div>
+
+  <div class="form-nombre">
+    <label id="lNombre">Nombre de médico</label><br>
+    <input id="iNombre" type="text" readonly name="nombreMedico" [(ngModel)]="datosCita.nombreMedico">
+  </div>
+
+  <div class="form-creacion">
+    <label id="lCreacion">Fecha de creación</label><br>
+    <input id="iCreacion" type="text" readonly name="fechaCreacion" [(ngModel)]="datosCita.fechaCreacion">
+  </div>
+
+  <div class="form-horas">
+    <label id="lHoras">Horas disponibles</label><br>
+    <input id="iHoras" type="text" readonly name="horasDisponibles" [(ngModel)]="datosCita.horasDisponibles">
+  </div>
+</form>
+
+
+<app-btn-cancelar id="btnCancelar"></app-btn-cancelar>
+
+<app-btn-anterior id="btnAnterior" [routerLink]="['/administrativo/crear-citas']"></app-btn-anterior>
+<app-btn-siguiente id="btnSiguiente" (click)="siguiente()"></app-btn-siguiente>
+
+<div *ngIf="mostrarModal" class="modal">
+  <div class="mensajeConfirmacion">
+    <app-mensaje-confirmacion (cerrar)="mostrarMensajeConfirmacion()"></app-mensaje-confirmacion>
+
+  </div>
+</div>
+

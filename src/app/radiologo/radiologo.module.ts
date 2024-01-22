@@ -5,12 +5,14 @@ import { GeneralModule } from '../general/general.module';
 import { ComponentePendienteRealizadaComponent } from '../general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 import { ComponenetePaginaCitaRealizadasComponent } from './componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { BtnSiguienteComponent } from '../general/btn-siguiente/btn-siguiente.component';
 
 
 @NgModule({
   declarations: [
     ComponentePaginaPrincipalRadiologoComponent,
-    ComponenetePaginaCitaRealizadasComponent
+    ComponenetePaginaCitaRealizadasComponent,
+
   ],
   imports: [
     CommonModule,

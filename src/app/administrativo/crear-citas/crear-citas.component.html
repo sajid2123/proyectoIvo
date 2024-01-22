@@ -1,0 +1,88 @@
+<div class="barraLateral"></div>
+    <div class="menu">
+        <button id="btnVolver">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+        </button>
+        <a href="">Volver</a>
+        <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Citas</label>
+    </div>
+    <div class="lineaHorizontal"></div>
+
+    <label id="lCrearCita">Crear Cita</label>
+
+    <div class="nav">
+        <div class="datosCita">
+            <label id="lDatosCita">Datos de la cita</label>
+            <div class="barraHorizontal"></div>
+        </div>
+
+        <div class="lineaVertical"></div>
+
+        <div class="confirmarCita">
+            <label id="lConfirmarCita">Confirmar Cita</label>
+        </div>
+    </div>
+
+    <label id="lIntroduce">Introduce los datos de la cita</label>
+
+    <form>
+        <div class="form-especialidad">
+            <label id="especialidad">Especialidad</label><br>
+            <select class="form-select" name="especialidad" aria-label="Default select example" [(ngModel)]="especialidad">
+                <option value="" disabled selected>Selecciona un especialista</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Enfermeria">Enfermeria</option>
+                <option value="Radiologia">Radiologia</option>
+            </select>
+        </div>
+
+        <div class="form-nombre">
+            <label id="medico">Nombre de médico</label><br>
+            <select class="form-select" name="nombreMedico" aria-label="Default select example" [(ngModel)]="nombreMedico">
+                <option value="" disabled selected>Nombre del médico</option>
+                <option value="Claudio López">Claudio López</option>
+                <option value="María García">María García</option>
+                <option value="Luis Saéz">Luis Sáez</option>
+            </select>
+        </div>
+
+
+        <div class="form-creacion">
+          <label id="lCreacion">Fecha de creación</label><br>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="dd/mm/aaaa" id="datepicker" name="fechaCreacion" [(ngModel)]="fechaCreacion">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-horas">
+            <label id="lHoras" >Horas disponibles</label><br>
+            <select class="form-select" name="horasDisponibles" aria-label="Default select example" [(ngModel)]="horasDisponibles">
+                <option value="" disabled selected>hh/mm</option>
+                <option value="12:55">12:55</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+            </select>
+        </div>
+
+
+
+    </form>
+
+    <app-btn-cancelar id="btnCancelar"></app-btn-cancelar>
+
+    <app-btn-siguiente id="btnSiguiente"  (click)="siguiente()" [routerLink]="['/administrativo/confirmar-citas']"></app-btn-siguiente>
+
+    <script>
+        $(function () {
+            $('#datepicker').datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        });
+    </script>
+
