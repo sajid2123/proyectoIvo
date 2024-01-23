@@ -1,0 +1,12 @@
+#btnSiguiente {
+  display: flex;
+  width: 231.257px;
+  height: 58.385px;
+  padding: 19px 72.257px 19.385px 72px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--Color---Primary, #092C4C);
+  color: white;
+}
