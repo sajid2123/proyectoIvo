@@ -24,10 +24,34 @@
     margin-bottom: 15px;
 
   }
-  .drawer-menu>li{
-    margin-top: 30px;
-  }
+  .brand-line {
+    position: relative;
+}
 
+.drawer-menu {
+    position: absolute;
+    top: 120px; /* Adjust this value as needed */
+}
+
+/*   .drawer-menu>li {
+    margin-top: 30px;
+    align-self: flex-start !important;
+    
+}
+ */
+.container-fluid>.drawer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* .container-fluid>.drawer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  } */
   #lCorreo {
     color: #DCECFB;
     font-feature-settings: 'cv04' on, 'cv03' on;
