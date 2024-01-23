@@ -1,136 +1,14 @@
-
-  #lUsuario {
-    color: #092C4C;
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 145%;
-    margin-bottom: 15px !important;
-
-  }
-
-  #lRoles,
-  #lServicio {
-    width: 155px;
-    height: 22px;
-    flex-shrink: 0;
-    color: #DCECFB;
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 15px;
-
-  }
-  .brand-line {
-    position: relative;
-}
-
-.drawer-menu {
-    position: absolute;
-    top: 120px; /* Adjust this value as needed */
-}
-
-/*   .drawer-menu>li {
-    margin-top: 30px;
-    align-self: flex-start !important;
-    
-}
- */
-.container-fluid>.drawer-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-}
-
-/* .container-fluid>.drawer-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-  } */
-  #lCorreo {
-    color: #DCECFB;
-    font-feature-settings: 'cv04' on, 'cv03' on;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 145%;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  #lNombre {
-    color: #DCECFB;
-    font-feature-settings: 'cv04' on, 'cv01' on, 'cv03' on;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    margin-left: 10px;
-    margin-right: 10px;
-    line-height: 145%;
-  }
-  .navbar>.container-fluid{
-    padding-right: 0;
-    padding-left: 0;
-    height: 100%;
-    align-content: flex-start !important;
-  }
-
-  .navbar.fixed-top.off-canvas {
+.navbar.fixed-top.off-canvas {
     bottom: 0;
     right: auto;
     transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
     z-index: 999999999999;
-    background-color: #092C4C;
     color: #092c4c;
     border-color: #092c4c;
-    /* width: 280px; */
+    width: 260px;
 }
-.cajaMenu{
-  display: flex;
-  align-self: flex-end;
-}
-.nav-item>button.button-menu{
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  background: transparent;
-  cursor: pointer;
-  color: white !important;
-
-}
-
-.nav-item>.button-menu:hover{
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  background: rgb(180, 180, 180);
-  cursor: pointer;
-  color: rgb(167, 180, 224);
-}
-
-
-.nav-item>.button-menu:active{
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  background: white !important;
-  cursor: pointer;
-  color: white;
-}
-
-
 
 #sLogo {
     width: 100px;
@@ -144,8 +22,17 @@
     width: 100%;
 }
 
-.navbar.fixed-top.off-canvas>div[class*="container-"] {
+.nav.navbar-nav.drawer-menu {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    height: 0px;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
 
+.navbar.fixed-top.off-canvas>div[class*="container-"] {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     padding-right: 0;
     padding-left: 0;
     height: 100%;
