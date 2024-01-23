@@ -9,6 +9,7 @@ import { NavBarComponent } from './general/nav-bar/nav-bar.component';
 
 import { GeneralModule } from './general/general.module';
 import { RadiologoModule } from './radiologo/radiologo.module';
+import { PacienteModule } from './paciente/paciente.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RadiologoModule } from './radiologo/radiologo.module';
     BrowserModule,
     GeneralModule,
     AppRoutingModule,
-    RadiologoModule
+    RadiologoModule,
+    PacienteModule
 
   ],
   providers: [],

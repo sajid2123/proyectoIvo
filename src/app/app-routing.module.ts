@@ -6,6 +6,7 @@ import { ComponentePaginaPrincipalRadiologoComponent } from './radiologo/compone
 import { ComponentePendienteRealizadaComponent } from './general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
+import { TablaCitasPacientesComponent } from './paciente/tabla-citas-pacientes/tabla-citas-pacientes.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'tabla',
     component: TablaCitasComponent
+  },
+  {
+    path: 'tabla-pacientes',
+    component: TablaCitasPacientesComponent
   }
 ];
 
