@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mensaje-confirmacion',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./mensaje-confirmacion.component.css']
 })
 export class MensajeConfirmacionComponent {
+  @Output() cerrar = new EventEmitter<void>();
 
+  cerrarMensaje() {
+    this.cerrar.emit();
+  }
 }

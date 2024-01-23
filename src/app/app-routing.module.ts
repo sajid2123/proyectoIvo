@@ -7,6 +7,12 @@ import { ComponentePendienteRealizadaComponent } from './general/componente-pend
 import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
 
+import { CrearCitasComponent } from './administrativo/crear-citas/crear-citas.component';
+import { ConfirmaComponent } from './general/confirma/confirma.component';
+import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confirmar-citas.component';
+import { BtnSiguienteComponent } from './general/btn-siguiente/btn-siguiente.component';
+
+
 const routes: Routes = [
   {
     path: 'radiologo',
@@ -23,6 +29,18 @@ const routes: Routes = [
   {
     path: 'tabla',
     component: TablaCitasComponent
+  },
+  {
+    path: 'radiologo/citas-realizadas',
+    component: ComponenetePaginaCitaRealizadasComponent
+  },
+  {
+    path: 'administrativo/crear-citas',
+    component: CrearCitasComponent
+  },
+  {
+    path: 'administrativo/confirmar-citas',
+    component: ConfirmarCitasComponent
   }
 ];
 
