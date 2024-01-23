@@ -98,6 +98,10 @@
   display: flex;
   align-self: flex-end;
 }
+.button-menu {
+    color: white !important; /* Set the font color to white */
+}
+
 .nav-item>button.button-menu{
   height: 100%;
   width: 100%;
@@ -120,12 +124,12 @@
 }
 
 
-.nav-item>.button-menu:active{
+.nav-item>button.button-menu.active{
   height: 100%;
   width: 100%;
   border: none;
   border-radius: 4px;
-  background: white !important;
+  background: transparent !important;
   cursor: pointer;
   color: white;
 }
