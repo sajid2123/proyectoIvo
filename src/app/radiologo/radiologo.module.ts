@@ -7,19 +7,26 @@ import { ComponenetePaginaCitaRealizadasComponent } from './componenete-pagina-c
 import { AppRoutingModule } from '../app-routing.module';
 import { DataTablesModule } from 'angular-datatables';
 import { TablaCitasComponent } from './tabla-citas/tabla-citas.component';
-
+import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
+import { BreadcrumbAtenderPacienteComponent } from './breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
+import { FormularioAtenderPacienteComponent } from './formulario-atender-paciente/formulario-atender-paciente.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ComponentePaginaPrincipalRadiologoComponent,
     ComponenetePaginaCitaRealizadasComponent,
-    TablaCitasComponent
+    TablaCitasComponent,
+    AtenderPacienteComponent,
+    BreadcrumbAtenderPacienteComponent,
+    FormularioAtenderPacienteComponent
   ],
   imports: [
     CommonModule,
     GeneralModule,
     AppRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ]
 })
 export class RadiologoModule { }

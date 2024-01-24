@@ -1,4 +1,13 @@
 .title{
     font-weight: 900;
     font-size: 40px;
+    
+}
+.p-50{
+    padding-top: 50px;
+}
+.nav{
+    background-color: red;
+    height: 100vh;
+    width: 170px;
 }

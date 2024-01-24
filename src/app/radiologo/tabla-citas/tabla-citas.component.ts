@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Cita {
   sip: string;
@@ -27,4 +28,10 @@ export class TablaCitasComponent {
     { sip: '1253', nombre: 'Juan', apellido: 'Pérez', hora: '10:00' },
     { sip: '5687', nombre: 'Sofía', apellido: 'Ruiz', hora: '10:30' }
   ];
+
+  constructor(private router: Router) {}
+
+  onRowClick(cita: Cita){
+    this.router.navigate(['/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora } });
+  }
 }
