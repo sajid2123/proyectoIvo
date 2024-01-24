@@ -1,0 +1,30 @@
+
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="informe" class="font">Informe</label>
+                <textarea class="form-control" name="informe" cols="10" rows="20" 
+                          [(ngModel)]="formData.informe" required></textarea>
+              </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="imagenes">Subir Imágenes</label>
+                <input type="file" class="form-control" name="imagenes" (change)="onFileChange($event)" 
+                       multiple required>
+              </div>
+              <div *ngFor="let image of imagePreviews">
+                <img [src]="image" style="width: 100px; height: 100px;">
+
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+            </div>
+        </div>
+        
+    </div>
+</form>
