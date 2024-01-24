@@ -8,6 +8,7 @@ import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenet
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
 import { CrearCitasComponent } from './administrativo/crear-citas/crear-citas.component';
 import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confirmar-citas.component';
+import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'administrativo/confirmar-citas',
     component: ConfirmarCitasComponent
+  },
+  {
+    path: 'paciente/citas',
+    component: TablaPacienteComponent
   }
 ];
 

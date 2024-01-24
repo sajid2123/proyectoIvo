@@ -12,6 +12,7 @@ import { RadiologoModule } from './radiologo/radiologo.module';
 import { FormsModule } from '@angular/forms';
 import { AdministrativoModule } from './administrativo/administrativo.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PacienteModule } from './paciente/paciente.module';
 
 
 @NgModule({
@@ -27,8 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdministrativoModule,
     BrowserModule,
     RadiologoModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    PacienteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
