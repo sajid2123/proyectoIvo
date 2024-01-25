@@ -6,6 +6,11 @@ import { ComponentePaginaPrincipalRadiologoComponent } from './radiologo/compone
 import { ComponentePendienteRealizadaComponent } from './general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
+import { CrearCitasComponent } from './administrativo/crear-citas/crear-citas.component';
+import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confirmar-citas.component';
+import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente.component';
+import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
+import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
 
 const routes: Routes = [
   {
@@ -25,7 +30,6 @@ const routes: Routes = [
     component: TablaCitasComponent
   },
   {
-<<<<<<< HEAD
     path: 'administrativo/crear-citas',
     component: CrearCitasComponent
   },
@@ -36,16 +40,11 @@ const routes: Routes = [
   {
     path: 'paciente/citas',
     component: TablaPacienteComponent
-=======
-    path: 'tabla-pacientes',
-    component: TablaCitasPacientesComponent
->>>>>>> esteban
   },
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
-  }
-  ,
+  },
   {
     path: 'breadcrumb',
     component: BreadcrumbAtenderPacienteComponent
