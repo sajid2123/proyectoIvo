@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/mensaje-confirmacion.component';
 import { ComponentePaginaPrincipalAdministrativoComponent } from './componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
 import { BarraLateralAdministrativoComponent } from './barra-lateral-administrativo/barra-lateral-administrativo.component';
+import { BreadcumbAdministrativoComponent } from './breadcumb-administrativo/breadcumb-administrativo.component';
 
 
 
@@ -31,7 +32,8 @@ import { BarraLateralAdministrativoComponent } from './barra-lateral-administrat
     BtnCancelarComponent,
     MensajeConfirmacionComponent,
     ComponentePaginaPrincipalAdministrativoComponent,
-    BarraLateralAdministrativoComponent
+    BarraLateralAdministrativoComponent,
+    BreadcumbAdministrativoComponent
   ],
   providers: [CitaDataService],
   imports: [
