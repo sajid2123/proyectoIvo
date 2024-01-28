@@ -6,22 +6,26 @@ import { ComponentePaginaPrincipalRadiologoComponent } from './radiologo/compone
 import { ComponentePendienteRealizadaComponent } from './general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
-<<<<<<< HEAD
+
 import { CrearCitasComponent } from './administrativo/crear-citas/crear-citas.component';
 import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confirmar-citas.component';
 import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente.component';
-=======
-import { TablaCitasPacientesComponent } from './paciente/tabla-citas-pacientes/tabla-citas-pacientes.component';
->>>>>>> esteban
+import { DetallesCitaComponent } from './administrativo/detalles-cita/detalles-cita.component';
+import { ModificarCitaComponent } from './administrativo/modificar-cita/modificar-cita.component';
+
+
+
 
 const routes: Routes = [
   {
-    path: 'radiologo',
-    component: ComponentePaginaPrincipalRadiologoComponent,
-  },
-  {
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
+  },
+
+  //RUTAS RADIÓLOGO
+  {
+    path: 'radiologo',
+    component: ComponentePaginaPrincipalRadiologoComponent,
   },
   {
     path: 'radiologo/citas-realizadas',
@@ -31,8 +35,10 @@ const routes: Routes = [
     path: 'tabla',
     component: TablaCitasComponent
   },
+
+  //RUTAS ADMINISTRATIVO
   {
-<<<<<<< HEAD
+
     path: 'administrativo/crear-citas',
     component: CrearCitasComponent
   },
@@ -41,13 +47,27 @@ const routes: Routes = [
     component: ConfirmarCitasComponent
   },
   {
+    path: 'administrativo/detalles-citas',
+    component: DetallesCitaComponent
+  },
+  {
+    path: 'administrativo/modificar-citas',
+    component: ModificarCitaComponent
+  },
+
+  //RUTAS PACIENTE
+  {
     path: 'paciente/citas',
     component: TablaPacienteComponent
-=======
+
+  },
+  {
     path: 'tabla-pacientes',
-    component: TablaCitasPacientesComponent
->>>>>>> esteban
+    component: TablaCitasComponent
+
   }
+
+  //RUTAS MÉDICO
 ];
 
 @NgModule({

@@ -17,6 +17,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/mensaje-confirmacion.component';
+import { DetallesCitaComponent } from './detalles-cita/detalles-cita.component';
+import { ConfirmaComponent } from '../general/confirma/confirma.component';
+import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
+import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
 
 
 
@@ -28,6 +32,10 @@ import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/me
     BtnAnteriorComponent,
     BtnCancelarComponent,
     MensajeConfirmacionComponent,
+    DetallesCitaComponent,
+    ConfirmaComponent,
+    ModificarCitaComponent,
+    ConfirmarModificarCitaComponent
 
   ],
   providers: [CitaDataService],
@@ -43,6 +51,7 @@ import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/me
     RouterModule.forChild([
       { path: 'crear-citas', component: CrearCitasComponent },
       { path: 'administrativo/confirmar-citas', component: ConfirmarCitasComponent },
+      { path: 'administrativo/confirmar-modificar-citas', component: ConfirmarModificarCitaComponent}
       //Otras rutas
     ]),
 

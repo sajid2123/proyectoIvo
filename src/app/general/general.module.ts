@@ -15,9 +15,7 @@ import { BtnSiguienteComponent } from './btn-siguiente/btn-siguiente.component';
 @NgModule({
   declarations: [
     BarraLateralComponent,
-    ConfirmaComponent,
     NavBarComponent,
-
     ComponentePendienteRealizadaComponent,
 
   ],
@@ -28,7 +26,6 @@ import { BtnSiguienteComponent } from './btn-siguiente/btn-siguiente.component';
   exports: [
     BarraLateralComponent,
     NavBarComponent,
-    ConfirmaComponent,
     ComponentePendienteRealizadaComponent
   ]
 })

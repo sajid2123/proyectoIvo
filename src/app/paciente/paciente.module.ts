@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TablaCitasPacientesComponent } from './tabla-citas-pacientes/tabla-citas-pacientes.component';
+
 import { GeneralModule } from '../general/general.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { DataTablesModule } from 'angular-datatables';
+import { TablaPacienteComponent } from './tabla-paciente/tabla-paciente.component';
 
 
 
 @NgModule({
   declarations: [
-    TablaCitasPacientesComponent,
-    TablaCitasPacientesComponent
+    TablaPacienteComponent
   ],
   imports: [
     CommonModule,

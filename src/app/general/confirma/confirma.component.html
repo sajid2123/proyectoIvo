@@ -1,16 +1,9 @@
-
-<body>
-
-    <div class="container">
-      <div class="background">
-        <div class="text-container"><p id="texto">Texto en cuestion</p></div>
-        <div>
-          <button class="button-container" id="btnNo">No</button>
-          <button class="button-container" id="btnSi">Si</button>
-        </div>
-      </div>
+<div class="container-custom">
+  <div class="background-custom">
+    <div class="text-container"><p id="texto">¿Desea cancelar la cita?</p></div>
+    <div>
+      <button class="btn btn-secondary button-container" id="btnNo" (click)="cerrarMensaje()">No</button>
+      <button class="btn btn-primary button-container" id="btnSi" (click)="cerrarMensaje()">Sí</button>
     </div>
-    
-    </body>
-    
-    
+  </div>
+</div>
