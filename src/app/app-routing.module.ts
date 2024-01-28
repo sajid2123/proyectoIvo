@@ -12,6 +12,7 @@ import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente
 import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
 import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
 
+
 const routes: Routes = [
   {
     path: 'radiologo',

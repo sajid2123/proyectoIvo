@@ -1,0 +1,15 @@
+.label-style{
+    font-size: 24px;
+    font-weight: bold;
+}
+.btn-personalized{
+    background-color: #092C4C;
+    color: white;
+    height: 40px;
+    width: 170px;
+}
+.contenedor-img{
+    padding: 10px;
+    border: 1px solid black;
+    
+}
