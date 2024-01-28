@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GeneralModule } from './general/general.module';
 
+import { MedicoModule } from './medico/medico.module';
+
 import { ComponentePaginaPrincipalRadiologoComponent } from './radiologo/componente-pagina-principal-radiologo/componente-pagina-principal-radiologo.component';
 import { ComponentePendienteRealizadaComponent } from './general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
@@ -11,12 +13,19 @@ import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confir
 import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente.component';
 import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
 import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
+import { ComponentePaginaPrincipalAdministrativoComponent } from './administrativo/componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
+
+
 
 
 const routes: Routes = [
   {
     path: 'radiologo',
     component: ComponentePaginaPrincipalRadiologoComponent,
+  },
+  {
+    path: 'administrativo',
+    component: ComponentePaginaPrincipalAdministrativoComponent,
   },
   {
     path: 'pr',

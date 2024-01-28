@@ -1,0 +1,14 @@
+*{margin: 0px; padding: 0px;}
+
+#barra-lateral{
+    background-color: #092c4c;
+}
+
+#elemento-lista{
+    color: white;
+   /* background-color: #DCECFB; */
+}
+
+#perfil{
+    height: 50%;
+}
