@@ -1,5 +1,4 @@
-<div class="col-6 p-10">
-    <table datatable class="table table-hover  font">
+<table datatable [dtOptions]="dtOptions" class="table table-hover font">
         <thead>
             <tr style="background-color: #0062ca;">
                 <th>SIP</th>
@@ -9,13 +8,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cita of citas">
+            <tr *ngFor="let cita of citas" (click)="onRowClick(cita)" class="pointer">
                 <td>{{ cita.sip }}</td>
                 <td>{{ cita.nombre }}</td>
                 <td>{{ cita.apellido }}</td>
                 <td>{{ cita.hora }}</td>
             </tr>
-
         </tbody>
-    </table>
-</div>
+</table>
+

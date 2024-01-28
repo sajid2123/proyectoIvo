@@ -9,13 +9,13 @@ interface Cita {
 }
 
 @Component({
-  selector: 'app-tabla-citas',
-  templateUrl: './tabla-citas.component.html',
-  styleUrls: ['./tabla-citas.component.css']
+  selector: 'app-tabla-citas-realizadas',
+  templateUrl: './tabla-citas-realizadas.component.html',
+  styleUrls: ['./tabla-citas-realizadas.component.css']
 })
-export class TablaCitasComponent implements OnInit {
+export class TablaCitasRealizadasComponent {
   citas: Cita[] = [
-    { sip: '1234', nombre: 'Ana', apellido: 'García', hora: '08:00' },
+    { sip: '1234', nombre: 'Cita', apellido: 'Realizada', hora: '08:00' },
     { sip: '5678', nombre: 'Luis', apellido: 'Martínez', hora: '09:00' },
     { sip: '1235', nombre: 'Carlos', apellido: 'López', hora: '08:30' },
     { sip: '5679', nombre: 'María', apellido: 'Gómez', hora: '09:30' },

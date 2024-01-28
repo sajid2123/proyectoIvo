@@ -1,7 +1,7 @@
 .title{
-    font-weight: 900;
-    font-size: 40px;
     font-family: manrope;
+    font-weight: 900;
+    font-size: 36px;
 }
 .nav{
     background-color: #092C4C;
@@ -13,3 +13,11 @@
     padding-right: 0rem;
     overflow: hidden;
 }
+.tab{
+    font-size: 16px;
+    font-weight: bold;
+}
+.border-b{
+    border-bottom: 1px solid #092C4C;
+}
+
