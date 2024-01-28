@@ -8,12 +8,9 @@ import { Component, Input } from '@angular/core';
 export class ComponentePendienteRealizadaComponent {
   @Input() routaPendiente!: string;
   @Input() routaRealizada!: string;
-  @Input() activeTab: string = 'pendiente';
+  @Input() activeTab!: string;
  
 
   constructor() {}
-
-  setActiveTab(tabName: string):void {
-    this.activeTab = tabName;
-  }
+  
 }

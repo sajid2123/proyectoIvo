@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
+
+
+interface FormDataModel {
+  informe: string;
+  imagenes: File[]; 
+}
 @Component({
   selector: 'formulario-atender-paciente',
   templateUrl: './formulario-atender-paciente.component.html',
-  styleUrls: ['./formulario-atender-paciente.component.css']
+  styleUrls: ['./formulario-atender-paciente.component.css'],
+
 })
+
+
+
 export class FormularioAtenderPacienteComponent {
-  formData = {
+  faCoffee = faCoffee;
+
+  formData: FormDataModel = {
     informe: '',
+    imagenes: []
   };
 
-  onFileSelect(event: any) {
-    if (event.target.files.length > 0) {
-      const files = event.target.files;
-    }
-  }
 
   onSubmit() {
     console.log(this.formData);
@@ -29,7 +38,11 @@ export class FormularioAtenderPacienteComponent {
       for (let file of files) {
         const reader = new FileReader();
         reader.onload = (e: any) => {
-          this.imagePreviews.push(e.target.result);
+          this.imagePreviews.push({
+            url: e.target.result,
+            name: file.name 
+          });
+          this.formData.imagenes.push(e.target.result);
         };
         reader.readAsDataURL(file);
       }

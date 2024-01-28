@@ -11,6 +11,9 @@
 .font{
     font-family: manrope;
 }
+.color{
+    color: #092C4C;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }  */
