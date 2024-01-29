@@ -19,6 +19,7 @@ import { ModificarCitaComponent } from './administrativo/modificar-cita/modifica
 import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
 import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
 import { ComponentePaginaPrincipalAdministrativoComponent } from './administrativo/componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
+import { TablaCitasPendientesComponent } from './administrativo/tabla-citas-pendientes/tabla-citas-pendientes.component';
 
 
 
@@ -54,6 +55,10 @@ const routes: Routes = [
   },
 
   //RUTAS ADMINISTRATIVO
+  {
+    path: 'administrativo/citas-pendientes',
+    component: ComponentePaginaPrincipalAdministrativoComponent
+  },
   {
     path: 'administrativo/crear-citas',
     component: CrearCitasComponent
