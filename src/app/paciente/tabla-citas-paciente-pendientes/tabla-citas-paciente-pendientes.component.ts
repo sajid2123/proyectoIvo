@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 
+
 interface Paciente {
     fecha: number;
     medico: string;
@@ -8,13 +9,15 @@ interface Paciente {
     hora: string;
   }
 
+  
 @Component({
-  selector: 'app-tabla-paciente',
-  templateUrl: './tabla-paciente.component.html',
-  styleUrls: ['./tabla-paciente.component.css']
+  selector: 'app-tabla-citas-paciente-pendientes',
+  templateUrl: './tabla-citas-paciente-pendientes.component.html',
+  styleUrls: ['./tabla-citas-paciente-pendientes.component.css']
 })
 
-export class TablaPacienteComponent implements OnInit {
+
+export class TablaCitasPacientePendientesComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
 

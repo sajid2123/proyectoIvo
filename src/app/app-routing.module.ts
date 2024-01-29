@@ -12,7 +12,6 @@ import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.compone
 
 import { CrearCitasComponent } from './administrativo/crear-citas/crear-citas.component';
 import { ConfirmarCitasComponent } from './administrativo/confirmar-citas/confirmar-citas.component';
-import { TablaPacienteComponent } from './paciente/tabla-paciente/tabla-paciente.component';
 import { DetallesCitaComponent } from './administrativo/detalles-cita/detalles-cita.component';
 import { ModificarCitaComponent } from './administrativo/modificar-cita/modificar-cita.component';
 
@@ -21,6 +20,10 @@ import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-p
 
 import { ComponentePaginaPrincipalAdministrativoComponent } from './administrativo/componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
 import { TablaCitasPendientesComponent } from './administrativo/tabla-citas-pendientes/tabla-citas-pendientes.component';
+import { PaginaPrincipalPacienteComponent } from './paciente/pagina-principal-paciente/pagina-principal-paciente.component';
+import { TablaCitasPacienteRealizadasComponent } from './paciente/tabla-citas-paciente-realizadas/tabla-citas-paciente-realizadas.component';
+import { PaginaCitaPacientesRealizadasComponent } from './paciente/pagina-cita-pacientes-realizadas/pagina-cita-pacientes-realizadas.component';
+import { PaginaCitaPruebasComponent } from './paciente/pagina-cita-pruebas/pagina-cita-pruebas.component';
 
 
 const routes: Routes = [
@@ -76,16 +79,20 @@ const routes: Routes = [
 
   //RUTAS PACIENTE
   {
-    path: 'paciente/citas',
-    component: TablaPacienteComponent
-
-
+    path: 'paciente',
+    component: PaginaPrincipalPacienteComponent
+  }
+  ,{
+    path: 'paciente/citas-realizadas',
+    component: PaginaCitaPacientesRealizadasComponent
+  },
+  {
+    path: 'paciente/pruebas',
+    component: PaginaCitaPruebasComponent
   },
   {
     path: 'tabla-pacientes',
     component: TablaCitasComponent
-
-
   },
   {
     path: 'radiologo/atender-paciente',
