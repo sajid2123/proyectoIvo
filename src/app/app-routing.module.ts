@@ -15,7 +15,6 @@ import { DetallesCitaComponent } from './administrativo/detalles-cita/detalles-c
 import { ModificarCitaComponent } from './administrativo/modificar-cita/modificar-cita.component';
 
 import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
-import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
 
 
 
@@ -77,7 +76,6 @@ const routes: Routes = [
   {
     path: 'breadcrumb',
     component: BreadcrumbAtenderPacienteComponent
-
   }
 
   //RUTAS MÉDICO
