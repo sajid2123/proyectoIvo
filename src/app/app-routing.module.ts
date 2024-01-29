@@ -38,7 +38,16 @@ const routes: Routes = [
     children:[{
       path: 'citas-pendientes',
       component: TablaCitasPendientesComponent
-    }]
+    },
+    {
+      path: 'citas-realizadas',
+      component: TablaCitasPendientesComponent
+    },
+    {
+      path: '',
+      component: TablaCitasPendientesComponent
+    }
+    ]
   },
   {
     path: 'pr',

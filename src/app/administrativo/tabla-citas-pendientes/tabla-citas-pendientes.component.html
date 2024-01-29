@@ -1,1 +1,31 @@
-<p>tabla-citas-pendientes works!</p>
+<table datatable class="row-border p-5">
+
+   <thead>
+        <tr>
+            <th>
+                hola
+            </th>
+        </tr>
+   </thead>
+   
+    <tbody *ngIf="pendientes; else realizadas"> <!--Aqui estamos decidiendo que tipo de contenido se va a enseñar por pantalla-->
+        <tr>
+            <td>
+                hola <!-- Aqui se haria la llamada a las citas pendientes-->
+            </td>
+        </tr>
+    </tbody>
+
+   <ng-template #realizadas>
+
+        <tbody>
+            <tr>
+                <td>
+                    adios <!-- Aqui se haria la llamada a las citas realizadas-->
+                </td>
+            </tr>
+        </tbody>
+        
+   </ng-template>
+
+</table>

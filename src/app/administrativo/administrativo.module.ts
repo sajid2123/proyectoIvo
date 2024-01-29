@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DataTablesModule } from 'angular-datatables';
 import { CrearCitasComponent } from './crear-citas/crear-citas.component';
 import { GeneralModule } from '../general/general.module';
 import { ConfirmarCitasComponent } from './confirmar-citas/confirmar-citas.component';
@@ -27,6 +28,7 @@ import { ConfirmaComponent } from '../general/confirma/confirma.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
 import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-citas-pendientes.component';
+
 
 
 
@@ -66,7 +68,7 @@ import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-ci
       { path: 'administrativo/citas-pendientes', component: TablaCitasPendientesComponent}
       //Otras rutas
     ]),
-
+    DataTablesModule
   ]
 })
 export class AdministrativoModule { }

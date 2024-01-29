@@ -7,3 +7,7 @@
 #elemento-lista{
    list-style: none;
 }
+
+.activo{
+    color: red;
+}
