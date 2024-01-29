@@ -13,13 +13,24 @@
             </div>
             <div class="row mt-4 mb-2">
                 <div class="col-12">
-                    <app-componente-pendiente-realizada [routaPendiente]="'./'" [routaRealizada]="'citas-realizadas'" [activeTab]="'pendiente'">
-                    </app-componente-pendiente-realizada>
+                    <div class="row font">
+                        <div class="col-1 text-center" [class.enabled]="tipoCita === 'pendiente'" [class.disabled]="tipoCita !== 'pendiente'">
+                            <a (click)="cambiarTipoCita('pendiente')">Pendiente</a>
+                        </div>
+                        <div class="col-1 text-center" [class.enabled]="tipoCita === 'realizada'" [class.disabled]="tipoCita !== 'realizada'">
+                            <a (click)="cambiarTipoCita('realizada')">Realizada</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-12">
-                    <app-tabla-citas-paciente-pendientes></app-tabla-citas-paciente-pendientes>
+                    <div *ngIf="tipoCita === 'pendiente'">
+                        <app-tabla-citas-paciente-pendientes [tipoCita]="tipoCita" [citasPendientes]="citasPendientes" [citasRealizadas]="[]"></app-tabla-citas-paciente-pendientes>
+                    </div>
+                    <div *ngIf="tipoCita === 'realizada'">
+                        <app-tabla-citas-paciente-pendientes [tipoCita]="tipoCita" [citasPendientes]="[]" [citasRealizadas]="citasRealizadas"></app-tabla-citas-paciente-pendientes>
+                    </div>
                 </div>
 
             </div>

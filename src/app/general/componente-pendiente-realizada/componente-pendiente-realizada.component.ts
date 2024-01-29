@@ -9,8 +9,6 @@ export class ComponentePendienteRealizadaComponent {
   @Input() routaPendiente!: string;
   @Input() routaRealizada!: string;
   @Input() activeTab!: string;
- 
-
   constructor() {}
   
 }

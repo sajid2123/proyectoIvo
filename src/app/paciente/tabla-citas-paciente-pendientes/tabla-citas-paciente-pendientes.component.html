@@ -1,5 +1,5 @@
 <div class="col-6 p-10">
-    <table table datatable [dtOptions]="{ searching: false }" class="table table-hover font">
+    <table table datatable class="table table-hover font">
         <thead>
             <tr style="background-color: #0062ca;">
                 <th>Fecha</th>
@@ -9,7 +9,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let paciente of citaPacientes" class="pointer">
+            <tr *ngFor="let paciente of displayedCitas" class="pointer">
+
                 <td>{{ paciente.fecha }}</td>
                 <td>{{ paciente.medico }}</td>
                 <td>{{ paciente.servicio }}</td>
