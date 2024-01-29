@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -18,6 +19,7 @@ interface FormDataModel {
 
 export class FormularioAtenderPacienteComponent {
   faCoffee = faCoffee;
+  faFloppyDisk = faFloppyDisk;
 
   formData: FormDataModel = {
     informe: '',

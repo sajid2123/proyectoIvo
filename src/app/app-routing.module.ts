@@ -17,13 +17,10 @@ import { DetallesCitaComponent } from './administrativo/detalles-cita/detalles-c
 import { ModificarCitaComponent } from './administrativo/modificar-cita/modificar-cita.component';
 
 import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-paciente.component';
+
 import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atender-paciente/breadcrumb-atender-paciente.component';
 import { ComponentePaginaPrincipalAdministrativoComponent } from './administrativo/componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
 import { TablaCitasPendientesComponent } from './administrativo/tabla-citas-pendientes/tabla-citas-pendientes.component';
-
-
-
-
 
 
 const routes: Routes = [
@@ -92,11 +89,6 @@ const routes: Routes = [
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
-  },
-  {
-    path: 'breadcrumb',
-    component: BreadcrumbAtenderPacienteComponent
-
   }
 
   //RUTAS MÉDICO

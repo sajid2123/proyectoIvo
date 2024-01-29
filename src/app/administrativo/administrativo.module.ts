@@ -43,10 +43,11 @@ import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-ci
     BarraLateralAdministrativoComponent,
     BreadcumbAdministrativoComponent,
     DetallesCitaComponent,
-    ConfirmaComponent,
     ModificarCitaComponent,
     ConfirmarModificarCitaComponent,
-    TablaCitasPendientesComponent
+    TablaCitasPendientesComponent,
+    ConfirmarModificarCitaComponent,
+
   ],
   providers: [CitaDataService],
   imports: [
