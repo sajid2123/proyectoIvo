@@ -62,7 +62,8 @@ import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-ci
     RouterModule.forChild([
       { path: 'crear-citas', component: CrearCitasComponent },
       { path: 'administrativo/confirmar-citas', component: ConfirmarCitasComponent },
-      { path: 'administrativo/confirmar-modificar-citas', component: ConfirmarModificarCitaComponent}
+      { path: 'administrativo/confirmar-modificar-citas', component: ConfirmarModificarCitaComponent},
+      { path: 'administrativo/citas-pendientes', component: TablaCitasPendientesComponent}
       //Otras rutas
     ]),
 
