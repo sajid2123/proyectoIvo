@@ -75,16 +75,16 @@
   margin-left: 20px;
 }
 
-#lCitas {
+#lMod {
   font-weight: bold;
 }
 
-#lCrearCita {
+#lModCita {
   position: absolute;
   top: 8%;
   margin-left: 305px;
   margin-top: 2%;
-  width: 213px;
+  width: 293px;
   height: 37px;
   flex-shrink: 0;
   color: #000;

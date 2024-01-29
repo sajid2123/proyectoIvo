@@ -8,11 +8,11 @@
             </svg>
         </button>
         <a href="">Volver</a>
-        <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Citas</label>
+        <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Citas</label>/<label id="lMod">Modificar Citas</label>
     </div>
     <div class="lineaHorizontal"></div>
 
-    <label id="lCrearCita">Crear Cita</label>
+    <label id="lModificarCita">Modificar Cita</label>
 
     <div class="navBar">
       <div class="barraBaja">
@@ -110,6 +110,6 @@
 
     <app-btn-cancelar id="btnCancelar"></app-btn-cancelar>
 
-    <app-btn-siguiente id="btnSiguiente"  (click)="siguiente()" [routerLink]="['/administrativo/confirmar-citas']"></app-btn-siguiente>
+    <app-btn-siguiente id="btnSiguiente"  (click)="siguiente()" [routerLink]="['/administrativo/confirmar-modificar-citas']"></app-btn-siguiente>
 
 

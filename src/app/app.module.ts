@@ -9,9 +9,13 @@ import { NavBarComponent } from './general/nav-bar/nav-bar.component';
 
 import { GeneralModule } from './general/general.module';
 import { RadiologoModule } from './radiologo/radiologo.module';
+
+
 import { FormsModule } from '@angular/forms';
 import { AdministrativoModule } from './administrativo/administrativo.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { PacienteModule } from './paciente/paciente.module';
 
 
@@ -25,6 +29,8 @@ import { PacienteModule } from './paciente/paciente.module';
     FormsModule,
     GeneralModule,
     AppRoutingModule,
+    RadiologoModule,
+
     AdministrativoModule,
     BrowserModule,
     RadiologoModule,

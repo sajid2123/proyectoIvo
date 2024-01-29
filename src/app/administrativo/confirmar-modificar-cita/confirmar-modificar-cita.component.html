@@ -8,11 +8,11 @@
     </svg>
   </button>
   <a href="">Volver</a>
-  <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Crear cita</label>
+  <label id="lAltaPaciente">Alta paciente</label>/<label id="lCitas">Citas</label>/<label id="lMod">Modificar Citas</label>
 </div>
 <div class="lineaHorizontal"></div>
 
-<label id="lCrearCita">Crear Cita</label>
+<label id="lModCita">Modificar Cita</label>
 
 <div class="navBar">
   <div class="barraBaja">
@@ -66,29 +66,29 @@
 <form>
   <div class="form-especialidad">
     <label id="lEspecialidad">Especialidad</label><br>
-    <input id="iEspecialidad" type="text" readonly name="especialidad" [(ngModel)]="datosCita.especialidad">
+    <input id="iEspecialidad" type="text" readonly name="especialidad" [(ngModel)]="datosCitaMod.especialidad">
   </div>
 
   <div class="form-nombre">
     <label id="lNombre">Nombre de médico</label><br>
-    <input id="iNombre" type="text" readonly name="nombreMedico" [(ngModel)]="datosCita.nombreMedico">
+    <input id="iNombre" type="text" readonly name="nombreMedico" [(ngModel)]="datosCitaMod.nombreMedico">
   </div>
 
   <div class="form-creacion">
     <label id="lCreacion">Fecha de creación</label><br>
-    <input id="iCreacion" type="text" readonly name="fechaCreacion" [(ngModel)]="datosCita.fechaCreacion">
+    <input id="iCreacion" type="text" readonly name="fechaCreacion" [(ngModel)]="datosCitaMod.fechaCreacion">
   </div>
 
   <div class="form-horas">
     <label id="lHoras">Horas disponibles</label><br>
-    <input id="iHoras" type="text" readonly name="horasDisponibles" [(ngModel)]="datosCita.horasDisponibles">
+    <input id="iHoras" type="text" readonly name="horasDisponibles" [(ngModel)]="datosCitaMod.horasDisponibles">
   </div>
 </form>
 
 
 <app-btn-cancelar id="btnCancelar"></app-btn-cancelar>
 
-<app-btn-anterior id="btnAnterior" [routerLink]="['/administrativo/crear-citas']"></app-btn-anterior>
+<app-btn-anterior id="btnAnterior" [routerLink]="['/administrativo/modificar-citas']"></app-btn-anterior>
 <app-btn-siguiente id="btnSiguiente" (click)="siguiente()"></app-btn-siguiente>
 
 <div *ngIf="mostrarModal" class="modal">
