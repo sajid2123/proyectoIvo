@@ -21,7 +21,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ComponentePendienteRealizadaComponent,
     BreadcrumbComponent,
     ConfirmaComponent
-
   ],
   imports: [
     CommonModule,

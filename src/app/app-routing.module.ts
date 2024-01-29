@@ -72,10 +72,6 @@ const routes: Routes = [
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
-  },
-  {
-    path: 'breadcrumb',
-    component: BreadcrumbAtenderPacienteComponent
   }
 
   //RUTAS MÉDICO
