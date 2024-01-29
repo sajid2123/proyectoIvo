@@ -3,3 +3,7 @@
 .barra-lateral{
     height: 100vh;
 }
+
+#elemento-lista{
+   list-style: none;
+}
