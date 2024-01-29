@@ -24,6 +24,7 @@ import { PaginaPrincipalPacienteComponent } from './paciente/pagina-principal-pa
 import { TablaCitasPacienteRealizadasComponent } from './paciente/tabla-citas-paciente-realizadas/tabla-citas-paciente-realizadas.component';
 import { PaginaCitaPacientesRealizadasComponent } from './paciente/pagina-cita-pacientes-realizadas/pagina-cita-pacientes-realizadas.component';
 import { PaginaCitaPruebasComponent } from './paciente/pagina-cita-pruebas/pagina-cita-pruebas.component';
+import { CitasPacienteDetallesComponent } from './paciente/citas-paciente-detalles/citas-paciente-detalles.component';
 
 
 const routes: Routes = [
@@ -89,6 +90,9 @@ const routes: Routes = [
   {
     path: 'paciente/pruebas',
     component: PaginaCitaPruebasComponent
+  },  {
+    path: 'paciente/detalles',
+    component: CitasPacienteDetallesComponent
   },
   {
     path: 'tabla-pacientes',
