@@ -33,7 +33,7 @@ const routes: Routes = [
     component: ComponentePaginaPrincipalAdministrativoComponent,
     children:[{
       path: 'citas-pendientes',
-      component: TablaCitasPendientesComponent,
+      component: TablaCitasPendientesComponent
     }]
   },
   {
