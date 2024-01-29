@@ -20,9 +20,11 @@ import { PacienteModule } from './paciente/paciente.module';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,

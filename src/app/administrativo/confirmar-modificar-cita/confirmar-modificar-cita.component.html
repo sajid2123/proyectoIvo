@@ -93,7 +93,7 @@
 
 <div *ngIf="mostrarModal" class="modal">
   <div class="mensajeConfirmacion">
-    <app-mensaje-confirmacion (cerrar)="mostrarMensajeConfirmacion()"></app-mensaje-confirmacion>
+    <app-mensaje-confirmacion (cerrar)="mostrarMensajeConfirmacion()" [texto]="'Cita modificada exitosamente'"></app-mensaje-confirmacion>
 
   </div>
 </div>

@@ -68,7 +68,6 @@ const routes: Routes = [
     path: 'tabla-pacientes',
     component: TablaCitasComponent
 
-
   },
   {
     path: 'radiologo/atender-paciente',
