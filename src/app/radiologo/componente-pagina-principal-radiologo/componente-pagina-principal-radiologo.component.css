@@ -14,3 +14,7 @@
     padding-right: 0rem;
     overflow: hidden;
 }
+.mat-calendar{
+    border: 1px solid #E4E7EC;
+    border-radius: 5px;
+}

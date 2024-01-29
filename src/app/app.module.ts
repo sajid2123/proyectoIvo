@@ -30,7 +30,6 @@ import { PacienteModule } from './paciente/paciente.module';
     GeneralModule,
     AppRoutingModule,
     RadiologoModule,
-
     AdministrativoModule,
     BrowserModule,
     RadiologoModule,

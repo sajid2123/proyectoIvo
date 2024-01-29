@@ -33,10 +33,8 @@ import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/conf
     BtnCancelarComponent,
     MensajeConfirmacionComponent,
     DetallesCitaComponent,
-    ConfirmaComponent,
     ModificarCitaComponent,
     ConfirmarModificarCitaComponent
-
   ],
   providers: [CitaDataService],
   imports: [
