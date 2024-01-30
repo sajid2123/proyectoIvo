@@ -11,21 +11,15 @@
             </div>
             <div class="row mt-4">
                 <div class="col-12">
-                    <app-componente-pendiente-realizada
-                    [routaPendiente]="'/radiologo'" 
-                    [routaRealizada]="'./'"
-                    [activeTab]="'realizada'"
-                    ></app-componente-pendiente-realizada>
+                    <!-- <app-componente-pendiente-realizada [routaPendiente]="'/paciente'" [routaRealizada]="'./'" [activeTab]="'realizada'"></app-componente-pendiente-realizada> -->
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-8">
-                    <app-tabla-citas-realizadas></app-tabla-citas-realizadas>
+                    <app-tabla-citas-paciente-realizadas></app-tabla-citas-paciente-realizadas>
                 </div>
-                <div class="col-4 px-5">
-                    <mat-calendar [(selected)]="selected" class="mat-calendar"></mat-calendar>
-                  </div>
             </div>
+
         </div>
     </div>
 </div>

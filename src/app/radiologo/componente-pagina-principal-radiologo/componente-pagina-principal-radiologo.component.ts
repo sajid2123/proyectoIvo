@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ComponentePendienteRealizadaComponent } from 'src/app/general/componente-pendiente-realizada/componente-pendiente-realizada.component';
 
 
 @Component({
@@ -9,4 +8,9 @@ import { ComponentePendienteRealizadaComponent } from 'src/app/general/component
 })
 export class ComponentePaginaPrincipalRadiologoComponent {
   selected!: Date;
+  activeTab: string =  "pendiente";
+
+  recibirDato(activeTab: string) {
+    this.activeTab = activeTab;
+  }
 }

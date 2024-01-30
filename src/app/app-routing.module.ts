@@ -6,7 +6,6 @@ import { MedicoModule } from './medico/medico.module';
 
 import { ComponentePaginaPrincipalRadiologoComponent } from './radiologo/componente-pagina-principal-radiologo/componente-pagina-principal-radiologo.component';
 import { ComponentePendienteRealizadaComponent } from './general/componente-pendiente-realizada/componente-pendiente-realizada.component';
-import { ComponenetePaginaCitaRealizadasComponent } from './radiologo/componenete-pagina-cita-realizadas/componenete-pagina-cita-realizadas.component';
 import { TablaCitasComponent } from './radiologo/tabla-citas/tabla-citas.component';
 
 
@@ -23,6 +22,8 @@ import { TablaCitasPendientesComponent } from './administrativo/tabla-citas-pend
 import { PaginaPrincipalPacienteComponent } from './paciente/pagina-principal-paciente/pagina-principal-paciente.component';
 import { PaginaCitaPruebasComponent } from './paciente/pagina-cita-pruebas/pagina-cita-pruebas.component';
 import { CitasPacienteDetallesComponent } from './paciente/citas-paciente-detalles/citas-paciente-detalles.component';
+import { TabsAtenderPacienteComponent } from './medico/tabs-atender-paciente/tabs-atender-paciente.component';
+import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico/pagina-principal-medico.component';
 
 
 const routes: Routes = [
@@ -38,16 +39,23 @@ const routes: Routes = [
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
   },
+  
 
   //RUTAS RADIÓLOGO
   {
     path: 'radiologo',
     component: ComponentePaginaPrincipalRadiologoComponent,
+    children: [
+      // {
+      //     path: 'citas-realizadas',
+      //     component: ComponenetePaginaCitaRealizadasComponent
+      // }
+    ]
   },
-  {
-    path: 'radiologo/citas-realizadas',
-    component: ComponenetePaginaCitaRealizadasComponent
-  },
+  // {
+  //   path: 'radiologo/citas-realizadas',
+  //   component: ComponenetePaginaCitaRealizadasComponent
+  // },
   {
     path: 'tabla',
     component: TablaCitasComponent
@@ -93,9 +101,17 @@ const routes: Routes = [
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
-  }
+  },
 
   //RUTAS MÉDICO
+  {
+    path: 'tabs',
+    component: TabsAtenderPacienteComponent
+  },
+  {
+    path: 'medico',
+    component: PaginaPrincipalMedicoComponent
+  },
 ];
 
 @NgModule({
