@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
-
 
 interface Paciente {
     fecha: number;
@@ -17,19 +16,21 @@ interface Paciente {
 })
 
 
-export class TablaCitasPacientePendientesComponent implements OnInit {
+export class TablaCitasPacientePendientesComponent implements OnChanges {
+  @Input() tipoCita: 'pendiente' | 'realizada' = 'pendiente';
+  @Input() citasPendientes: Paciente[] = [];
+  @Input() citasRealizadas: Paciente[] = [];
+
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
+  displayedCitas: Paciente[] = [];
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['tipoCita']) {
 
-  citaPacientes: Paciente[] = [
-    { fecha: 20, medico: 'Juan', servicio: 25, hora: '9:00' },
-    { fecha: 20, medico: 'Pere', servicio: 25, hora: '9:00' },
-    { fecha: 20, medico: 'Pepe', servicio: 25, hora: '9:00' },
-    // Puedes agregar más objetos según tus necesidades
-  ];
-
-  constructor() { }
+      this.actualizarArray();
+    }
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -37,6 +38,11 @@ export class TablaCitasPacientePendientesComponent implements OnInit {
       pagingType: 'full_numbers',
     };
 
+    this.actualizarArray();
     this.dtTrigger.next(null);
+  }
+
+  private actualizarArray(): void {
+    this.displayedCitas = (this.tipoCita === 'pendiente') ? this.citasPendientes : this.citasRealizadas;
   }
 }

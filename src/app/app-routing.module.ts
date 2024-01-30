@@ -21,8 +21,6 @@ import { AtenderPacienteComponent } from './radiologo/atender-paciente/atender-p
 import { ComponentePaginaPrincipalAdministrativoComponent } from './administrativo/componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
 import { TablaCitasPendientesComponent } from './administrativo/tabla-citas-pendientes/tabla-citas-pendientes.component';
 import { PaginaPrincipalPacienteComponent } from './paciente/pagina-principal-paciente/pagina-principal-paciente.component';
-import { TablaCitasPacienteRealizadasComponent } from './paciente/tabla-citas-paciente-realizadas/tabla-citas-paciente-realizadas.component';
-import { PaginaCitaPacientesRealizadasComponent } from './paciente/pagina-cita-pacientes-realizadas/pagina-cita-pacientes-realizadas.component';
 import { PaginaCitaPruebasComponent } from './paciente/pagina-cita-pruebas/pagina-cita-pruebas.component';
 import { CitasPacienteDetallesComponent } from './paciente/citas-paciente-detalles/citas-paciente-detalles.component';
 
@@ -92,14 +90,12 @@ const routes: Routes = [
     path: 'paciente',
     component: PaginaPrincipalPacienteComponent
   }
-  ,{
-    path: 'paciente/citas-realizadas',
-    component: PaginaCitaPacientesRealizadasComponent
-  },
+  ,
   {
     path: 'paciente/pruebas',
     component: PaginaCitaPruebasComponent
-  },  {
+  },
+  {
     path: 'paciente/detalles',
     component: CitasPacienteDetallesComponent
   },
