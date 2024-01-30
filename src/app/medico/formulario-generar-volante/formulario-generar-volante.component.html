@@ -1,1 +1,23 @@
-<p>formulario-generar-volante works!</p>
+<form  (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="informe" class="color label-style mb-3">Volante</label>
+                <textarea class="form-control" name="informe" cols="10" rows="15" 
+                          [(ngModel)]="formData.volante" required></textarea>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-12 ">
+                <button type="submit" class="btn btn-personalized mt-5">
+                    <span class="mx-2">
+                        <fa-icon [icon]="faFloppyDisk"></fa-icon>
+                    </span>
+                    Guardar
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</form>

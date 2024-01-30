@@ -1,0 +1,29 @@
+<div class="container-fluid border-b">
+    <div class="row font color size px-5">
+      <div class="col-1 ml-3">
+        <a class="pointer"  (click)="goBack()">
+          <span class="mx-1">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+          </span>
+          Volver
+        </a>
+      </div>
+      <div class="col-11">
+        <nav aria-label="breadcrumb" class="my-breadcrumb">
+          <div class="nav-wrapper">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a routerLink="/medico">Citas</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a routerLink="/medico/atender-paciente">Historial</a>
+              </li>
+              <li class="breadcrumb-item " aria-current="page">
+                <a class="activePage">Historial</a>
+              </li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+  </div>
+</div>
