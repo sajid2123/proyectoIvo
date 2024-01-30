@@ -1,14 +1,14 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component ,Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-componente-pendiente-realizada',
-  templateUrl: './componente-pendiente-realizada.component.html',
-  styleUrls: ['./componente-pendiente-realizada.component.css']
+  selector: 'app-tabs-atender-paciente',
+  templateUrl: './tabs-atender-paciente.component.html',
+  styleUrls: ['./tabs-atender-paciente.component.css']
 })
-export class ComponentePendienteRealizadaComponent {
+export class TabsAtenderPacienteComponent {
   @Input() routaPendiente!: string;
   @Input() routaRealizada!: string;
-  activeTab: string = "pendiente";
+  activeTab: string = "diagnosticar";
 
   @Output() datoEnviado = new EventEmitter<string>(); // Puedes reemplazar 'any' con un tipo de datos específico
 
@@ -23,5 +23,4 @@ export class ComponentePendienteRealizadaComponent {
   enviarDatoAlPadre(activeTab: string) {
     this.datoEnviado.emit(activeTab);
   }
-
 }

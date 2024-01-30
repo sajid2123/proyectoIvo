@@ -1,7 +1,8 @@
 .title{
-    font-weight: 900;
     font-size: 40px;
     font-family: manrope;
+    font-weight: bold;
+    
 }
 .nav{
     background-color: #092C4C;
