@@ -19,6 +19,7 @@ import { BreadcrumbAtenderPacienteComponent } from './radiologo/breadcrumb-atend
 
 
 
+
 const routes: Routes = [
   {
     path: 'pr',
@@ -78,6 +79,7 @@ const routes: Routes = [
     component: BreadcrumbAtenderPacienteComponent
 
   }
+  
 
   //RUTAS MÉDICO
 ];
