@@ -8,7 +8,7 @@ interface Cita {
   hora: string;
 }
 @Component({
-  selector: 'app-tabla-citas-realizadas',
+  selector: 'tabla-citas-realizadas',
   templateUrl: './tabla-citas-realizadas.component.html',
   styleUrls: ['./tabla-citas-realizadas.component.css']
 })

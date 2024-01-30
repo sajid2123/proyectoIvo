@@ -12,8 +12,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import { GeneralModule } from '../general/general.module';
 import { DataTablesModule } from 'angular-datatables';
-import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
 import { AtenderPacienteMedicoComponent } from './atender-paciente-medico/atender-paciente-medico.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { HistorialComponent } from './historial/historial.component';
+import { BreadcrumbHistorialComponent } from './breadcrumb-historial/breadcrumb-historial.component';
+import { FormularioHistorialComponent } from './formulario-historial/formulario-historial.component';
 
 
 
@@ -27,8 +31,10 @@ import { AtenderPacienteMedicoComponent } from './atender-paciente-medico/atende
        FormularioDiagnosticarComponent,
        FormularioGenerarVolanteComponent,
        TablaHistorialComponent,
-       AtenderPacienteComponent,
-       AtenderPacienteMedicoComponent
+       AtenderPacienteMedicoComponent,
+       HistorialComponent,
+       BreadcrumbHistorialComponent,
+       FormularioHistorialComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,9 @@ import { AtenderPacienteMedicoComponent } from './atender-paciente-medico/atende
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    DataTablesModule
+    DataTablesModule,
+    FontAwesomeModule,
+    FormsModule
   ]
 })
 export class MedicoModule { }

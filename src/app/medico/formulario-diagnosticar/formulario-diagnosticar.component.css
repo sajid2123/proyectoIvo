@@ -1,0 +1,21 @@
+.label-style{
+    font-size: 24px;
+    font-weight: bold;
+}
+.btn-personalized{
+    background-color: #092C4C;
+    color: white;
+    height: 40px;
+    width: 170px;
+}
+.contenedor-style{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    border: 1px solid #092C4C;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.con-style{
+    display: flex;
+}

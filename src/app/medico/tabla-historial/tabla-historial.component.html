@@ -1,1 +1,16 @@
-<p>tabla-historial works!</p>
+<table datatable [dtOptions]="dtOptions" class="table table-hover font">
+    <thead>
+        <tr style="background-color: #0062ca;">
+            <th>Fecha</th>
+            <th>Servicio</th>
+            <th>Medico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let historial of historiales" (click)="onRowClick(historial)" class="pointer">
+            <td>{{ historial.fecha }}</td>
+            <td>{{ historial.servicio }}</td>
+            <td>{{ historial.medico }}</td>
+        </tr>
+    </tbody>
+</table>
