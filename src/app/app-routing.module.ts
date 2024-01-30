@@ -26,6 +26,7 @@ import { TabsAtenderPacienteComponent } from './medico/tabs-atender-paciente/tab
 import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico/pagina-principal-medico.component';
 
 
+
 const routes: Routes = [
   {
     path: 'radiologo',
@@ -43,7 +44,7 @@ const routes: Routes = [
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
   },
-  
+
 
   //RUTAS RADIÓLOGO
   {
@@ -66,7 +67,7 @@ const routes: Routes = [
   },
 
   //RUTAS ADMINISTRATIVO
-  
+
   {
     path: 'administrativo/crear-citas',
     component: CrearCitasComponent
@@ -105,6 +106,7 @@ const routes: Routes = [
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
+
   },
 
   //RUTAS MÉDICO

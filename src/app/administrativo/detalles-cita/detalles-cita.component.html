@@ -44,6 +44,6 @@
     <button id="btnAnular" (click)="anularCita()">Anular Cita</button>
     <div *ngIf="mostrarModal" class="modal">
       <div class="mensajeConfirmacion">
-        <app-confirma (cerrar)="mostrarMensajeCancelar()"></app-confirma>
+        <app-confirma (cerrar)="mostrarMensajeCancelar()" [texto]="'¿Desea cancelar la cita?'"></app-confirma>
       </div>
     </div>
