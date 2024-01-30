@@ -6,11 +6,10 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./componente-pendiente-realizada.component.css']
 })
 export class ComponentePendienteRealizadaComponent {
-  @Input() routaPendiente!: string;
-  @Input() routaRealizada!: string;
+
   activeTab: string = "pendiente";
 
-  @Output() datoEnviado = new EventEmitter<string>(); // Puedes reemplazar 'any' con un tipo de datos específico
+  @Output() datoEnviado = new EventEmitter<string>();
 
  
  
