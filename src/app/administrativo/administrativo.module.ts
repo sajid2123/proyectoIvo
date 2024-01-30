@@ -28,6 +28,7 @@ import { ConfirmaComponent } from '../general/confirma/confirma.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
 import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-citas-pendientes.component';
+import { ComponentePendienteRealizadaPerfilComponent } from './componente-pendiente-realizada-perfil/componente-pendiente-realizada-perfil.component';
 
 
 
@@ -49,6 +50,7 @@ import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-ci
     ConfirmarModificarCitaComponent,
     TablaCitasPendientesComponent,
     ConfirmarModificarCitaComponent,
+    ComponentePendienteRealizadaPerfilComponent,
 
   ],
   providers: [CitaDataService],

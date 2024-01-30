@@ -24,17 +24,13 @@
 
             <div class="row">
                 <div class="col-6">
-                    <ul class="d-flex ms-5">
-                        <li class="border-bottom p-3" id="elemento-lista"><a routerLink="citas-pendientes" routerLinkActive="activo">Citas Pendientes</a></li>
-                        <li class="border-bottom p-3" id="elemento-lista"><a routerLink="citas-realizadas" routerLinkActive="activo">Citas Realizadas</a></li>
-                        <li class="border-bottom p-3" id="elemento-lista"><a routerLink="perfil" routerLinkActive="activo">Perfil</a></li>
-                    </ul>
+                    <app-componente-pendiente-realizada-perfil></app-componente-pendiente-realizada-perfil>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 p-5"> <!--Este apartado despliega los componentes que correspondan a una ruta especifica-->
-                    <router-outlet></router-outlet>
+                    <app-tabla-citas-pendientes></app-tabla-citas-pendientes>
                 </div>
             </div>
         </div>

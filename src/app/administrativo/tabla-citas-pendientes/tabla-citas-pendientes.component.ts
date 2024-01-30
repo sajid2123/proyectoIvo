@@ -18,11 +18,11 @@ export class TablaCitasPendientesComponent {
   ngOnInit(){
     this.route.url.subscribe((event) => {
 
-      if (event[0].path == "citas-realizadas") {
-        this.pendientes = false;
-      } else {
-        this.pendientes = true;
-      }
+        if (event[0].path == "citas-realizadas") {
+          this.pendientes = false;
+        } else {
+          this.pendientes = true;
+        }
       
     });
   }
