@@ -9,10 +9,10 @@
 </div> -->
 
 <div class="row font">
-    <div class="col-1 text-center" [class.enabled]="activeTab === 'pendiente'" [class.disabled]="activeTab !== 'pendiente'">
-        <a [routerLink]="[routaPendiente]">Pendiente</a>
+    <div class="col-1 text-center" [class.enabled]="activeTab === 'pendiente'" [class.disabled]="activeTab !== 'pendiente'" (click)="setActiveTab('pendiente'); enviarDatoAlPadre('pendiente')">
+        <span>Pendiente</span>
     </div>
-    <div class="col-1 text-center" [class.enabled]="activeTab === 'realizada'" [class.disabled]="activeTab !== 'realizada'">
-        <a [routerLink]="[routaRealizada]">Realizada</a>
+    <div class="col-1 text-center" [class.enabled]="activeTab === 'realizada'" [class.disabled]="activeTab !== 'realizada'" (click)="setActiveTab('realizada'); enviarDatoAlPadre('realizada')" >
+        <span>Realizada</span>
     </div>
 </div>

@@ -9,21 +9,25 @@
                               [(ngModel)]="formData.informe" required></textarea>
                   </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 px-5">
                 <div class="form-group">
                     <label for="imagenes" class="label-style color mb-3">Subir Imágenes</label>
                     <input type="file" class="form-control" name="imagenes" (change)="onFileChange($event)" 
                            multiple required>
                   </div>
                   <div *ngFor="let image of imagePreviews">
-                    <div class="contenedor-img mt-3 mb-3">
-                        <div>
-                            <fa-icon [icon]="faCoffee"></fa-icon>
-                            <p>{{image.name}}</p>
+                    <div class="contenedor-style mt-3">
+                        <div class="color con-style">
+                            <span class="mx-2">
+                                <fa-icon [icon]="faFileLines"></fa-icon>
+                            </span>
+                            <p class="m-0">{{image.name}}</p>
                         </div>
-                        
+                        <span class="color">
+                            <fa-icon [icon]="faCircleXmark"></fa-icon>
+                        </span>
                     </div>
-                    <img [src]="image.url" style="width: 100px; height: 100px;">
+                    <!-- <img [src]="image.url" style="width: 100px; height: 100px;"> -->
     
                   </div>
             </div>
