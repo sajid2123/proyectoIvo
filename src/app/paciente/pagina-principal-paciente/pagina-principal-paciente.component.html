@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 p-0">
+            <div class="nav">
+
+            </div>
+        </div>
+        <div class="col-10 px-5">
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h1 class="title">Citas</h1>
+                </div>
+            </div>
+            <div class="row mt-4 mb-2">
+                <div class="col-12">
+                    <div class="row font">
+                        <div class="col-1 text-center" [class.enabled]="tipoCita === 'pendiente'" [class.disabled]="tipoCita !== 'pendiente'">
+                            <a (click)="cambiarTipoCita('pendiente')">Pendiente</a>
+                        </div>
+                        <div class="col-1 text-center" [class.enabled]="tipoCita === 'realizada'" [class.disabled]="tipoCita !== 'realizada'">
+                            <a (click)="cambiarTipoCita('realizada')">Realizada</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div *ngIf="tipoCita === 'pendiente'">
+                        <app-tabla-citas-paciente-pendientes [tipoCita]="tipoCita" [citasPendientes]="citasPendientes" [citasRealizadas]="[]"></app-tabla-citas-paciente-pendientes>
+                    </div>
+                    <div *ngIf="tipoCita === 'realizada'">
+                        <app-tabla-citas-paciente-pendientes [tipoCita]="tipoCita" [citasPendientes]="[]" [citasRealizadas]="citasRealizadas"></app-tabla-citas-paciente-pendientes>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<router-outlet></router-outlet>

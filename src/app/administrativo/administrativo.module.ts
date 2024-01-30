@@ -17,10 +17,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/mensaje-confirmacion.component';
+
+import { ComponentePaginaPrincipalAdministrativoComponent } from './componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
+import { BarraLateralAdministrativoComponent } from './barra-lateral-administrativo/barra-lateral-administrativo.component';
+import { BreadcumbAdministrativoComponent } from './breadcumb-administrativo/breadcumb-administrativo.component';
+
 import { DetallesCitaComponent } from './detalles-cita/detalles-cita.component';
 import { ConfirmaComponent } from '../general/confirma/confirma.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
+import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-citas-pendientes.component';
+
 
 
 
@@ -32,10 +39,14 @@ import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/conf
     BtnAnteriorComponent,
     BtnCancelarComponent,
     MensajeConfirmacionComponent,
+    ComponentePaginaPrincipalAdministrativoComponent,
+    BarraLateralAdministrativoComponent,
+    BreadcumbAdministrativoComponent,
     DetallesCitaComponent,
-    ConfirmaComponent,
     ModificarCitaComponent,
-    ConfirmarModificarCitaComponent
+    ConfirmarModificarCitaComponent,
+    TablaCitasPendientesComponent,
+    ConfirmarModificarCitaComponent,
 
   ],
   providers: [CitaDataService],
@@ -51,7 +62,8 @@ import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/conf
     RouterModule.forChild([
       { path: 'crear-citas', component: CrearCitasComponent },
       { path: 'administrativo/confirmar-citas', component: ConfirmarCitasComponent },
-      { path: 'administrativo/confirmar-modificar-citas', component: ConfirmarModificarCitaComponent}
+      { path: 'administrativo/confirmar-modificar-citas', component: ConfirmarModificarCitaComponent},
+      { path: 'administrativo/citas-pendientes', component: TablaCitasPendientesComponent}
       //Otras rutas
     ]),
 

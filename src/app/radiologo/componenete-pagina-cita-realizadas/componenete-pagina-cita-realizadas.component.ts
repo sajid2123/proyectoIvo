@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./componenete-pagina-cita-realizadas.component.css']
 })
 export class ComponenetePaginaCitaRealizadasComponent {
-
+  selected!: Date;
 }

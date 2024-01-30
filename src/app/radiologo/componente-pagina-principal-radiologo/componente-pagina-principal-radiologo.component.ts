@@ -8,5 +8,5 @@ import { ComponentePendienteRealizadaComponent } from 'src/app/general/component
   styleUrls: ['./componente-pagina-principal-radiologo.component.css']
 })
 export class ComponentePaginaPrincipalRadiologoComponent {
-
+  selected!: Date;
 }

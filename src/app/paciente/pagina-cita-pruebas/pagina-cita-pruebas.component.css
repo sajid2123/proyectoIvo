@@ -1,20 +1,17 @@
-.title{
+.title {
     font-size: 40px;
     font-family: manrope;
     font-weight: bold;
-    
 }
-.nav{
+
+.nav {
     background-color: #092C4C;
     height: 100vh;
     width: 100%;
 }
-.container-fluid{
+
+.container-fluid {
     padding-left: 0rem;
     padding-right: 0rem;
     overflow: hidden;
-}
-.mat-calendar{
-    border: 1px solid #E4E7EC;
-    border-radius: 5px;
 }

@@ -19,10 +19,12 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-6">
+                <div class="col-8">
                     <app-tabla-citas-realizadas></app-tabla-citas-realizadas>
                 </div>
-
+                <div class="col-4 px-5">
+                    <mat-calendar [(selected)]="selected" class="mat-calendar"></mat-calendar>
+                  </div>
             </div>
         </div>
     </div>

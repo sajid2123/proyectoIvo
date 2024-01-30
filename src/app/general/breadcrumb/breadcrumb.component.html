@@ -1,17 +1,22 @@
 <div class="container-fluid border-b">
     <div class="row font color size px-5">
       <div class="col-1 ml-3">
-        <a class="pointer"  (click)="goBack()">Volver</a>
+        <a class="pointer"  (click)="goBack()">
+          <span class="mx-1">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+          </span>
+          Volver
+        </a>
       </div>
       <div class="col-11">
         <nav aria-label="breadcrumb" class="my-breadcrumb">
           <div class="nav-wrapper">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a routerLink="/radiologo">Citas</a>
+                <a [routerLink]="[primeraRouta]">{{primerNombre}}</a>
               </li>
               <li class="breadcrumb-item " aria-current="page">
-                <a routerLink="" class="activePage">Diagnostico</a>
+                <a class="activePage">{{segundonombre}}</a>
               </li>
             </ol>
           </div>
@@ -19,6 +24,5 @@
       </div>
   </div>
 </div>
-
 
 

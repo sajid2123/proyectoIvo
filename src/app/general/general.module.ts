@@ -9,6 +9,8 @@ import { ComponentePendienteRealizadaComponent } from './componente-pendiente-re
 import { BtnAnteriorComponent } from './btn-anterior/btn-anterior.component';
 import { BtnCancelarComponent } from './btn-cancelar/btn-cancelar.component';
 import { BtnSiguienteComponent } from './btn-siguiente/btn-siguiente.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -17,16 +19,20 @@ import { BtnSiguienteComponent } from './btn-siguiente/btn-siguiente.component';
     BarraLateralComponent,
     NavBarComponent,
     ComponentePendienteRealizadaComponent,
-
+    BreadcrumbComponent,
+    ConfirmaComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   exports: [
     BarraLateralComponent,
     NavBarComponent,
-    ComponentePendienteRealizadaComponent
+    ConfirmaComponent,
+    ComponentePendienteRealizadaComponent,
+    BreadcrumbComponent
   ]
 })
 export class GeneralModule { }
