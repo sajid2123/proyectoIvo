@@ -1,0 +1,40 @@
+h1 {
+  padding-left: 20%;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.barra-lateral {
+  height: 100vh;
+}
+
+#elemento-lista {
+  list-style: none;
+}
+
+#lPaciente {
+  width: 100%;
+  color: #000;
+  font-family: Manrope;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#lBuscar {
+    color: #092C4C;
+font-family: Manrope;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+input {
+    width: 300px;
+    height: 100%;
+}
