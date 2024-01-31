@@ -85,13 +85,8 @@
 
 
         <div class="form-creacion">
-          <label id="lCreacion">Fecha de creación</label><br>
-          <mat-form-field class="mat-field" style="background-color: white;">
-            <input matInput [matDatepicker]="picker" placeholder="dd/mm/aaaa" id="datepicker" name="fechaCreacion" [(ngModel)]="fechaCreacion">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-
+            <label id="lCreacion">Fecha de creación</label><br>
+            <input type="date" id="fechaCreacion" name="fechaCreacion"   [(ngModel)]="fechaCreacion">
         </div>
 
         <div class="form-horas">

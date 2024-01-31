@@ -20,8 +20,8 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-8">
-                        <app-tabla-citas-pendientes *ngIf="activeTab === 'pendiente'"></app-tabla-citas-pendientes>
-                        <app-tabla-citas-realizadas *ngIf="activeTab === 'realizada'"></app-tabla-citas-realizadas>
+                        <tabla-citas-pendientes *ngIf="activeTab === 'pendiente'"></tabla-citas-pendientes>
+                        <tabla-citas-realizadas *ngIf="activeTab === 'realizada'"></tabla-citas-realizadas>
                     </div>
                   <div class="col-4 px-5">
                     <mat-calendar [(selected)]="selected" class="mat-calendar"></mat-calendar>

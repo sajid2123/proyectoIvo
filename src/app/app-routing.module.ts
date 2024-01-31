@@ -24,6 +24,9 @@ import { PaginaCitaPruebasComponent } from './paciente/pagina-cita-pruebas/pagin
 import { CitasPacienteDetallesComponent } from './paciente/citas-paciente-detalles/citas-paciente-detalles.component';
 import { TabsAtenderPacienteComponent } from './medico/tabs-atender-paciente/tabs-atender-paciente.component';
 import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico/pagina-principal-medico.component';
+import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico/atender-paciente-medico.component';
+import { HistorialComponent } from './medico/historial/historial.component';
+
 
 
 const routes: Routes = [
@@ -39,7 +42,7 @@ const routes: Routes = [
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
   },
-  
+
 
   //RUTAS RADIÓLOGO
   {
@@ -62,7 +65,7 @@ const routes: Routes = [
   },
 
   //RUTAS ADMINISTRATIVO
-  
+
   {
     path: 'administrativo/crear-citas',
     component: CrearCitasComponent
@@ -101,6 +104,7 @@ const routes: Routes = [
   {
     path: 'radiologo/atender-paciente',
     component: AtenderPacienteComponent
+
   },
 
   //RUTAS MÉDICO
@@ -111,6 +115,14 @@ const routes: Routes = [
   {
     path: 'medico',
     component: PaginaPrincipalMedicoComponent
+  },
+  {
+    path: 'medico/atender-paciente',
+    component: AtenderPacienteMedicoComponent
+  },
+  {
+    path: 'medico/atender-paciente/historial',
+    component: HistorialComponent
   },
 ];
 

@@ -7,7 +7,8 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 })
 export class ConfirmaComponent {
   @Output() cerrar = new EventEmitter<void>();
-
+  @Input() texto: string = 'Mensaje de texto por defecto';
+  
   cerrarMensaje() {
     this.cerrar.emit();
   }

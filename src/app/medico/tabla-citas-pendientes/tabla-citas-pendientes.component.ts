@@ -9,7 +9,7 @@ interface Cita {
 }
 
 @Component({
-  selector: 'app-tabla-citas-pendientes',
+  selector: 'tabla-citas-pendientes',
   templateUrl: './tabla-citas-pendientes.component.html',
   styleUrls: ['./tabla-citas-pendientes.component.css']
 })
