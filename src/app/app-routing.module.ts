@@ -26,6 +26,7 @@ import { TabsAtenderPacienteComponent } from './medico/tabs-atender-paciente/tab
 import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico/pagina-principal-medico.component';
 import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico/atender-paciente-medico.component';
 import { HistorialComponent } from './medico/historial/historial.component';
+import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
 
 
 
@@ -81,6 +82,9 @@ const routes: Routes = [
   {
     path: 'administrativo/modificar-citas',
     component: ModificarCitaComponent
+  }, {
+    path: 'administrativo/buscar-paciente',
+    component: BuscarPacienteComponent
   },
 
   //RUTAS PACIENTE

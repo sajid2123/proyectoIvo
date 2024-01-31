@@ -1,0 +1,59 @@
+h1 {
+  padding-left: 20%;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.barra-lateral {
+  height: 100vh;
+}
+
+#elemento-lista {
+  list-style: none;
+}
+
+#lPaciente {
+  width: 100%;
+  color: #000;
+  font-family: Manrope;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#lBuscar {
+  color: #092c4c;
+  font-family: Manrope;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 500px;
+}
+
+input {
+  width: 200px;
+  height: 70%;
+}
+
+label {
+  color: #092c4c;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22.4px;
+}
+
+.row-hover:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+th {
+  text-align: center;
+}

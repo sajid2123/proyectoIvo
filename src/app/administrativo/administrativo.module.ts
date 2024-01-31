@@ -28,9 +28,13 @@ import { ConfirmaComponent } from '../general/confirma/confirma.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
 import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-citas-pendientes.component';
+
 import { ComponentePendienteRealizadaPerfilComponent } from './componente-pendiente-realizada-perfil/componente-pendiente-realizada-perfil.component';
 import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
 
+
+import { BuscarPacienteComponent } from './buscar-paciente/buscar-paciente.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -51,8 +55,12 @@ import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.compo
     ConfirmarModificarCitaComponent,
     TablaCitasPendientesComponent,
     ConfirmarModificarCitaComponent,
+
     ComponentePendienteRealizadaPerfilComponent,
     PerfilPacienteComponent,
+
+    BuscarPacienteComponent,
+
 
   ],
   providers: [CitaDataService],
@@ -65,6 +73,8 @@ import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.compo
     MatInputModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    DataTablesModule,
+    HttpClientModule,
     RouterModule.forChild([
       { path: 'crear-citas', component: CrearCitasComponent },
       { path: 'administrativo/confirmar-citas', component: ConfirmarCitasComponent },
