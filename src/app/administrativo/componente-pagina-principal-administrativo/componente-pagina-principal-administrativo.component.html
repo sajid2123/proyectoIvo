@@ -34,7 +34,7 @@
                                             <!--El switch decide si se debe de mostrar el listado de citas o el perfil del paciente en cuestion-->
                     <div [ngSwitch]="citas">
                         <div *ngSwitchCase="'perfil'">
-                            Esto es un perfil
+                            <app-perfil-paciente></app-perfil-paciente>
                         </div>
                        
                         <div *ngSwitchDefault>
