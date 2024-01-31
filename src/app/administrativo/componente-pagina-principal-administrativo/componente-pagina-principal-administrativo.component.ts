@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ComponentePaginaPrincipalAdministrativoComponent {
     citas:string = 'citas-pendientes'; 
+    ventana:string = 'Citas';
 }

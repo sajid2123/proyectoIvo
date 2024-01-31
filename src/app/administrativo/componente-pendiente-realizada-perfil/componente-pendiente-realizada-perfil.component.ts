@@ -10,10 +10,21 @@ export class ComponentePendienteRealizadaPerfilComponent {
     ventanaAMostrar:string = '';
 
     @Output() ventana = new EventEmitter<string>();
+    @Output() apartado = new EventEmitter<string>();
+
 
     cambiarVentana(tipoDeVentana:string){
       this.ventanaAMostrar = tipoDeVentana;
-      console.log(this.ventanaAMostrar);
+
+      switch(this.ventanaAMostrar){
+        case "perfil":
+          this.apartado.emit("Perfil");
+        break;
+        default:
+          this.apartado.emit("Citas");
+          break;
+      }
+      
       this.ventana.emit(this.ventanaAMostrar);
     }
 }
