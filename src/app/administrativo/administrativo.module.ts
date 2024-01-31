@@ -28,7 +28,8 @@ import { ModificarCitaComponent } from './modificar-cita/modificar-cita.componen
 import { ConfirmarModificarCitaComponent } from './confirmar-modificar-cita/confirmar-modificar-cita.component';
 import { TablaCitasPendientesComponent } from './tabla-citas-pendientes/tabla-citas-pendientes.component';
 import { BuscarPacienteComponent } from './buscar-paciente/buscar-paciente.component';
-
+import { DataTablesModule } from 'angular-datatables';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -61,6 +62,8 @@ import { BuscarPacienteComponent } from './buscar-paciente/buscar-paciente.compo
     MatInputModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    DataTablesModule,
+    HttpClientModule,
     RouterModule.forChild([
       { path: 'crear-citas', component: CrearCitasComponent },
       { path: 'administrativo/confirmar-citas', component: ConfirmarCitasComponent },

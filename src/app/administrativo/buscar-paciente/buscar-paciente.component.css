@@ -26,15 +26,34 @@ h1 {
 }
 
 #lBuscar {
-    color: #092C4C;
-font-family: Manrope;
-font-size: 28px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  color: #092c4c;
+  font-family: Manrope;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 500px;
 }
 
 input {
-    width: 300px;
-    height: 100%;
+  width: 200px;
+  height: 70%;
+}
+
+label {
+  color: #092c4c;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22.4px;
+}
+
+.row-hover:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+th {
+  text-align: center;
 }
