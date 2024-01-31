@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-componente-pendiente-realizada-perfil',
@@ -7,11 +7,13 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class ComponentePendienteRealizadaPerfilComponent {
     
-    @Input() cita:string = '';
+    ventanaAMostrar:string = '';
 
-    mostrar(tipoDeVentana:string){
-      this.cita = tipoDeVentana;
-      console.log(this.cita);
+    @Output() ventana = new EventEmitter<string>();
+
+    cambiarVentana(tipoDeVentana:string){
+      this.ventanaAMostrar = tipoDeVentana;
+      console.log(this.ventanaAMostrar);
+      this.ventana.emit(this.ventanaAMostrar);
     }
-    
 }

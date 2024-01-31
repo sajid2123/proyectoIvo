@@ -23,14 +23,25 @@
             </div>
 
             <div class="row">
-                <div class="col-6">
-                    <app-componente-pendiente-realizada-perfil></app-componente-pendiente-realizada-perfil>
+                <div class="col-6"> <!--Este apartado es la barra de navegacion de citas pendientes, realizadas y perfil-->
+                                    <!--Cada vez que se hace click en uno de los enlaces, le comunica a la pagina principal el apartado que el administriativo quiere ver-->
+                    <app-componente-pendiente-realizada-perfil (ventana)="citas = $event"></app-componente-pendiente-realizada-perfil>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 p-5"> <!--Este apartado despliega los componentes que correspondan a una ruta especifica-->
-                    <app-tabla-citas-pendientes></app-tabla-citas-pendientes>
+                                            <!--El switch decide si se debe de mostrar el listado de citas o el perfil del paciente en cuestion-->
+                    <div [ngSwitch]="citas">
+                        <div *ngSwitchCase="'perfil'">
+                            Esto es un perfil
+                        </div>
+                       
+                        <div *ngSwitchDefault>
+                            <app-tabla-citas-pendientes [pendienteRealizada]="citas"></app-tabla-citas-pendientes>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

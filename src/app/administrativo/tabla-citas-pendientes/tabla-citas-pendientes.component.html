@@ -8,24 +8,16 @@
         </tr>
    </thead>
    
-    <tbody *ngIf="pendientes; else realizadas"> <!--Aqui estamos decidiendo que tipo de contenido se va a enseñar por pantalla-->
-        <tr>
-            <td>
-                hola <!-- Aqui se haria la llamada a las citas pendientes-->
+    <tbody> <!--Aqui estamos decidiendo que tipo de contenido se va a enseñar por pantalla-->
+        <tr [ngSwitch]="pendienteRealizada">
+            <td *ngSwitchCase="'citas-pendientes'">
+                Mostrando citas pendientes... <!-- Aqui se haria la llamada a las citas pendientes-->
+            </td>
+
+            <td *ngSwitchCase="'citas-realizadas'">
+                Mostrando citas realizadas... <!-- Aqui se mostraria a las citas realizadas-->
             </td>
         </tr>
     </tbody>
-
-   <ng-template #realizadas>
-
-        <tbody>
-            <tr>
-                <td>
-                    adios <!-- Aqui se haria la llamada a las citas realizadas-->
-                </td>
-            </tr>
-        </tbody>
-        
-   </ng-template>
 
 </table>

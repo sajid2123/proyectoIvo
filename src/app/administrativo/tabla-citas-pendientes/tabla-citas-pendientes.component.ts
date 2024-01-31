@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tabla-citas-pendientes',
@@ -9,21 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 
 export class TablaCitasPendientesComponent {
 
-  pendientes:boolean = true;
+  @Input() pendienteRealizada:string = ''; 
 
-  constructor(private route:ActivatedRoute) {
-    
-  }
-
-  ngOnInit(){
-    this.route.url.subscribe((event) => {
-
-        if (event[0].path == "citas-realizadas") {
-          this.pendientes = false;
-        } else {
-          this.pendientes = true;
-        }
-      
-    });
-  }
 }
