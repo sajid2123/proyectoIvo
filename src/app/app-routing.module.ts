@@ -27,6 +27,7 @@ import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico
 import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico/atender-paciente-medico.component';
 import { HistorialComponent } from './medico/historial/historial.component';
 import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
+import { PaginaLoginComponent } from './login/pagina-login/pagina-login.component';
 
 
 
@@ -42,6 +43,12 @@ const routes: Routes = [
   {
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
+  },
+
+  //LOGIN
+  {
+    path: 'login',
+    component: PaginaLoginComponent
   },
 
 
