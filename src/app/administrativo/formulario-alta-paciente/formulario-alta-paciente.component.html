@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Alta paciente</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 bg-warning">
+        <h2>mapa de navegacion</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <form>
+    <!---Apartado de Datos Personales y Confirmar Datos--->
+            <div id="datosPersonales" [hidden]="seccionFormulario == 1">
+                <div class="row mb-2">
+                    <div class="col">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="dni">
+                    </div>
+            
+                    <div class="col">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+            
+                    <div class="col">
+                        <label for="apellido1" class="form-label">Primer Apellido</label>
+                        <input type="text" class="form-control" id="apellido1">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <label for="apellido2" class="form-label">Segundo Apellido</label>
+                        <input type="text" class="form-control" id="apellido2">
+                    </div>
+            
+                    <div class="col">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <input type="text" class="form-control" id="sexo">
+                    </div>
+            
+                    <div class="col">
+                        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                        <input type="text" class="form-control" id="fechaNacimiento">
+                    </div>
+                </div>
+                <div class="row mb-2">
+            
+                    <div class="col">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="telefono">
+                    </div>
+            
+                    <div class="col">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="text" class="form-control" id="correo">
+                    </div>
+            
+                    <div class="col">
+                        <label for="codigoPostal" class="form-label">Codigo Postal</label>
+                        <input type="text" class="form-control" id="codigoPostal">
+                    </div>
+                    
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccion">
+                    </div>
+                </div>
+            </div>
+            
+    <!---Apartado de Crear Cuenta--->
+            
+            <div id="cuenta" [hidden]="seccionFormulario == 0 || seccionFormulario == 2">
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="usuario">
+                        </div>
+        
+                        <div class="col-6">
+                            <label for="email2" class="form-label">Correo Electronico</label>
+                            <input type="text" class="form-control" id="email2">
+                        </div>
+                    </div>
+        
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="contrasena" class="form-label">Contraseña</label>
+                            <input type="text" class="form-control" id="contrasena">
+                        </div>
+                        
+                        <div class="col-6">
+                            <label for="contrasena2" class="form-label">Confirmar Contraseña</label>
+                            <input type="text" class="form-control" id="contrasena2">
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" (click)="cambiarSeccion('cancelar')"><a href="/administrativo">Cancelar</a></button>
+                    <button type="button" (click)="cambiarSeccion('retroceder')" *ngIf="seccionFormulario > 0">Anterior</button> <!---Siguiente solo aparecerá en  "Crear Cuetan (1)" y "Confirmar Cuenta (2)"-->
+                    <button type="button" (click)="cambiarSeccion('avanzar')" *ngIf="seccionFormulario >= 0 && seccionFormulario <2">Siguiente</button> <!---Siguiente solo aparecerá en "Datos Personales (0)" y "Crear Cuetan (1)"-->
+                    <button type="button" (click)="cambiarSeccion('confirmar')"  *ngIf="seccionFormulario == 2">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

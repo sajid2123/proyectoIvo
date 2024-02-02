@@ -29,6 +29,7 @@ import { HistorialComponent } from './medico/historial/historial.component';
 import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
 import { PaginaPacienteComponent } from './administrativo/pagina-paciente/pagina-paciente.component';
 import { TablaCitasGeneralesComponent } from './administrativo/tabla-citas-generales/tabla-citas-generales.component';
+import { FormularioAltaPacienteComponent } from './administrativo/formulario-alta-paciente/formulario-alta-paciente.component';
 
 
 
@@ -49,7 +50,10 @@ const routes: Routes = [
       path: 'paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
       component: PaginaPacienteComponent,
     },
-     
+    {
+      path: 'alta-paciente',
+      component: FormularioAltaPacienteComponent,
+    }
   ]
   },
   {
