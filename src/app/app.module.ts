@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { PacienteModule } from './paciente/paciente.module';
+import { LoginModule } from './login/login.module';
 
 
 
@@ -36,7 +37,8 @@ import { PacienteModule } from './paciente/paciente.module';
     BrowserModule,
     RadiologoModule,
     BrowserAnimationsModule,
-    PacienteModule
+    PacienteModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

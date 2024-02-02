@@ -54,6 +54,6 @@ label {
   cursor: pointer;
 }
 
-th {
+th, td {
   text-align: center;
 }

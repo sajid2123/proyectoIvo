@@ -1,0 +1,52 @@
+/* Ajusta la altura de la fila para que ocupe toda la ventana gráfica */
+        .row {
+            height: 100vh;
+            /* 100% de la altura de la ventana gráfica */
+        }
+
+        /* Utilidad para centrar verticalmente */
+        .center-vertically {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Alinea el contenido al final de la columna */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #092C4C;
+            font-family: 'Manrope', sans-serif;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #092C4C;
+            color: #fff;
+            /* Color del texto */
+        }
+
+        .btn-custom:hover {
+            background-color: #081f32;
+            /* Cambia el color al pasar el ratón */
+        }
+
+        label {
+            font-weight: 700;
+            color: #092C4C;
+            font-family:'Manrope', sans-serif;;
+        }
+
+        a {
+            text-decoration: none;
+            color: #092C4C;
+        }
