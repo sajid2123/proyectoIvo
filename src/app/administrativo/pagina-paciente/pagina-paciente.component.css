@@ -1,0 +1,13 @@
+*{margin: 0px; padding: 0px;}
+
+.barra-lateral{
+    height: 100vh;
+}
+
+#elemento-lista{
+   list-style: none;
+}
+
+.activo{
+    color: red;
+}

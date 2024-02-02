@@ -1,0 +1,49 @@
+<div class="barra-lateral">
+    <div class="row h-100">
+        <div class="col-12">
+            
+            <div class="row mt-2">
+                <div class="col-12 p-0">
+                    <breadcrumb 
+                    [primeraRouta]="'/radiologo'"
+                    [primerNombre]="'Alta paciente'"
+                    [segundonombre]="ventana"
+                    ></breadcrumb>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mt-5 p-4">
+                    <h1 class="ms-5">Nombre Paciente</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6"> <!--Este apartado es la barra de navegacion de citas pendientes, realizadas y perfil-->
+                                    <!--Cada vez que se hace click en uno de los enlaces, le comunica a la pagina principal el apartado que el administriativo quiere ver-->
+                    <app-componente-pendiente-realizada-perfil (ventana)="citas = $event" (apartado)="ventana = $event"></app-componente-pendiente-realizada-perfil>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 p-5"> <!--Este apartado despliega los componentes que correspondan a una ruta especifica-->
+                                            <!--El switch decide si se debe de mostrar el listado de citas o el perfil del paciente en cuestion-->
+                    <div [ngSwitch]="citas">
+                        <div *ngSwitchCase="'perfil'">
+                            <app-perfil-paciente></app-perfil-paciente>
+                        </div>
+                       
+                        <div *ngSwitchDefault>
+                            <app-tabla-citas-pendientes [pendienteRealizada]="citas"></app-tabla-citas-pendientes>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

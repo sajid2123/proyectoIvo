@@ -27,6 +27,8 @@ import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico
 import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico/atender-paciente-medico.component';
 import { HistorialComponent } from './medico/historial/historial.component';
 import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
+import { PaginaPacienteComponent } from './administrativo/pagina-paciente/pagina-paciente.component';
+import { TablaCitasGeneralesComponent } from './administrativo/tabla-citas-generales/tabla-citas-generales.component';
 
 
 
@@ -38,6 +40,17 @@ const routes: Routes = [
   {
     path: 'administrativo',
     component: ComponentePaginaPrincipalAdministrativoComponent,
+
+    children:[{
+      path: '',
+      component: TablaCitasGeneralesComponent,
+    },
+    {
+      path: 'paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
+      component: PaginaPacienteComponent,
+    },
+     
+  ]
   },
   {
     path: 'pr',

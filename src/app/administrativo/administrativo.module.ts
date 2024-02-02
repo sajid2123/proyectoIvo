@@ -35,6 +35,8 @@ import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.compo
 
 import { BuscarPacienteComponent } from './buscar-paciente/buscar-paciente.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginaPacienteComponent } from './pagina-paciente/pagina-paciente.component';
+import { TablaCitasGeneralesComponent } from './tabla-citas-generales/tabla-citas-generales.component';
 
 
 
@@ -60,6 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     PerfilPacienteComponent,
 
     BuscarPacienteComponent,
+      PaginaPacienteComponent,
+      TablaCitasGeneralesComponent,
 
 
   ],
