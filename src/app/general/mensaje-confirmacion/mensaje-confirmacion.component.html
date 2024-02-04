@@ -1,3 +1,20 @@
+<div class="modal" [attr.id]="'#'+idModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <path d="M50 100C63.2608 100 75.9785 94.7322 85.3553 85.3553C94.7322 75.9785 100 63.2608 100 50C100 36.7392 94.7322 24.0215 85.3553 14.6447C75.9785 5.26784 63.2608 0 50 0C36.7392 0 24.0215 5.26784 14.6447 14.6447C5.26784 24.0215 0 36.7392 0 50C0 63.2608 5.26784 75.9785 14.6447 85.3553C24.0215 94.7322 36.7392 100 50 100ZM72.0703 40.8203L47.0703 65.8203C45.2344 67.6562 42.2656 67.6562 40.4492 65.8203L27.9492 53.3203C26.1133 51.4844 26.1133 48.5156 27.9492 46.6992C29.7852 44.8828 32.7539 44.8633 34.5703 46.6992L43.75 55.8789L65.4297 34.1797C67.2656 32.3438 70.2344 32.3438 72.0508 34.1797C73.8672 36.0156 73.8867 38.9844 72.0508 40.8008L72.0703 40.8203Z" fill="#27C100"/>
+        </svg>
+
+        {{texto}}
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---
 <div class="container">
   <div class="background">
     <br><br>
@@ -11,3 +28,4 @@
     </div>
   </div>
 </div>
+--->

@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./btn-siguiente.component.css']
 })
 export class BtnSiguienteComponent {
-  
+    @Input() mostrarModal:boolean = false;
+    @Input() idModal:string = ''; 
 }

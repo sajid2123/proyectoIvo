@@ -57,7 +57,11 @@ const routes: Routes = [
     {
       path: 'alta-paciente',
       component: FormularioAltaPacienteComponent,
-    }
+    },
+    {
+      path: 'crear-citas',
+      component: CrearCitasComponent,
+    },
   ]
   },
   {
@@ -94,10 +98,6 @@ const routes: Routes = [
 
   //RUTAS ADMINISTRATIVO
 
-  {
-    path: 'administrativo/crear-citas',
-    component: CrearCitasComponent
-  },
   {
     path: 'administrativo/confirmar-citas',
     component: ConfirmarCitasComponent

@@ -39,6 +39,7 @@ import { PaginaPacienteComponent } from './pagina-paciente/pagina-paciente.compo
 import { TablaCitasGeneralesComponent } from './tabla-citas-generales/tabla-citas-generales.component';
 import { FormularioAltaPacienteComponent } from './formulario-alta-paciente/formulario-alta-paciente.component';
 import { PasosFormularioComponent } from './pasos-formulario/pasos-formulario.component';
+import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-formulario.component';
 
 
 
@@ -68,6 +69,7 @@ import { PasosFormularioComponent } from './pasos-formulario/pasos-formulario.co
       TablaCitasGeneralesComponent,
       FormularioAltaPacienteComponent,
       PasosFormularioComponent,
+      DosPasosFormularioComponent,
 
 
   ],

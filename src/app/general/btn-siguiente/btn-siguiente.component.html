@@ -1,1 +1,11 @@
-<button id="btnSiguiente" >Siguiente</button>
+<div *ngIf="mostrarModal; else botonMostrar">
+    <button id="btnSiguiente" data-bs-toggle="modal" [attr.data-bs-target] = "'#' + idModal">Siguiente</button>
+    <p>fuck</p>
+</div>
+
+<ng-template #botonMostrar>
+    <button id="btnSiguiente">Siguiente</button>
+    <p>hola</p>
+</ng-template>
+
+

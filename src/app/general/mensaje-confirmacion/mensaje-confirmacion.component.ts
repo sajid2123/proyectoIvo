@@ -6,10 +6,13 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   styleUrls: ['./mensaje-confirmacion.component.css']
 })
 export class MensajeConfirmacionComponent {
-  @Output() cerrar = new EventEmitter<void>();
-  @Input() texto: string = 'Mensaje de texto por defecto';
+  @Input() texto:string = 'Mensaje de texto por defecto';
+  @Input() idModal:string = '';
 
+  //@Output() cerrar = new EventEmitter<void>();
+/*
   cerrarMensaje() {
     this.cerrar.emit();
   }
+*/
 }
