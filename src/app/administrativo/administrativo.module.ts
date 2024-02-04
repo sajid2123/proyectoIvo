@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginaPacienteComponent } from './pagina-paciente/pagina-paciente.component';
 import { TablaCitasGeneralesComponent } from './tabla-citas-generales/tabla-citas-generales.component';
 import { FormularioAltaPacienteComponent } from './formulario-alta-paciente/formulario-alta-paciente.component';
+import { PasosFormularioComponent } from './pasos-formulario/pasos-formulario.component';
 
 
 
@@ -66,6 +67,7 @@ import { FormularioAltaPacienteComponent } from './formulario-alta-paciente/form
       PaginaPacienteComponent,
       TablaCitasGeneralesComponent,
       FormularioAltaPacienteComponent,
+      PasosFormularioComponent,
 
 
   ],

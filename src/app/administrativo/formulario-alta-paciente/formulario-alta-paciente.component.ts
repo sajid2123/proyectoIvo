@@ -12,26 +12,26 @@ export class FormularioAltaPacienteComponent {
                                   
     cambiarSeccion(accion:string){
       let confirmar:boolean = false;
-     
+      let columnas = $("#seccionesFormulario").find("div.col-4");
+      $(columnas[this.seccionFormulario]).removeClass("bg-success");
+
       switch(accion){
         case 'cancelar':
             this.seccionFormulario = 0;
         break;
-
         case 'retroceder':
             this.seccionFormulario--;
             if (this.seccionFormulario != 2) {
               $(".col").find("input").prop("readonly", false);
             } 
+            $(columnas[this.seccionFormulario]).addClass("bg-success");
         break;
-
         case 'avanzar':
             this.seccionFormulario++;
             if (this.seccionFormulario == 2) {
               $(".col").find("input").prop("readonly", true);
             } 
         break;
-
         case 'cofirmar':
           confirmar = true
             /*
@@ -39,5 +39,6 @@ export class FormularioAltaPacienteComponent {
             */
         break;
       }
+      $(columnas[this.seccionFormulario]).addClass("bg-success");
     }
 }
