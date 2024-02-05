@@ -16,7 +16,10 @@
                 <a [routerLink]="[primeraRouta]">{{primerNombre}}</a>
               </li>
               <li class="breadcrumb-item " aria-current="page">
-                <a class="activePage">{{segundonombre}}</a>
+                <a [ngClass]="{'activePage': segundoActivo}">{{segundonombre}}</a>
+              </li>
+              <li class="breadcrumb-item " aria-current="page">
+                <a [ngClass]="{'activePage': tercerActivo}">{{tercernombre}}</a>
               </li>
             </ol>
           </div>

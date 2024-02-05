@@ -10,7 +10,13 @@ import { Location } from '@angular/common';
 export class BreadcrumbComponent {
   @Input() primeraRouta!: string;
   @Input() primerNombre!: string;
+
   @Input() segundonombre!: string;
+  @Input() segundoActivo!: boolean;
+
+  @Input() tercernombre!: string;
+  @Input() tercerActivo!: boolean;
+  
 
   faArrowLeft = faArrowLeft;
 
