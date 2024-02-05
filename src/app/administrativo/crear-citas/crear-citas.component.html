@@ -1,5 +1,5 @@
     <div class="row">
-        <div class="col-12 p-0">
+        <div class="col-12">
             <breadcrumb 
             [primeraRouta]="'/administrativo'"
             [primerNombre]="'Alta paciente'"
@@ -134,7 +134,7 @@
     </div>
 
   <!-- Modal -->
-    <app-mensaje-confirmacion [idModal]="'prueba'"></app-mensaje-confirmacion>
+  <app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita creada'" [enlace]="'administrativo/paciente'"></app-mensaje-confirmacion>
 <!---
         <select class="form-select" name="especialidad" aria-label="Default select example" [(ngModel)]="especialidad"
                 [ngClass]="{ 'is-invalid': !especialidad && isSubmited }">

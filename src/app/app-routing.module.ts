@@ -45,25 +45,19 @@ const routes: Routes = [
   },
   {
     path: 'administrativo',
-    component: ComponentePaginaPrincipalAdministrativoComponent,
-
-    children:[{
-      path: '',
-      component: TablaCitasGeneralesComponent,
-    },
-    {
-      path: 'paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
-      component: PaginaPacienteComponent,
-    },
-    {
-      path: 'alta-paciente',
-      component: FormularioAltaPacienteComponent,
-    },
-    {
-      path: 'crear-citas',
-      component: CrearCitasComponent,
-    },
-  ]
+    component: TablaCitasGeneralesComponent,
+  },
+  {
+    path: 'administrativo/paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
+    component: PaginaPacienteComponent,
+  },
+  {
+    path: 'administrativo/alta-paciente',
+    component: FormularioAltaPacienteComponent,
+  },
+  {
+    path: 'administrativo/crear-citas',
+    component: CrearCitasComponent,
   },
   {
     path: 'pr',
