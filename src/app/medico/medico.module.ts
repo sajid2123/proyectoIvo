@@ -18,8 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { HistorialComponent } from './historial/historial.component';
 import { BreadcrumbHistorialComponent } from './breadcrumb-historial/breadcrumb-historial.component';
 import { FormularioHistorialComponent } from './formulario-historial/formulario-historial.component';
+import { RouterModule } from '@angular/router';
 
-
+// const routes: Routes = [
+//   { path: 'medico', component: PaginaPrincipalMedicoComponent },
+//   { path: 'medico/atender-paciente', component: AtenderPacienteMedicoComponent },
+// ];
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { FormularioHistorialComponent } from './formulario-historial/formulario-
     MatNativeDateModule,
     DataTablesModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class MedicoModule { }

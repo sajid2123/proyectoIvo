@@ -1,0 +1,15 @@
+.white{
+    color: #DCECFB;
+}
+a{
+    text-decoration: none;
+    color: #DCECFB;
+}
+a:hover{
+    background-color: #DCECFB;
+    border-radius: 10px;
+    color: #092C4C;
+}
+.icon-calender{
+    font-size: 18px;
+}
