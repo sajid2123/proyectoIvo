@@ -1,49 +1,65 @@
+<div class="row">
+  <div class="col-12 p-0 mt-3">
+      <breadcrumb
+      [primeraRouta]="'/administrativo'"
+      [primerNombre]="'Alta paciente'"
+      [segundonombre]="'Citas'"
+      [tercernombre]="'Detalles De La Cita'"
+      [segundoActivo]="false"
+      [tercerActivo]="true"
+      ></breadcrumb>
+  </div>
+</div>
 
-<div class="barraLateral"></div>
-    <div class="menu">
-        <button id="btnVolver">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-            </svg>
-        </button>
-        <a href="">Volver</a>
-        <label id="lAltaPaciente">Alta paciente</label>/<label>Citas</label>/<label id="lCitas">Detalles de
-            Citas</label>
-    </div>
-    <div class="lineaHorizontal"></div>
+<div class="row">
+  <div class="col-12 mt-5 ms-5">
+      <p class="h1">Detalles De La Cita</p>
+  </div>
+</div>
 
-    <label id="lDetalles">Detalles De La Cita</label>
 
-    <div class="carta">
-        <div class="dMedico">
-            <label id="lTitMedico">MÉDICO / ESPECIALISTA</label><br><br>
-            <label id="lNombre">Claudio López</label>
+<div class="row ms-5 me-5 mt-3 mb-4 rounded-4 shadow" style="background-color: #EBF3FA;">
+  <div class="col-10">
+    <div class="row mt-5">
+      <div class="col-md-6 d-flex justify-content-center">
+        <div>
+          <h1>MÉDICO / ESPECIALISTA</h1>
+          <h2>Maria Garcia</h2>
         </div>
-
-        <div class="dServicio">
-            <label id="lTitServicio">SERVICIO</label><br><br>
-            <label id="lServicio">Pediatria</label>
+      </div>
+      <div class="col-md-6  d-flex justify-content-center">
+        <div>
+          <h1>SERVICIO</h1>
+          <h2>Radiologia</h2>
         </div>
-
-        <div class="dFecha">
-            <label id="lTitFecha">FECHA</label><br><br>
-            <label id="lFecha">20/02/2023</label>
-        </div>
-
-        <div class="dHora">
-            <label id="lTitHora">HORA</label><br><br>
-            <label id="lHora">14:00</label>
-        </div>
-
-
-
-    </div>
-
-    <button id="btnAnular" (click)="anularCita()">Anular Cita</button>
-    <div *ngIf="mostrarModal" class="modal">
-      <div class="mensajeConfirmacion">
-        <app-confirma (cerrar)="mostrarMensajeCancelar()" [texto]="'¿Desea cancelar la cita?'"></app-confirma>
       </div>
     </div>
+    <div class="row mt-5">
+      <div class="col-md-6 mb-5 d-flex justify-content-center">
+        <div>
+          <h1>FECHA</h1>
+          <h2 >Sábado 10 de febrero de 2024</h2>
+        </div>
+      </div>
+      <div class="col-md-6 mb-5 d-flex justify-content-center">
+        <div>
+          <h1>HORA</h1>
+          <h2>12:00</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12 mt-5 ms-5">
+    <button id="btnAnular" (click)="confirmarAnulacion()" data-bs-toggle="modal" data-bs-target="#exampleModal">Anular cita</button>
+  </div>
+</div>
+
+<div *ngIf="mostrarConfirma">
+  <app-confirma [idModal]="'prueba'" [texto]="'Modificar cita'"></app-confirma>
+</div>
+
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,  Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-detalles-cita',
@@ -6,13 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./detalles-cita.component.css']
 })
 export class DetallesCitaComponent {
-  mostrarModal: boolean = false;
-  anularCita() {
-    this.mostrarModal = true;
+  //mostrarModal: boolean = false;
+  mostrarConfirma: boolean = false;
 
-  }
-
-  mostrarMensajeCancelar() {
-    this.mostrarModal = false;
+  confirmarAnulacion() {
+    this.mostrarConfirma = true;
   }
 }

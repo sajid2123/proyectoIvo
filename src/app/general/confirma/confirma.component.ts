@@ -6,10 +6,9 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   styleUrls: ['./confirma.component.css']
 })
 export class ConfirmaComponent {
-  @Output() cerrar = new EventEmitter<void>();
-  @Input() texto: string = 'Mensaje de texto por defecto';
+  @Input() texto:string = 'Mensaje de texto por defecto'; // Este es el texto que se va a desplegar por defecto en el modal
+  @Input() idModal:string = '';
+
   
-  cerrarMensaje() {
-    this.cerrar.emit();
-  }
+
 }

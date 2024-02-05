@@ -44,6 +44,7 @@ import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-fo
 
 
 
+
 @NgModule({
   declarations: [
     CrearCitasComponent,
@@ -70,6 +71,7 @@ import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-fo
       FormularioAltaPacienteComponent,
       PasosFormularioComponent,
       DosPasosFormularioComponent,
+
 
 
   ],
