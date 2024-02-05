@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 p-0 mt-3">
-        <breadcrumb 
+        <breadcrumb
         [primeraRouta]="'/administrativo'"
         [primerNombre]="'Alta paciente'"
         [segundonombre]="'Citas'"
@@ -45,16 +45,16 @@
                             <option value="3">Three</option>
                         </select>
                 </div>
-        
+
                 <div class="col-4 ms-5">
                     <label for="fechaCreacion" class="form-label">Fecha de Creacion</label>
                     <input type="date" class="form-control" id="fechaCreacion">
                 </div>
-        
+
             </div>
 
             <div class="row mb-2 mt-5">
-                
+
                 <div class="col-4 ms-5">
                     <label for="nombreMedico" class="form-label">Nombre de Médico</label>
                     <select class="form-select " aria-label="Default select example">
@@ -64,7 +64,7 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-        
+
                 <div class="col-4 ms-5">
                     <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
                     <select class="form-select" aria-label="Default select example">
@@ -74,29 +74,26 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-        
+
             </div>
 
         </form>
     </div>
 </div>
 
-<div class="row mt-5 p-5">
-    <div class="col-12 d-flex mt-5 justify-content-between">
-        
+<div class="row mt-3 p-5">
+  <div class="col-12 d-flex justify-content-between align-items-center">
+
         <app-btn-cancelar></app-btn-cancelar>
 
-        <div *ngIf="confirmar">
-            <app-btn-anterior (click)="anterior()"></app-btn-anterior>
-        </div>
-
-        <div>
-            <app-btn-siguiente 
-                [mostrarModal]="enviarDatos" 
-                [idModal]="'prueba'" 
-                (click)="siguiente()">
-            </app-btn-siguiente>
-        </div>
+        <div class="d-flex align-items-center">
+          <app-btn-anterior *ngIf="confirmar" (click)="anterior()" class="me-4"></app-btn-anterior>
+          <app-btn-siguiente
+              [mostrarModal]="enviarDatos"
+              [idModal]="'prueba'"
+              (click)="siguiente()">
+          </app-btn-siguiente>
+      </div>
     </div>
 </div>
 
