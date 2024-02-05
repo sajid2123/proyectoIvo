@@ -27,6 +27,7 @@ import { PaginaPrincipalMedicoComponent } from './medico/pagina-principal-medico
 import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico/atender-paciente-medico.component';
 import { HistorialComponent } from './medico/historial/historial.component';
 import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
+import { PlantillaComponent } from './general/plantilla/plantilla.component';
 
 import { PaginaPacienteComponent } from './administrativo/pagina-paciente/pagina-paciente.component';
 import { TablaCitasGeneralesComponent } from './administrativo/tabla-citas-generales/tabla-citas-generales.component';
@@ -154,6 +155,10 @@ const routes: Routes = [
   {
     path: 'medico/atender-paciente/historial',
     component: HistorialComponent
+  },
+  {
+    path: 'plantilla',
+    component: PlantillaComponent
   },
 ];
 

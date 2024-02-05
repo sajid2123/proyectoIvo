@@ -1,1 +1,33 @@
-<p>formulario-historial works!</p>
+<form>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="informe" class="label-style color mb-3">Informe</label>
+                <textarea class="form-control" name="informe" cols="10" rows="20" 
+                         required></textarea>
+              </div>
+        </div>
+        <div class="col-6 px-5">
+            <div class="form-group">
+                <label for="imagenes" class="label-style color mb-3">Subir Imágenes</label>
+                <input type="file" class="form-control" name="imagenes" 
+                       multiple required>
+              </div>
+              <div>
+                <div class="contenedor-style mt-3">
+                    <div class="color con-style">
+                        <span class="mx-2">
+                            <!-- <fa-icon [icon]="faFileLines"></fa-icon> -->
+                        </span>
+                        <p class="m-0"></p>
+                    </div>
+                    <span class="color">
+                        <!-- <fa-icon [icon]="faCircleXmark"></fa-icon> -->
+                    </span>
+                </div>
+
+              </div>
+        </div>
+        
+    </div>
+</form>

@@ -11,6 +11,10 @@ import { BtnCancelarComponent } from './btn-cancelar/btn-cancelar.component';
 import { BtnSiguienteComponent } from './btn-siguiente/btn-siguiente.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
+import { NavOpcionesComponent } from './nav-opciones/nav-opciones.component';
+import { NavLogoutComponent } from './nav-logout/nav-logout.component';
+import { PlantillaComponent } from './plantilla/plantilla.component';
 
 
 
@@ -20,19 +24,25 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavBarComponent,
     ComponentePendienteRealizadaComponent,
     BreadcrumbComponent,
-    ConfirmaComponent
+    ConfirmaComponent,
+    NavLateralComponent,
+    NavOpcionesComponent,
+    NavLogoutComponent,
+    PlantillaComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule
   ],
   exports: [
     BarraLateralComponent,
     NavBarComponent,
     ConfirmaComponent,
     ComponentePendienteRealizadaComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    PlantillaComponent
   ]
 })
 export class GeneralModule { }
