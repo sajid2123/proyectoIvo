@@ -1,3 +1,18 @@
 li{
     list-style: none;
 }
+
+.activado{
+    border-bottom: solid #092C4C !important;
+    font-weight: 900;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.noactivado{
+    color: #98A3B3 !important;
+    font-weight: 900;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+

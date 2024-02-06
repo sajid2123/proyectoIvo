@@ -1,0 +1,17 @@
+.title{
+    font-size: 40px;
+    font-family: manrope;
+    font-weight: bold;
+}
+
+
+select, input {
+    border-color: #092C4C;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #092C4C;
+  }
+
+ 

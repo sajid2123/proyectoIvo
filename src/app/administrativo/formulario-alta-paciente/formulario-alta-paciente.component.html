@@ -1,18 +1,26 @@
 <div class="row">
-    <div class="col-12">
-        <h1>Alta paciente</h1>
+    <div class="col-12 mt-5 mb-4">
+        <h1 class="ms-5 title">Alta paciente</h1>
     </div>
 </div>
 
-<div class="row d-flex justify-content-center">
-    <div class="col-5 text-center">
+<div class="row d-flex">
+    <div class="col-7 ms-5 text-center font">
         <app-pasos-formulario></app-pasos-formulario>
     </div>
 </div>
 
-<div class="row ">
+<div class="row">
+    <div class="col-12 mt-5 ms-5">
+        <p class="h5" [hidden]="this.seccionFormulario != 0">Introduce los datos de la cita</p>
+        <p class="h5" [hidden]="this.seccionFormulario != 2">Introduce los datos de la cuenta</p>
+        <p class="h5" [hidden]="this.seccionFormulario != 4">Confirmar los datos ingresados</p>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-12">
-        <form>
+        <form class="p-5 h-50">
     <!---Apartado de Datos Personales y Confirmar Datos--->
             <div id="datosPersonales" [hidden]="seccionFormulario == 2">
                 <div class="row mb-2">
@@ -75,40 +83,51 @@
             
     <!---Apartado de Crear Cuenta--->
             
-            <div id="cuenta" [hidden]="seccionFormulario == 0 || seccionFormulario == 4">
-                    <div class="row mb-3">
-                        <div class="col-6">
+            <div id="cuenta" [hidden]="seccionFormulario == 0 || seccionFormulario == 4" >
+                    <div class="row mb-3 d-flex justify-content-center" >
+                        <div class="col-3">
                             <label for="usuario" class="form-label">Usuario</label>
                             <input type="text" class="form-control" id="usuario">
                         </div>
         
-                        <div class="col-6">
+                        <div class="col-3 ms-5">
                             <label for="email2" class="form-label">Correo Electronico</label>
                             <input type="text" class="form-control" id="email2">
                         </div>
                     </div>
         
-                    <div class="row mb-3">
-                        <div class="col-6">
+                    <div class="row mb-3 mt-3 d-flex justify-content-center" >
+                        <div class="col-3">
                             <label for="contrasena" class="form-label">Contraseña</label>
                             <input type="text" class="form-control" id="contrasena">
                         </div>
                         
-                        <div class="col-6">
+                        <div class="col-3 ms-5">
                             <label for="contrasena2" class="form-label">Confirmar Contraseña</label>
                             <input type="text" class="form-control" id="contrasena2">
                         </div>
                     </div>
             </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <button type="button" (click)="cambiarSeccion('cancelar')"><a href="/administrativo">Cancelar</a></button>
-                    <button type="button" (click)="cambiarSeccion('retroceder')" *ngIf="seccionFormulario > 0">Anterior</button> <!---Siguiente solo aparecerá en  "Crear Cuetan (1)" y "Confirmar Cuenta (2)"-->
-                    <button type="button" (click)="cambiarSeccion('avanzar')" *ngIf="seccionFormulario >= 0 && seccionFormulario <=2">Siguiente</button> <!---Siguiente solo aparecerá en "Datos Personales (0)" y "Crear Cuetan (1)"-->
-                    <button type="button" (click)="cambiarSeccion('confirmar')"  *ngIf="seccionFormulario == 4">Confirmar</button>
-                </div>
-            </div>
+            
         </form>
+
+        
     </div>
 </div>
+
+<div class="row pe-5 ps-5">
+    <div class="col-12 d-flex justify-content-between ">
+            <app-btn-cancelar></app-btn-cancelar>
+
+            <div class="d-flex align-items-center">
+                <app-btn-anterior *ngIf="seccionFormulario > 0;" (click)="cambiarSeccion('retroceder')" class="me-4"></app-btn-anterior>
+            <app-btn-siguiente
+                [mostrarModal]="enviarDatos"
+                [idModal]="'prueba'"
+                (click)="cambiarSeccion('avanzar')">
+            </app-btn-siguiente>
+            </div>
+    </div>
+</div>
+
+<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cuenta creada'"></app-mensaje-confirmacion>

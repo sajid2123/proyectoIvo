@@ -15,5 +15,23 @@
     color: #092C4C;
 }
 
+table > thead > tr > .sorting{ 
+    background-color: #092C4C;
+    color: white;
+   /* Sorting es la clase que se le asigna a los td/th que contengan el titulo del atributo de la tabla (SIP, Nombre, etc)*/
+}
+
+table > thead > tr > .sorting::before .sorting::after{
+    color: white; 
+    /*Sorting::before y after son las flechas de ordenacion de dicho atributo*/
+}
+
+.title{
+    font-size: 40px;
+    font-family: manrope;
+    font-weight: bold;
+}
+
+
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }  */

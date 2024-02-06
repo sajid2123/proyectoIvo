@@ -7,7 +7,7 @@ import { Component, Input,Output, EventEmitter } from '@angular/core';
 })
 export class ComponentePendienteRealizadaPerfilComponent {
     
-    ventanaAMostrar:string = '';
+    ventanaAMostrar:string = 'citas-pendientes';
 
     @Output() ventana = new EventEmitter<string>();
     @Output() apartado = new EventEmitter<string>();

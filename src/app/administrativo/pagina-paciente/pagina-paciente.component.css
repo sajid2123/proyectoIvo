@@ -1,13 +1,11 @@
 *{margin: 0px; padding: 0px;}
 
-.barra-lateral{
-    height: 100vh;
-}
-
 #elemento-lista{
    list-style: none;
 }
 
-.activo{
-    color: red;
+h1{
+    font-size: 40px;
+    font-family: manrope;
+    font-weight: bold;
 }

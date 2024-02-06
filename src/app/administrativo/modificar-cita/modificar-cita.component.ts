@@ -32,10 +32,10 @@ export class ModificarCitaComponent {
         $("select").prop("disabled", true);
   
         $("#flecha").addClass("border-3");
-        $("#flecha").addClass("border-warning");
+        $("#flecha").addClass("barra-inferior");
   
         $("#paso2").addClass("border-3");
-        $("#paso2").addClass("border-warning");
+        $("#paso2").addClass("barra-inferior");
   
         this.confirmar = true;
         this.enviarDatos = true;
@@ -48,10 +48,10 @@ export class ModificarCitaComponent {
         $("select").prop("disabled", false);
   
         $("#flecha").removeClass("border-3");
-        $("#flecha").removeClass("border-warning");
+        $("#flecha").removeClass("barra-inferior");
   
         $("#paso2").removeClass("border-3");
-        $("#paso2").removeClass("border-warning");
+        $("#paso2").removeClass("barra-inferior");
   
         this.confirmar = false;
         this.enviarDatos = false;
