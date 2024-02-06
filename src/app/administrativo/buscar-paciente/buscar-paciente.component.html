@@ -1,54 +1,53 @@
 <div class="container-fluid barra-lateral">
   <div class="row h-100">
-    <div class="col-2">
-      <app-barra-lateral-administrativo></app-barra-lateral-administrativo>
-    </div>
 
-    <div class="col-10">
+
+    <div class="col-12">
       <div class="row">
-        <div class="col-12 mt-3 p-3">
-          <label class="ms-5" id="lPaciente">Buscar paciente</label>
+        <div class="col-12 mt-5 p-3">
+          <label class="ms-5 h1" style="color: black;">Buscar paciente</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-12 mt-9 p-3">
-          <label class="ms-5" id="lBuscar">Ingrese los datos de la cuenta a buscar</label>
+        <div class="col-12 p-3">
+          <label class="ms-5 h4" style="font-weight: 500;">Ingrese los datos de la cuenta a buscar</label>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mt-4">
         <div class="col-8">
           <div class="d-flex flex-column align-items-center">
             <div class="d-flex flex-row mb-3">
-              <div class="me-4 mb-4">
+              <div class="me-5 mb-4">
                 <label>DNI</label>
                 <input type="text" class="form-control" placeholder="44529035T" [(ngModel)]="dni">
               </div>
-              <div class="ms-4 mb-4">
+              <div class="ms-5 mb-4">
                 <label>Nombre</label>
                 <input type="text" class="form-control" placeholder="Claudio" [(ngModel)]="nombre">
               </div>
             </div>
 
             <div class="d-flex flex-row mb-3">
-              <div class="me-4 mb-3">
+              <div class="me-5 mb-3">
                 <label>SIP</label>
                 <input type="text" class="form-control" placeholder="11111111" [(ngModel)]="sip">
               </div>
-              <div class="ms-4 mb-3">
+              <div class="ms-5 mb-3">
                 <label>Apellido</label>
                 <input type="text" class="form-control" placeholder="López" [(ngModel)]="apellido">
               </div>
             </div>
-            <button type="button" class="btn btn-primary mt-3" style="height: 50px; width: 30%;" (click)="buscarPaciente()">Buscar</button>
+            <button type="button" class="btn mt-3 btn-lg" style="background-color: #092C4C; color: white;"
+              (click)="buscarPaciente()">Buscar</button>
           </div>
         </div>
       </div>
 
-      <div class="col-12 mt-4">
+      <div class="col-7 mt-4 mx-auto">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover" style="width: 100%;">
           <thead class="bg-primary text-white">
-            <tr>
+            <tr class="text-center">
               <th>DNI</th>
               <th>Nombre</th>
               <th>SIP</th>
@@ -56,7 +55,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let resultado of resultados" class="table-hover">
+            <tr *ngFor="let resultado of resultados" class="table-hover text-center" >
               <td>{{ resultado.phone }}</td>
               <td>{{ resultado.name }}</td>
               <td>{{ resultado.address.zipcode }}</td>
@@ -65,6 +64,7 @@
           </tbody>
         </table>
       </div>
+      
 
     </div>
   </div>

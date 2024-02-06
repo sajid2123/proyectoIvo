@@ -26,7 +26,7 @@ export class BuscarPacienteComponent implements OnInit {
   this.dtOptions = {
     retrieve: true,
     pagingType: 'full_numbers',
-    pageLength: 10,
+    pageLength: 5,
     searching: false,
     lengthChange: false,
     language: {
@@ -53,7 +53,7 @@ export class BuscarPacienteComponent implements OnInit {
           (!this.apellido || item.username.toLowerCase().includes(this.apellido.toLowerCase()))
         );
       });
-      //this.dtTrigger.next(null);
+      this.dtTrigger.next(null);
     });
   }
 }

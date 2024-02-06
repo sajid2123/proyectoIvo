@@ -1,4 +1,4 @@
-body {
+.modal-content {
   background-color: #EBF3FA;
 }
 
@@ -12,4 +12,9 @@ body {
   border-color: #EBF3FA;
   background-color: #092C4C;
   color: #EBF3FA;
+}
+
+button {
+  width: 30%;
+  height: 30%;
 }
