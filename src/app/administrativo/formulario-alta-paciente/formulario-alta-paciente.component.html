@@ -4,17 +4,17 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
+<div class="row d-flex justify-content-center">
+    <div class="col-5 text-center">
         <app-pasos-formulario></app-pasos-formulario>
     </div>
 </div>
 
-<div class="row">
+<div class="row ">
     <div class="col-12">
         <form>
     <!---Apartado de Datos Personales y Confirmar Datos--->
-            <div id="datosPersonales" [hidden]="seccionFormulario == 1">
+            <div id="datosPersonales" [hidden]="seccionFormulario == 2">
                 <div class="row mb-2">
                     <div class="col">
                         <label for="dni" class="form-label">DNI</label>
@@ -75,7 +75,7 @@
             
     <!---Apartado de Crear Cuenta--->
             
-            <div id="cuenta" [hidden]="seccionFormulario == 0 || seccionFormulario == 2">
+            <div id="cuenta" [hidden]="seccionFormulario == 0 || seccionFormulario == 4">
                     <div class="row mb-3">
                         <div class="col-6">
                             <label for="usuario" class="form-label">Usuario</label>
@@ -105,8 +105,8 @@
                 <div class="col-12">
                     <button type="button" (click)="cambiarSeccion('cancelar')"><a href="/administrativo">Cancelar</a></button>
                     <button type="button" (click)="cambiarSeccion('retroceder')" *ngIf="seccionFormulario > 0">Anterior</button> <!---Siguiente solo aparecerá en  "Crear Cuetan (1)" y "Confirmar Cuenta (2)"-->
-                    <button type="button" (click)="cambiarSeccion('avanzar')" *ngIf="seccionFormulario >= 0 && seccionFormulario <2">Siguiente</button> <!---Siguiente solo aparecerá en "Datos Personales (0)" y "Crear Cuetan (1)"-->
-                    <button type="button" (click)="cambiarSeccion('confirmar')"  *ngIf="seccionFormulario == 2">Confirmar</button>
+                    <button type="button" (click)="cambiarSeccion('avanzar')" *ngIf="seccionFormulario >= 0 && seccionFormulario <=2">Siguiente</button> <!---Siguiente solo aparecerá en "Datos Personales (0)" y "Crear Cuetan (1)"-->
+                    <button type="button" (click)="cambiarSeccion('confirmar')"  *ngIf="seccionFormulario == 4">Confirmar</button>
                 </div>
             </div>
         </form>
