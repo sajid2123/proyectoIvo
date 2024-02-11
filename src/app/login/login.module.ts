@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginaLoginComponent } from './pagina-login/pagina-login.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -9,7 +9,9 @@ import { PaginaLoginComponent } from './pagina-login/pagina-login.component';
     PaginaLoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+        ReactiveFormsModule
   ]
 })
 export class LoginModule { }

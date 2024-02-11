@@ -5,10 +5,10 @@
         </div>
 
         <div class="col h-100 d-flex align-items-center" >
-            <div class="col-7 form" >
+            <div class="col-7">
                 <h1>Inicia sesión</h1>
                 <h2>Introduzca su correo y contraseña</h2>
-                <div class="form-group">
+                <form [formGroup] = "formulario">
                     <label for="correo" class="form-label" id="lCorreo">Correo</label>
                     <div class="input-group">
                         <span class="input-group-text" id="vectorUser">
@@ -19,7 +19,7 @@
                                     fill="#092C4C" />
                             </svg>
                         </span>
-                        <input type="email" class="form-control" id="correo"
+                        <input formControlName="correo" type="email" class="form-control" id="correo"
                             placeholder="administrativoGeneral@ivo.es">
                     </div>
                     
@@ -40,9 +40,9 @@
                                 </defs>
                             </svg>
                         </span>
-                        <input type="password" class="form-control" id="password" placeholder="*******">
+                        <input formControlName="password" type="password" class="form-control" id="password" placeholder="*******">
                     </div>
-                </div>
+                </form>
 
                 <div class="form-check mt-4 d-flex justify-content-end">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -54,7 +54,7 @@
 
 
                 <div class="d-grid gap-2 col-3 mx-auto mt-4">
-                    <button class="btn btn-custom" type="button">Iniciar sesión</button>
+                    <button class="btn btn-custom" type="button" (click)="onSubmit()">Iniciar sesión</button>
                 </div>
 
 
