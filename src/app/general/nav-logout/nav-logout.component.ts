@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav-logout',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-logout.component.css']
 })
 export class NavLogoutComponent {
-
+  faArrowRightFromBracket = faArrowRightFromBracket;
 }

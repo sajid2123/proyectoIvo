@@ -3,7 +3,7 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav-opciones',
@@ -15,4 +15,11 @@ export class NavOpcionesComponent {
   faMagnifyingGlass = faMagnifyingGlass;
   faUserPlus = faUserPlus;
   faFile = faFile;
+  
+  rolDelUsuario?:number;
+
+  ngOnInit(){
+    this.rolDelUsuario = Number(localStorage.getItem('rol'));
+  }
+   
 }

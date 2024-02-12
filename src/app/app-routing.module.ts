@@ -28,37 +28,94 @@ import { AtenderPacienteMedicoComponent } from './medico/atender-paciente-medico
 import { HistorialComponent } from './medico/historial/historial.component';
 import { BuscarPacienteComponent } from './administrativo/buscar-paciente/buscar-paciente.component';
 import { PlantillaComponent } from './general/plantilla/plantilla.component';
-
 import { PaginaPacienteComponent } from './administrativo/pagina-paciente/pagina-paciente.component';
 import { TablaCitasGeneralesComponent } from './administrativo/tabla-citas-generales/tabla-citas-generales.component';
 import { FormularioAltaPacienteComponent } from './administrativo/formulario-alta-paciente/formulario-alta-paciente.component';
-
 import { PaginaLoginComponent } from './login/pagina-login/pagina-login.component';
+import { loginGuard } from './guard/login.guard';
 
 
 
 
 const routes: Routes = [
+
   {
-    path: 'radiologo',
-    component: ComponentePaginaPrincipalRadiologoComponent,
+    path: 'app',
+    component: PlantillaComponent,
+    children:[
+      {
+        path: 'administrativo',
+        component: TablaCitasGeneralesComponent,
+        //canActivate: [loginGuard],
+      },
+      {
+        path: 'administrativo/paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
+        component: PaginaPacienteComponent,
+      },
+      {
+        path: 'administrativo/alta-paciente',
+        component: FormularioAltaPacienteComponent,
+      },
+      {
+        path: 'administrativo/crear-citas',
+        component: CrearCitasComponent,
+      },
+      {
+        path: 'administrativo/confirmar-citas',
+        component: ConfirmarCitasComponent
+      },
+      {
+        path: 'administrativo/detalles-citas',
+        component: DetallesCitaComponent
+      },
+      {
+        path: 'administrativo/modificar-citas',
+        component: ModificarCitaComponent
+      }, {
+        path: 'administrativo/buscar-paciente',
+        component: BuscarPacienteComponent
+      },
+      {
+        path: 'radiologo',
+        component: ComponentePaginaPrincipalRadiologoComponent,
+      },
+      {
+        path: 'paciente',
+        component: PaginaPrincipalPacienteComponent
+      }
+      ,
+      {
+        path: 'paciente/pruebas',
+        component: PaginaCitaPruebasComponent
+      },
+      {
+        path: 'paciente/detalles',
+        component: CitasPacienteDetallesComponent
+      },
+      {
+        path: 'tabla-pacientes',
+        component: TablaCitasComponent
+      },
+      {
+        path: 'radiologo/atender-paciente',
+        component: AtenderPacienteComponent
+      },
+      {
+        path: 'medico',
+        component: PaginaPrincipalMedicoComponent
+      },
+      {
+        path: 'medico/atender-paciente',
+        component: AtenderPacienteMedicoComponent
+      },
+      {
+        path: 'medico/atender-paciente/historial',
+        component: HistorialComponent
+      },
+    ]
   },
-  {
-    path: 'administrativo',
-    component: TablaCitasGeneralesComponent,
-  },
-  {
-    path: 'administrativo/paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
-    component: PaginaPacienteComponent,
-  },
-  {
-    path: 'administrativo/alta-paciente',
-    component: FormularioAltaPacienteComponent,
-  },
-  {
-    path: 'administrativo/crear-citas',
-    component: CrearCitasComponent,
-  },
+  
+  
   {
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
@@ -72,6 +129,7 @@ const routes: Routes = [
 
 
   //RUTAS RADIÓLOGO
+  /*
   {
     path: 'radiologo',
     component: ComponentePaginaPrincipalRadiologoComponent,
@@ -82,6 +140,7 @@ const routes: Routes = [
       // }
     ]
   },
+  */
   // {
   //   path: 'radiologo/citas-realizadas',
   //   component: ComponenetePaginaCitaRealizadasComponent
@@ -93,63 +152,17 @@ const routes: Routes = [
 
   //RUTAS ADMINISTRATIVO
 
-  {
-    path: 'administrativo/confirmar-citas',
-    component: ConfirmarCitasComponent
-  },
-  {
-    path: 'administrativo/detalles-citas',
-    component: DetallesCitaComponent
-  },
-  {
-    path: 'administrativo/modificar-citas',
-    component: ModificarCitaComponent
-  }, {
-    path: 'administrativo/buscar-paciente',
-    component: BuscarPacienteComponent
-  },
+  
 
   //RUTAS PACIENTE
-  {
-    path: 'paciente',
-    component: PaginaPrincipalPacienteComponent
-  }
-  ,
-  {
-    path: 'paciente/pruebas',
-    component: PaginaCitaPruebasComponent
-  },
-  {
-    path: 'paciente/detalles',
-    component: CitasPacienteDetallesComponent
-  },
-  {
-    path: 'tabla-pacientes',
-    component: TablaCitasComponent
-  },
-  {
-    path: 'radiologo/atender-paciente',
-    component: AtenderPacienteComponent
-
-  },
+  
 
   //RUTAS MÉDICO
   {
     path: 'tabs',
     component: TabsAtenderPacienteComponent
   },
-  {
-    path: 'medico',
-    component: PaginaPrincipalMedicoComponent
-  },
-  {
-    path: 'medico/atender-paciente',
-    component: AtenderPacienteMedicoComponent
-  },
-  {
-    path: 'medico/atender-paciente/historial',
-    component: HistorialComponent
-  },
+  
   {
     path: 'plantilla',
     component: PlantillaComponent
