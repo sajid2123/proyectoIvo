@@ -44,13 +44,13 @@ export class BuscarPacienteComponent implements OnInit {
 
   buscarPaciente(): void {
     this.buscando = true;
-    this.http.get<any[]>('https://jsonplaceholder.typicode.com/users').subscribe(data => {
+    this.http.get<any[]>('http://localhost/api/v1/pacientes').subscribe(data => {
       this.resultados = data.filter(item => {
         return (
-          (!this.dni || item.phone.includes(this.dni)) &&
-          (!this.nombre || item.name.toLowerCase().includes(this.nombre.toLowerCase())) &&
-          (!this.sip || item.address.zipcode.includes(this.sip)) &&
-          (!this.apellido || item.username.toLowerCase().includes(this.apellido.toLowerCase()))
+          (!this.dni || item.id_usuario_paciente.includes(this.dni)) &&
+          (!this.nombre || item.id_usuario_paciente.toLowerCase().includes(this.nombre.toLowerCase())) &&
+          (!this.sip || item.sip.includes(this.sip)) &&
+          (!this.apellido || item.id_usuario_paciente.toLowerCase().includes(this.apellido.toLowerCase()))
         );
       });
       this.dtTrigger.next(null);
