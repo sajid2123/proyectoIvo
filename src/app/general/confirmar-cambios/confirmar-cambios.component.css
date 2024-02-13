@@ -1,0 +1,30 @@
+.modal-content {
+  background-color: #ebf3fa;
+}
+
+#btnNo {
+  border-color: #092c4c;
+  background-color: #ebf3fa;
+  color: #092c4c;
+}
+
+#btnSi {
+  border-color: #ebf3fa;
+  background-color: #092c4c;
+  
+}
+
+h1 {
+  color: #092c4c;
+  font-weight: 500;
+}
+
+button {
+  width: 20%;
+  
+}
+
+a {
+    text-decoration: none;
+    color: #ebf3fa;
+}

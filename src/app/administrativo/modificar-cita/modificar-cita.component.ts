@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { CitaDataService } from '../cita-data.service';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { format } from 'date-fns';
 
 @Component({
@@ -8,6 +7,7 @@ import { format } from 'date-fns';
   styleUrls: ['./modificar-cita.component.css'],
 })
 export class ModificarCitaComponent {
+    
     // Definir las propiedades para almacenar los valores del formulario
     especialidad: string = '';
     nombreMedico: string = '';
@@ -62,4 +62,7 @@ export class ModificarCitaComponent {
       console.log("enviado a base de datos");
       $("#botonPrueba").trigger("click");
     }
+
+    
+
   }

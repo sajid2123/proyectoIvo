@@ -1,3 +1,17 @@
 #confirmacion{
     z-index: 99;
 }
+
+.custom-border-color {
+    border-color: #092C4C;
+  }
+  
+  
+  select, input {
+    border-color: #092C4C;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #092C4C;
+  }
