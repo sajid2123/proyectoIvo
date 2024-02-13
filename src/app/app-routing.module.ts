@@ -56,7 +56,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'administrativo/paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
+        path: 'administrativo/paciente/:id_paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
         component: PaginaPacienteComponent,
         canActivate: [rolGuard],
         data: {
@@ -102,7 +102,7 @@ const routes: Routes = [
         data: {
           idRol: 5,
         }
-      }, 
+      },
       {
         path: 'administrativo/buscar-paciente',
         component: BuscarPacienteComponent,
@@ -180,8 +180,8 @@ const routes: Routes = [
       },
     ]
   },
-  
-  
+
+
   {
     path: 'pr',
     component: ComponentePendienteRealizadaComponent
@@ -221,7 +221,7 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsAtenderPacienteComponent
   },
-  
+
   {
     path: 'plantilla',
     component: PlantillaComponent

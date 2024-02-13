@@ -1,7 +1,6 @@
 <div class="container-fluid barra-lateral">
   <div class="row h-100">
 
-
     <div class="col-12">
       <div class="row">
         <div class="col-12 mt-5 p-3">
@@ -55,13 +54,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let resultado of resultados" class="table-hover text-center" >
-              <td>{{ resultado.id_usuario_paciente }}</td>
-              <td>{{ resultado.id_usuario_paciente }}</td>
-              <td>{{ resultado.sip }}</td>
-              <td>{{ resultado.id_usuario_paciente }}</td>
+            <tr *ngFor="let resultado of resultados" class="table-hover text-center" (click)="navegarAPaciente(resultado.id_usuario_paciente)">
+              <td>{{ resultado.dni_usuario }}</td>
+              <td>{{ resultado.nombre_usuario }}</td>
+              <td>{{ resultado.sip_usuario }}</td>
+              <td>{{ resultado.apellido_usuario }}</td>
             </tr>
           </tbody>
+
+
+
         </table>
       </div>
 
