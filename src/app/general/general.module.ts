@@ -15,6 +15,7 @@ import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 import { NavOpcionesComponent } from './nav-opciones/nav-opciones.component';
 import { NavLogoutComponent } from './nav-logout/nav-logout.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
+import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 
 
 
@@ -28,7 +29,8 @@ import { PlantillaComponent } from './plantilla/plantilla.component';
     NavLateralComponent,
     NavOpcionesComponent,
     NavLogoutComponent,
-    PlantillaComponent
+    PlantillaComponent,
+    NoEncontradoComponent
   ],
   imports: [
     CommonModule,

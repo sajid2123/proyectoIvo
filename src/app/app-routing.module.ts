@@ -34,6 +34,7 @@ import { FormularioAltaPacienteComponent } from './administrativo/formulario-alt
 import { PaginaLoginComponent } from './login/pagina-login/pagina-login.component';
 import { loginGuard } from './guard/login.guard';
 import { rolGuard } from './guard/rol.guard';
+import { NoEncontradoComponent } from './general/no-encontrado/no-encontrado.component';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
     component: PlantillaComponent,
     canActivate: [loginGuard],
     canActivateChild: [loginGuard],
+    pathMatch: "prefix",
     children:[
       {
         path: 'administrativo',
@@ -225,6 +227,10 @@ const routes: Routes = [
   {
     path: 'plantilla',
     component: PlantillaComponent
+  },
+  {
+    path: '**',
+    component: NoEncontradoComponent,
   },
 ];
 
