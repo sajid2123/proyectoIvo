@@ -90,17 +90,21 @@
           <app-btn-anterior *ngIf="confirmar" (click)="anterior()" class="me-4"></app-btn-anterior>
           <app-btn-siguiente
               [mostrarModal]="enviarDatos"
-              [idModal]="'prueba'"
+              [idModal]="'confirmarCambios'"
               (click)="siguiente()">
-          </app-btn-siguiente>
+          </app-btn-siguiente> 
+
+          <!-- Este es una prueba para el modal de modificar datos -->
+          
       </div>
     </div>
 </div>
 
 
 
-<!-- Modal -->
-<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Modificar cita'"></app-mensaje-confirmacion>
+<!-- Modales -->
+<app-confirmar-cambios [idModal]="'confirmarCambios'"></app-confirmar-cambios>
+<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita modificada exitosamente'"></app-mensaje-confirmacion>
 
 
 

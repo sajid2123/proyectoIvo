@@ -1,0 +1,19 @@
+<div class="modal fade" [attr.id]="idModal" data-bs-keyboard="false" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body mt-4 h3" style="font-weight: 400;">
+                <div class="col-12 mx-auto text-center">
+                    <h1>Se van a realizar los siguientes cambios:</h1>
+                </div>
+
+                <div class="col-8 mx-auto text-center">
+                    <h4 [innerHTML]="tCambios"></h4>
+                </div>
+            </div>
+            <div class="col-12 p-3 mb-4 d-flex justify-content-between">
+                <button id="btnNo" type="button" class="btn ms-auto me-auto" data-bs-dismiss="modal">No</button>
+                <button id="btnSi" type="button" class="btn ms-auto me-auto"><a href="{{enlaceSi}}">Si</a></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,19 +3,19 @@
         <div *ngSwitchCase="5">
 
             <li class="nav-item mt-3 ">
-                <a class="nav-link  px-3" routerLink="">
+                <a class="nav-link  px-3" routerLink="/app/administrativo">
                     <fa-icon [icon]="faCalendar" class="mx-2 icon-calender"></fa-icon>
                     Citas Administrativo
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <a class="nav-link  px-3" routerLink="">
+                <a class="nav-link  px-3" routerLink="/app/administrativo/alta-paciente">
                     <fa-icon [icon]="faUserPlus" class="mx-2 icon-calender"></fa-icon>
                     Alta Paciente
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <a class="nav-link  px-3" routerLink="">
+                <a class="nav-link  px-3" routerLink="/app/administrativo/buscar-paciente">
                     <fa-icon [icon]="faMagnifyingGlass" class="mx-2 icon-calender"></fa-icon>
                     Busqueda Paciente
                 </a>
@@ -40,7 +40,7 @@
               </a>
             </li>
         </div>
-    
+
         <div *ngSwitchCase="3">
             <li class="nav-item mt-3">
                 <a class="nav-link  px-3" routerLink="">
@@ -55,9 +55,9 @@
               </a>
               </li>
         </div>
-        
+
         <div *ngSwitchDefault>
-            
+
         </div>
     </ul>
 

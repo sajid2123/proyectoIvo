@@ -15,7 +15,11 @@ import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 import { NavOpcionesComponent } from './nav-opciones/nav-opciones.component';
 import { NavLogoutComponent } from './nav-logout/nav-logout.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
+
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
+
+import { ConfirmarCambiosComponent } from './confirmar-cambios/confirmar-cambios.component';
+
 
 
 
@@ -30,7 +34,8 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
     NavOpcionesComponent,
     NavLogoutComponent,
     PlantillaComponent,
-    NoEncontradoComponent
+    NoEncontradoComponent,
+    ConfirmarCambiosComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +49,8 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
     ConfirmaComponent,
     ComponentePendienteRealizadaComponent,
     BreadcrumbComponent,
-    PlantillaComponent
+    PlantillaComponent,
+    ConfirmarCambiosComponent
   ]
 })
 export class GeneralModule { }

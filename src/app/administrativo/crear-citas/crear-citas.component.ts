@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CitaDataService } from '../cita-data.service';
 import { format } from 'date-fns';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./crear-citas.component.css'],
 })
 export class CrearCitasComponent {
+  formulario!: FormGroup;
+
+    
+
+    /*constructor(private router: Router){
+      this.formulario = new FormGroup({
+        especialidad: new FormControl(),
+        nombreMedico: new FormControl(),
+        fechaCreacion: new FormControl(),
+        horasDisponibles: new FormControl()
+      })
+    }*/
+
+
   // Definir las propiedades para almacenar los valores del formulario
   especialidad: string = '';
   nombreMedico: string = '';
@@ -66,26 +81,5 @@ export class CrearCitasComponent {
   }
 }
 
-/*
-    this.isSubmited = true;
-    // Verificar si algún campo está vacío
-    if (!this.especialidad || !this.nombreMedico || !this.fechaCreacion || !this.horasDisponibles) {
 
-      return;
-    }
-
-    const fechaFormateada = this.formatearFecha(new Date(this.fechaCreacion));
-
-    //Asignar los datos del formulario al objeto datosCita en el servicio
-    this.citaDataService.datosCita = {
-      especialidad: this.especialidad,
-      nombreMedico: this.nombreMedico,
-      fechaCreacion: fechaFormateada,
-      horasDisponibles: this.horasDisponibles,
-    };
-
-    // Permitir la navegación si todos los campos están llenos
-    this.router.navigate(['/administrativo/confirmar-citas']);
-  }
-*/
 
