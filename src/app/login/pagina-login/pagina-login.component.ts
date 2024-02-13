@@ -5,12 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiServicioService } from 'src/app/api-servicio.service';
 import { Injectable, inject } from '@angular/core';
+import { rolGuard } from 'src/app/guard/rol.guard';
 
 
 @Component({
   selector: 'app-pagina-login',
   templateUrl: './pagina-login.component.html',
-  styleUrls: ['./pagina-login.component.css']
+  styleUrls: ['./pagina-login.component.css'],
+  
 })
 export class PaginaLoginComponent {
     formulario!: FormGroup;

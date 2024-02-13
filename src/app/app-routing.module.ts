@@ -33,6 +33,8 @@ import { TablaCitasGeneralesComponent } from './administrativo/tabla-citas-gener
 import { FormularioAltaPacienteComponent } from './administrativo/formulario-alta-paciente/formulario-alta-paciente.component';
 import { PaginaLoginComponent } from './login/pagina-login/pagina-login.component';
 import { loginGuard } from './guard/login.guard';
+import { rolGuard } from './guard/rol.guard';
+
 
 
 
@@ -42,75 +44,139 @@ const routes: Routes = [
   {
     path: 'app',
     component: PlantillaComponent,
+    canActivate: [loginGuard],
+    canActivateChild: [loginGuard],
     children:[
       {
         path: 'administrativo',
         component: TablaCitasGeneralesComponent,
-        //canActivate: [loginGuard],
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/paciente', // La URL contendrá el id del paciente despues de ser creado/buscado
         component: PaginaPacienteComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/alta-paciente',
         component: FormularioAltaPacienteComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/crear-citas',
         component: CrearCitasComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/confirmar-citas',
-        component: ConfirmarCitasComponent
+        component: ConfirmarCitasComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/detalles-citas',
-        component: DetallesCitaComponent
+        component: DetallesCitaComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'administrativo/modificar-citas',
-        component: ModificarCitaComponent
-      }, {
+        component: ModificarCitaComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
+      }, 
+      {
         path: 'administrativo/buscar-paciente',
-        component: BuscarPacienteComponent
+        component: BuscarPacienteComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 5,
+        }
       },
       {
         path: 'radiologo',
         component: ComponentePaginaPrincipalRadiologoComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 4,
+        }
+      },
+      {
+        path: 'radiologo/atender-paciente',
+        component: AtenderPacienteComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 4,
+        }
       },
       {
         path: 'paciente',
-        component: PaginaPrincipalPacienteComponent
+        component: PaginaPrincipalPacienteComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 2,
+        }
       }
       ,
       {
         path: 'paciente/pruebas',
-        component: PaginaCitaPruebasComponent
+        component: PaginaCitaPruebasComponent,
+        data: {
+          idRol: 2,
+        }
       },
       {
         path: 'paciente/detalles',
-        component: CitasPacienteDetallesComponent
+        component: CitasPacienteDetallesComponent,
+        data: {
+          idRol: 2,
+        }
       },
       {
         path: 'tabla-pacientes',
-        component: TablaCitasComponent
-      },
-      {
-        path: 'radiologo/atender-paciente',
-        component: AtenderPacienteComponent
+        component: TablaCitasComponent,
       },
       {
         path: 'medico',
-        component: PaginaPrincipalMedicoComponent
+        component: PaginaPrincipalMedicoComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 3,
+        }
       },
       {
         path: 'medico/atender-paciente',
-        component: AtenderPacienteMedicoComponent
+        component: AtenderPacienteMedicoComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 3,
+        }
       },
       {
         path: 'medico/atender-paciente/historial',
-        component: HistorialComponent
+        component: HistorialComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 3,
+        }
       },
     ]
   },
@@ -149,13 +215,6 @@ const routes: Routes = [
     path: 'tabla',
     component: TablaCitasComponent
   },
-
-  //RUTAS ADMINISTRATIVO
-
-  
-
-  //RUTAS PACIENTE
-  
 
   //RUTAS MÉDICO
   {

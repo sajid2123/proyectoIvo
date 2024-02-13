@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -39,7 +40,8 @@ import { LoginModule } from './login/login.module';
     RadiologoModule,
     BrowserAnimationsModule,
     PacienteModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
