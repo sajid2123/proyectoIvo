@@ -1,6 +1,6 @@
     <div class="row">
         <div class="col-12 p-o mt-3">
-            <breadcrumb 
+            <breadcrumb
             [primeraRouta]="'/administrativo'"
             [primerNombre]="'Alta paciente'"
             [segundonombre]="'Citas'"
@@ -43,26 +43,26 @@
                                 <option value="3">Three</option>
                             </select>
                     </div>
-            
+
                     <div class="col ms-5">
                         <label for="fechaCreacion" class="form-label">Fecha de Creacion</label>
                         <input type="date" class="form-control" id="fechaCreacion">
                     </div>
-            
+
                 </div>
 
                 <div class="row mb-2 mt-5">
-                    
+
                     <div class="col ms-5">
                         <label for="nombreMedico" class="form-label">Nombre de Médico</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" aria-label="Seleccionar médico">
+                          <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
+                            {{ medico.usuario ? medico.usuario.nombre : 'Nombre no disponible' }}
+                          </option>
                         </select>
+
                     </div>
-            
+
                     <div class="col ms-5">
                         <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
                         <select class="form-select" aria-label="Default select example">
@@ -72,7 +72,7 @@
                             <option value="3">Three</option>
                         </select>
                     </div>
-            
+
                 </div>
 
             </form>
@@ -88,9 +88,9 @@
             </div>
 
             <div>
-                <app-btn-siguiente 
-                [mostrarModal]="enviarDatos" 
-                [idModal]="'prueba'" 
+                <app-btn-siguiente
+                [mostrarModal]="enviarDatos"
+                [idModal]="'prueba'"
                 (click)="siguiente()">
                 </app-btn-siguiente>
             </div>
@@ -99,48 +99,7 @@
 
   <!-- Modal -->
   <app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita creada'" [enlace]="'administrativo/paciente'"></app-mensaje-confirmacion>
-<!---
-        <select class="form-select" name="especialidad" aria-label="Default select example" [(ngModel)]="especialidad"
-                [ngClass]="{ 'is-invalid': !especialidad && isSubmited }">
-            <option value="" disabled selected>Selecciona un especialista</option>
-            <option value="Pediatria">Pediatria</option>
-            <option value="Enfermeria">Enfermeria</option>
-            <option value="Radiologia">Radiologia</option>
-        </select>
-        <div *ngIf="isSubmited && !especialidad" class="invalid-feedback">Por favor, seleccione una especialidad.</div>
-    </div>
 
-    <div class="form-nombre">
-        <label id="medico">Nombre de médico</label><br>
-        <select class="form-select" name="nombreMedico" aria-label="Default select example" [(ngModel)]="nombreMedico"
-                [ngClass]="{ 'is-invalid': !nombreMedico && isSubmited }">
-            <option value="" disabled selected>Nombre del médico</option>
-            <option value="Claudio López">Claudio López</option>
-            <option value="María García">María García</option>
-            <option value="Luis Saéz">Luis Sáez</option>
-        </select>
-        <div *ngIf="isSubmited && !nombreMedico" class="invalid-feedback">Por favor, seleccione un médico.</div>
-    </div>
-
-
-    <div class="form-creacion">
-      <label id="lCreacion">Fecha de creación</label><br>
-      <input type="date" id="fechaCreacion" name="fechaCreacion" [(ngModel)]="fechaCreacion"
-             [ngClass]="{ 'is-invalid': !fechaCreacion }">
-      <div class="invalid-feedback ">Por favor, seleccione una fecha de creación.</div>
-  </div>
-
-  <div class="form-horas ">
-    <label id="lHoras">Horas disponibles</label><br>
-    <select class="form-select" name="horasDisponibles" aria-label="Default select example" [(ngModel)]="horasDisponibles"
-            [ngClass]="{ 'is-invalid': !horasDisponibles && isSubmited}">
-        <option value="" disabled selected>hh/mm</option>
-        <option value="12:55">12:55</option>
-        <option value="13:30">13:30</option>
-        <option value="14:00">14:00</option>
-    </select>
-    <div *ngIf="isSubmited && !horasDisponibles" class="invalid-feedback ">Por favor, seleccione una hora disponible.</div>
---->
 
 
 

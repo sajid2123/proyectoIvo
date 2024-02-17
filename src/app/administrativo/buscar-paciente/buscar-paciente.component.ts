@@ -72,8 +72,8 @@ export class BuscarPacienteComponent implements OnInit {
   }
 
   navegarAPaciente(idPaciente: string): void {
-    console.log('ID del paciente:', idPaciente);
-    const url = `/app/administrativo/paciente/:id_paciente=${idPaciente}`;
+    const url = `/app/administrativo/paciente/${idPaciente}`;
+
     this.router.navigateByUrl(url);
 
     console.log(`Click sobre ${idPaciente}`);

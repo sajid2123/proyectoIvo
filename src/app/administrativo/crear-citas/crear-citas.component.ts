@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CitaDataService } from '../cita-data.service';
 import { format } from 'date-fns';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -11,19 +13,13 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./crear-citas.component.css'],
 })
 export class CrearCitasComponent {
-  formulario!: FormGroup;
+  idPaciente: string = '';
+  idUsuarioAdministrativo: string = '';
+  idUsuarioPaciente: string = '';
+  nombrePaciente: string = '';
+  medicos: any[] = [];
 
-    
-
-    /*constructor(private router: Router){
-      this.formulario = new FormGroup({
-        especialidad: new FormControl(),
-        nombreMedico: new FormControl(),
-        fechaCreacion: new FormControl(),
-        horasDisponibles: new FormControl()
-      })
-    }*/
-
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   // Definir las propiedades para almacenar los valores del formulario
   especialidad: string = '';
@@ -56,7 +52,7 @@ export class CrearCitasComponent {
 
       this.confirmar = true;
       this.enviarDatos = true;
-    } 
+    }
   }
 
   anterior(){ // Si el administrativo le da a anterior, se habilitará el formulario para su edicion y retrocederá al apartado "Datos de la Cita"
@@ -72,13 +68,58 @@ export class CrearCitasComponent {
 
       this.confirmar = false;
       this.enviarDatos = false;
-    } 
+    }
   }
 
   enviar(){
     console.log("enviado a base de datos");
     $("#botonPrueba").trigger("click");
   }
+
+
+
+  obtenerDatosPaciente(idPaciente: string): void {
+    // Hacer la llamada a la API para obtener los detalles del paciente
+    this.http.get<any>(`http://localhost/api/v1/pacientes/${idPaciente}`).subscribe(
+      (response) => {
+        this.nombrePaciente = response.usuario.nombre;
+        this.idUsuarioAdministrativo = response.id_usuario_administrativo
+        this.idUsuarioPaciente = response.id_usuario_paciente
+
+
+        console.log('Nombre del paciente:', this.nombrePaciente);
+        console.log('Id del administrativo:', this.idUsuarioAdministrativo);
+        console.log('Id del paciente:', this.idUsuarioPaciente);
+
+      },
+      (error) => {
+        console.error('Error al obtener el nombre del paciente:', error);
+      }
+    );
+  }
+
+  obtenerMedicos(): void {
+    this.http.get<any>('http://localhost/api/v1/medicos').subscribe(
+      (response) => {
+        this.medicos = response; // Suponiendo que la respuesta de la API es un array de objetos con los detalles de los médicos
+      },
+      (error) => {
+        console.error('Error al obtener la lista de médicos:', error);
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    // Obtener el id_usuario_paciente de los parámetros de la URL
+    this.route.queryParams.subscribe((params) => {
+      this.idPaciente = params['id_usuario_paciente'];
+
+      // Llamar a la API para obtener los detalles del paciente
+      this.obtenerDatosPaciente(this.idPaciente);
+    });
+    this.obtenerMedicos();
+  }
+
 }
 
 
