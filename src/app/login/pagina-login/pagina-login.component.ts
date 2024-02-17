@@ -1,19 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiServicioService } from 'src/app/api-servicio.service';
-import { Injectable, inject } from '@angular/core';
-import { rolGuard } from 'src/app/guard/rol.guard';
-
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-pagina-login',
   templateUrl: './pagina-login.component.html',
   styleUrls: ['./pagina-login.component.css'],
-  
 })
+
 export class PaginaLoginComponent {
     formulario!: FormGroup;
 
@@ -38,10 +34,10 @@ export class PaginaLoginComponent {
 
         switch (Number(localStorage.getItem("rol"))) {
           case 2:
-            this.router.navigateByUrl('/app/medico');
+            this.router.navigateByUrl('/app/paciente');
           break;
           case 3:
-            this.router.navigateByUrl('/app/paciente');
+            this.router.navigateByUrl('/app/medico');
           break;
           case 4:
             this.router.navigateByUrl('/app/radiologo');

@@ -15,10 +15,10 @@ export const rolGuard: CanActivateFn = (route, state) => {
 
     switch (Number(localStorage.getItem("rol"))) {
       case 2:
-        ubicacion.navigateByUrl('/app/medico');
+        ubicacion.navigateByUrl('/app/paciente');
       break;
       case 3:
-        ubicacion.navigateByUrl('/app/paciente');
+        ubicacion.navigateByUrl('/app/medico');
       break;
       case 4:
         ubicacion.navigateByUrl('/app/radiologo');
