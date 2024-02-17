@@ -30,58 +30,51 @@
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 mb-4">
-            <form>
+          <form [formGroup]="formularioCita">
 
-                <div class="row mb-4">
-
-                    <div class="col ms-5">
-                        <label for="especialidad" class="form-label">Especialidad</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                    </div>
-
-                    <div class="col ms-5">
-                        <label for="fechaCreacion" class="form-label">Fecha de Creacion</label>
-                        <input type="date" class="form-control" id="fechaCreacion">
-                    </div>
+            <div class="row mb-4">
+                <div class="col ms-5">
+                    <label for="especialidad" class="form-label">Servicio</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="especialidad" (change)="obtenerIdServicio($event)">
+                      <option *ngFor="let servicio of servicios" [value]="servicio.id_servicio" >
+                          {{ servicio.nombre_servicio }}
+                      </option>
+                  </select>
 
                 </div>
 
-                <div class="row mb-2 mt-5">
+                <!--
+                  <div class="col ms-5">
+                    <label for="fechaCreacion" class="form-label">Fecha de Creacion</label>
+                    <input type="date" class="form-control" formControlName="fechaCreacion">
+                </div> -->
+            </div>
 
-                    <div class="col ms-5">
-                        <label for="nombreMedico" class="form-label">Nombre de Médico</label>
-                        <select class="form-select" aria-label="Seleccionar médico">
-                          <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
-                            {{ medico.usuario ? medico.usuario.nombre : 'Nombre no disponible' }}
-                          </option>
-                        </select>
-
-                    </div>
-
-                    <div class="col ms-5">
-                        <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-
+            <div class="row mb-2 mt-5">
+                <div class="col ms-5">
+                    <label for="nombreMedico" class="form-label">Nombre de Médico</label>
+                    <select class="form-select" aria-label="Seleccionar médico" formControlName="nombreMedico" (change)="obtenerIdMedico($event)">
+                        <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
+                          {{ medico.usuario.nombre }}
+                        </option>
+                    </select>
                 </div>
 
-            </form>
+                <div class="col ms-5">
+                    <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
+                    <input type="time" class="form-control" formControlName="horasDisponibles">
+                </div>
+            </div>
+
+        </form>
+
         </div>
     </div>
 
     <div class="row mt-3 p-5">
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <app-btn-cancelar></app-btn-cancelar>
+          <app-btn-cancelar [routerLink]="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
+
 
             <div *ngIf="confirmar">
                 <app-btn-anterior (click)="anterior()"></app-btn-anterior>
@@ -98,7 +91,7 @@
     </div>
 
   <!-- Modal -->
-  <app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita creada'" [enlace]="'administrativo/paciente'"></app-mensaje-confirmacion>
+  <app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita creada'" [enlace]="'app/administrativo/paciente/'+idPaciente"></app-mensaje-confirmacion>
 
 
 
