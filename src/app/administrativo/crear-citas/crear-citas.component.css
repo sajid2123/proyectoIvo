@@ -5,13 +5,21 @@
 .custom-border-color {
     border-color: #092C4C;
   }
-  
-  
+
+
   select, input {
     border-color: #092C4C;
   }
-  
+
   label {
     font-weight: bold;
     color: #092C4C;
+  }
+
+  .error-message-container {
+    height: 1.5em; /* Altura aproximada del mensaje de error */
+  }
+
+  .text-danger {
+    margin-top: 0.5em; /* Espacio adicional para el mensaje de error */
   }

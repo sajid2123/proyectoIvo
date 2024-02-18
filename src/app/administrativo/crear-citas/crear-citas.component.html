@@ -23,31 +23,27 @@
 
 
     <div class="row">
-        <div class="col-12 mt-5 ms-5 mb-5">
+        <div class="col-12 mt-5 ms-5">
             <p class="h5">Introduce los datos de la cita</p>
         </div>
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 mb-4">
-          <form [formGroup]="formularioCita">
+        <div class="col-12 col-md-6">
+          <form [formGroup]="formularioCita"  (ngSubmit)="siguiente()">
 
             <div class="row mb-4">
-                <div class="col ms-5">
-                    <label for="especialidad" class="form-label">Servicio</label>
-                    <select class="form-select" aria-label="Default select example" formControlName="especialidad" (change)="obtenerIdServicio($event)">
-                      <option *ngFor="let servicio of servicios" [value]="servicio.id_servicio" >
-                          {{ servicio.nombre_servicio }}
-                      </option>
-                  </select>
-
-                </div>
-
-                <!--
-                  <div class="col ms-5">
-                    <label for="fechaCreacion" class="form-label">Fecha de Creacion</label>
-                    <input type="date" class="form-control" formControlName="fechaCreacion">
-                </div> -->
+              <div class="col ms-5">
+                <label for="especialidad" class="form-label">Servicio</label>
+                <select class="form-select" aria-label="Default select example" formControlName="especialidad" (change)="obtenerIdServicio($event)">
+                  <option *ngFor="let servicio of servicios" [value]="servicio.id_servicio">
+                    {{ servicio.nombre_servicio }}
+                  </option>
+                </select>
+                <h4 [style.visibility]="(formularioCita.get('especialidad')?.invalid && (formularioCita.get('especialidad')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
+                  El servicio es requerido.
+                </h4>
+              </div>
             </div>
 
             <div class="row mb-2 mt-5">
@@ -58,11 +54,18 @@
                           {{ medico.usuario.nombre }}
                         </option>
                     </select>
+                    <h4 [style.visibility]="(formularioCita.get('nombreMedico')?.invalid && (formularioCita.get('nombreMedico')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
+                      El nombre del medico es requerido.
+                    </h4>
+
                 </div>
 
                 <div class="col ms-5">
                     <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
                     <input type="time" class="form-control" formControlName="horasDisponibles">
+                    <h4 [style.visibility]="(formularioCita.get('horasDisponibles')?.invalid && (formularioCita.get('horasDisponibles')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
+                     La hora de la cita es requerida.
+                    </h4>
                 </div>
             </div>
 
@@ -71,22 +74,24 @@
         </div>
     </div>
 
-    <div class="row mt-3 p-5">
+    <div class="row  p-5">
         <div class="col-12 d-flex justify-content-between align-items-center">
           <app-btn-cancelar [routerLink]="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
 
-
-            <div *ngIf="confirmar">
+          <div style="display: flex; justify-content: space-between;">
+            <div *ngIf="confirmar" class="me-5">
                 <app-btn-anterior (click)="anterior()"></app-btn-anterior>
             </div>
 
             <div>
                 <app-btn-siguiente
-                [mostrarModal]="enviarDatos"
-                [idModal]="'prueba'"
-                (click)="siguiente()">
+                    [mostrarModal]="enviarDatos"
+                    [idModal]="'prueba'"
+                    (click)="siguiente()">
                 </app-btn-siguiente>
             </div>
+        </div>
+
         </div>
     </div>
 

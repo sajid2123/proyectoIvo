@@ -6,7 +6,7 @@ import { Component, Input,Output, EventEmitter } from '@angular/core';
   styleUrls: ['./componente-pendiente-realizada-perfil.component.css']
 })
 export class ComponentePendienteRealizadaPerfilComponent {
-    
+
     ventanaAMostrar:string = 'citas-pendientes';
 
     @Output() ventana = new EventEmitter<string>();
@@ -24,7 +24,7 @@ export class ComponentePendienteRealizadaPerfilComponent {
           this.apartado.emit("Citas");
           break;
       }
-      
+
       this.ventana.emit(this.ventanaAMostrar);
     }
 }

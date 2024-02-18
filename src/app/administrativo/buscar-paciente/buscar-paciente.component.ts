@@ -44,6 +44,7 @@ export class BuscarPacienteComponent implements OnInit {
     };
   }
 
+
   id_admin = localStorage.getItem('id_usuario');
 
   buscarPaciente(): void {
@@ -52,7 +53,16 @@ export class BuscarPacienteComponent implements OnInit {
       response => {
         const pacientes = response.pacientes;
         if (Array.isArray(pacientes)) {
-          this.resultados = pacientes.map(paciente => {
+          // Aplicar filtros según los valores de los campos de búsqueda
+          this.resultados = pacientes.filter(paciente => {
+            const usuario = paciente.usuario;
+            return (
+              paciente.sip.includes(this.sip) &&
+              usuario.dni.includes(this.dni) &&
+              usuario.nombre.includes(this.nombre) &&
+              usuario.apellido1.includes(this.apellido)
+            );
+          }).map(paciente => {
             const usuario = paciente.usuario;
             return {
               id_usuario_paciente: paciente.id_usuario_paciente, // Añadir el ID del paciente a los resultados
@@ -70,6 +80,8 @@ export class BuscarPacienteComponent implements OnInit {
       }
     );
   }
+
+
 
   navegarAPaciente(idPaciente: string): void {
     const url = `/app/administrativo/paciente/${idPaciente}`;

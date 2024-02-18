@@ -24,13 +24,13 @@
       <div class="col-md-6 d-flex justify-content-center">
         <div>
           <h1>MÉDICO / ESPECIALISTA</h1>
-          <h2>Maria Garcia</h2>
+          <h2>{{idMedico}}</h2>
         </div>
       </div>
       <div class="col-md-6  d-flex justify-content-center">
         <div>
           <h1>SERVICIO</h1>
-          <h2>Radiologia</h2>
+          <h2>{{idServicio}}</h2>
         </div>
       </div>
     </div>
@@ -38,13 +38,13 @@
       <div class="col-md-6 mb-5 d-flex justify-content-center">
         <div>
           <h1>FECHA</h1>
-          <h2 >Sábado 10 de febrero de 2024</h2>
+          <h2 >{{fecha}}</h2>
         </div>
       </div>
       <div class="col-md-6 mb-5 d-flex justify-content-center">
         <div>
           <h1>HORA</h1>
-          <h2>12:00</h2>
+          <h2>{{hora}}</h2>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
 </div>
 
 <div *ngIf="mostrarConfirma">
-  <app-confirma [idModal]="'prueba'" [texto]="'¿Desea anular la cita?'" [enlaceSi]="'administrativo/paciente'"></app-confirma>
+  <app-confirma [idModal]="'prueba'" [texto]="'¿Desea anular la cita?'" [enlaceSi]="'administrativo/paciente'" (confirmacion)="confirmarEliminacion()"></app-confirma>
 </div>
 
 
