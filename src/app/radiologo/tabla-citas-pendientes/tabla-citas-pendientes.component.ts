@@ -1,48 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CitaResponse, RadiologoService } from '../servicio/radiologo.service';
 
-interface Cita {
-  sip: string;
-  nombre: string;
-  apellido: string;
-  hora: string;
-}
+
 
 @Component({
   selector: 'app-tabla-citas-pendientes',
   templateUrl: './tabla-citas-pendientes.component.html',
   styleUrls: ['./tabla-citas-pendientes.component.css']
 })
+
 export class TablaCitasPendientesComponent {
-  citas: Cita[] = [
-    { sip: '1234', nombre: 'Cita', apellido: 'Pendiente', hora: '08:00' },
-    { sip: '5678', nombre: 'Luis', apellido: 'Martínez', hora: '09:00' },
-    { sip: '1235', nombre: 'Carlos', apellido: 'López', hora: '08:30' },
-    { sip: '5679', nombre: 'María', apellido: 'Gómez', hora: '09:30' },
-    { sip: '1253', nombre: 'Juan', apellido: 'Pérez', hora: '10:00' },
-    { sip: '5687', nombre: 'Sofía', apellido: 'Ruiz', hora: '10:30' },
-    { sip: '1234', nombre: 'Ana', apellido: 'García', hora: '08:00' },
-    { sip: '5678', nombre: 'Luis', apellido: 'Martínez', hora: '09:00' },
-    { sip: '1235', nombre: 'Carlos', apellido: 'López', hora: '08:30' },
-    { sip: '5679', nombre: 'María', apellido: 'Gómez', hora: '09:30' },
-    { sip: '1253', nombre: 'Juan', apellido: 'Pérez', hora: '10:00' },
-    { sip: '5687', nombre: 'Sofía', apellido: 'Ruiz', hora: '10:30' }
-  ];
+  
+  citas!: CitaResponse[];
+  dtOptions: DataTables.Settings = {};
 
-  constructor(private router: Router) {}
 
-  onRowClick(cita: Cita){
-    this.router.navigate(['/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora } });
-  }
+  constructor(private router: Router,private radiologoService: RadiologoService ) {}
 
-  dtOptions: DataTables.Settings = {}
+
+ 
+
 
   ngOnInit(): void {
+
+    this.getCitasPendientes();
+   
+
     this.dtOptions = {
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
       },
       pagingType: "numbers"
     }
+  }
+
+
+  
+  getCitasPendientes(){
+    this.radiologoService.getCitasPendientes('2024-02-19',7)
+      .subscribe(
+        (res: any) => {
+          this.citas = res.citas;
+        },
+        (error) => {
+          console.error('Error al obtener citas pendientes', error);
+        }
+      );
+  }
+
+  
+  onRowClick(cita: CitaResponse){
+    this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora } });
   }
 }
