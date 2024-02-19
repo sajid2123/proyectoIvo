@@ -14,6 +14,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     FontAwesomeModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
+
   ]
 })
 export class RadiologoModule { }

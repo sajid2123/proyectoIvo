@@ -14,7 +14,7 @@
                     <input type="file" class="form-control" name="imagenes" (change)="onFileChange($event)" 
                            multiple required>
                   </div>
-                  <div *ngFor="let image of imagePreviews">
+                  <div *ngFor="let image of imagePreviews;  let i = index">
                     <div class="contenedor-style mt-3">
                         <div class="color con-style">
                             <span class="mx-2">
@@ -22,7 +22,7 @@
                             </span>
                             <p class="m-0">{{image.name}}</p>
                         </div>
-                        <span class="color">
+                        <span class="color" (click)="removeImage(i)">
                             <fa-icon [icon]="faCircleXmark"></fa-icon>
                         </span>
                     </div>
@@ -30,7 +30,7 @@
                   </div>
             </div>
             <div class="row">
-                <div class="col-12 ">
+                <div class="col-12 d-flex justify-content-end">
                     <button type="submit" class="btn btn-personalized mt-5">
                         <span class="mx-2">
                             <fa-icon [icon]="faFloppyDisk"></fa-icon>

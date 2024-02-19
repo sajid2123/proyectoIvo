@@ -54,5 +54,11 @@ export class FormularioAtenderPacienteComponent {
       }
     }
   }
+
+  removeImage(index: number) {
+
+    this.imagePreviews.splice(index, 1);
+    this.formData.imagenes.splice(index, 1);
+}
  
 }

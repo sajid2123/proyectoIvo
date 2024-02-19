@@ -10,7 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class AtenderPacienteComponent {
   constructor(private route: ActivatedRoute){}
 
-   nombreCompleto: String = "";
+
+  idUsaurio = localStorage.getItem('id_usuario');
+  nombreCompleto: String = "";
   
 
   ngOnInit() {
