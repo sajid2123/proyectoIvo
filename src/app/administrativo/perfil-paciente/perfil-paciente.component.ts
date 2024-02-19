@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AdministrativoServiceService } from '../administrativo-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PerfilPacienteComponent {
     poderEditar:boolean = false;
-    idPaciente: String = '';
+    idPaciente: string = '';
     dni:String = '';
     nombre:String = '';
     apellido1:String = '';
@@ -22,12 +23,12 @@ export class PerfilPacienteComponent {
     codigoPostal:String = '';
     direccion:String = '';
 
-    constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
+    constructor(private route: ActivatedRoute, private http: HttpClient, private administrativoService: AdministrativoServiceService) {}
 
     ngOnInit(): void {
       //Obtener el ID del paciente
       this.route.params.subscribe((params) => {
-        this.idPaciente = params['id_paciente']; 
+        this.idPaciente = params['id_paciente'];
         //Llamar a la API para obtener los detalles del paciente
         this.obtenerDatosPaciente(this.idPaciente);
       });
@@ -96,7 +97,7 @@ export class PerfilPacienteComponent {
         correo: this.correo
       };
 
-      this.http.put<any>(`http://localhost/api/v1/usuarios/${this.idPaciente}`, datosActualizados)
+      this.administrativoService.actualizarDatosPaciente(this.idPaciente, datosActualizados)
         .subscribe(
           response => {
             console.log('Datos del paciente actualizados con éxito:', response);

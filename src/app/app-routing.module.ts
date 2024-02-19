@@ -98,7 +98,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'administrativo/modificar-citas',
+        path: 'administrativo/modificar-citas/:id_cita',
         component: ModificarCitaComponent,
         canActivate: [rolGuard],
         data: {

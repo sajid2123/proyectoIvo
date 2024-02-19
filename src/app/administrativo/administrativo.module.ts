@@ -12,7 +12,7 @@ import { ComponentePendienteRealizadaComponent } from '../general/componente-pen
 import { BtnAnteriorComponent } from '../general/btn-anterior/btn-anterior.component';
 import { BtnCancelarComponent } from '../general/btn-cancelar/btn-cancelar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CitaDataService } from './cita-data.service';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormField } from '@angular/material/form-field';
@@ -75,7 +75,7 @@ import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-fo
 
 
   ],
-  providers: [CitaDataService],
+  providers: [],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdministrativoServiceService } from '../administrativo-service.service';
+
 @Component({
   selector: 'app-tabla-citas-pendientes',
   templateUrl: './tabla-citas-pendientes.component.html',
   styleUrls: ['./tabla-citas-pendientes.component.css']
 })
 export class TablaCitasPendientesComponent implements OnInit {
-
 
   idPaciente: string = '';
 
@@ -25,7 +25,7 @@ export class TablaCitasPendientesComponent implements OnInit {
   idCita: string ='';
   estado: string = 'pendiente'; // Definir el estado por defecto
 
-  constructor(private http: HttpClient,private route: ActivatedRoute,  private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -38,14 +38,10 @@ export class TablaCitasPendientesComponent implements OnInit {
       this.obtenerDatosPaciente(this.idPaciente);
       this.obtenerDatosCita(this.idPaciente);
     });
-
-
-
-    this.obtenerDatosPaciente(this.idPaciente);
   }
 
   obtenerDatosPaciente(idPaciente: string): void {
-    this.http.get<any>(`http://localhost/api/v1/pacientes/${idPaciente}`).subscribe(
+    this.administrativoService.obtenerPaciente(idPaciente).subscribe(
       (response) => {
         this.nombrePaciente = response.usuario.nombre;
         this.sipPaciente = response.sip;
@@ -58,16 +54,10 @@ export class TablaCitasPendientesComponent implements OnInit {
   }
 
   obtenerDatosCita(idPaciente: string): void {
-    this.http.get<any>(`http://localhost/api/v1/citas?id_usuario_paciente=${idPaciente}&estado=${this.estado}`).subscribe(
+    this.administrativoService.obtenerCitas(idPaciente, this.estado).subscribe(
       (response) => {
-        // Puedes ajustar esto según la estructura de tu respuesta
-        this.idCita =response.id_cita;
-        this.medico = response.id_usuario_medico;
-        this.servicio = response.id_servicio;
-        this.hora = response.hora;
         this.citas = response.citas;
         this.dtTrigger.next(null); // Emitir el evento para actualizar los datos en la tabla
-        console.log(response);
       },
       (error) => {
         console.error('Error al obtener los datos de la cita:', error);
@@ -76,22 +66,22 @@ export class TablaCitasPendientesComponent implements OnInit {
   }
 
   eliminarCita(idCita: string) {
-    // Aquí haz una solicitud HTTP DELETE para eliminar la cita correspondiente al ID de cita proporcionado
-    // Por ejemplo:
-    this.http.delete(`http://localhost/api/v1/citas/${idCita}`)
-      .subscribe(() => {
-        // Si la eliminación fue exitosa, actualiza la lista de citas
-        this.obtenerDatosCita(this.idPaciente);
-      });
-      console.log(idCita);
+    this.administrativoService.eliminarCita(idCita).subscribe(() => {
+      // Si la eliminación fue exitosa, actualiza la lista de citas
+      this.obtenerDatosCita(this.idPaciente);
+    });
+    console.log(idCita);
   }
 
-  detallesCita(idMedico: string, idServicio: string, hora: string, idCita: string,) {
+  detallesCita(idMedico: string, idServicio: string, hora: string, idCita: string) {
     this.router.navigate(['app/administrativo/detalles-citas', idMedico, idServicio, hora, idCita]);
   }
 
+  modificarCita(idCita: string): void {
+    const url = `/app/administrativo/modificar-citas/${idCita}`;
+    this.router.navigateByUrl(url);
+    console.log(`Click sobre`);
+    console.log(url);
+  }
+
 }
-
-
-
-
