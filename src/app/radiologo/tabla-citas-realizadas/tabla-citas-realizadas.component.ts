@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, EventEmitter, Output} from '@angular/core';
 import { Router } from '@angular/router';
+import { CitaResponse, RadiologoService } from '../servicio/radiologo.service';
 
 interface Cita {
   sip: string;
@@ -14,35 +15,52 @@ interface Cita {
   styleUrls: ['./tabla-citas-realizadas.component.css']
 })
 export class TablaCitasRealizadasComponent {
-  citas: Cita[] = [
-    { sip: '1234', nombre: 'Cita', apellido: 'Realizada', hora: '08:00' },
-    { sip: '5678', nombre: 'Luis', apellido: 'Martínez', hora: '09:00' },
-    { sip: '1235', nombre: 'Carlos', apellido: 'López', hora: '08:30' },
-    { sip: '5679', nombre: 'María', apellido: 'Gómez', hora: '09:30' },
-    { sip: '1253', nombre: 'Juan', apellido: 'Pérez', hora: '10:00' },
-    { sip: '5687', nombre: 'Sofía', apellido: 'Ruiz', hora: '10:30' },
-    { sip: '1234', nombre: 'Ana', apellido: 'García', hora: '08:00' },
-    { sip: '5678', nombre: 'Luis', apellido: 'Martínez', hora: '09:00' },
-    { sip: '1235', nombre: 'Carlos', apellido: 'López', hora: '08:30' },
-    { sip: '5679', nombre: 'María', apellido: 'Gómez', hora: '09:30' },
-    { sip: '1253', nombre: 'Juan', apellido: 'Pérez', hora: '10:00' },
-    { sip: '5687', nombre: 'Sofía', apellido: 'Ruiz', hora: '10:30' }
-  ];
+  @Input() fecha!: string;
+  idUsaurio: number = parseInt(localStorage.getItem('id_usuario') || '0', 10 );
+  citas!: CitaResponse[];
+  dtOptions: DataTables.Settings = {};
+  @Output() cargado = new EventEmitter<boolean>(); // Añade esto
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private radiologoService: RadiologoService ) {}
 
-  onRowClick(cita: Cita){
-    this.router.navigate(['/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora } });
+
+ 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['fecha'] && !changes['fecha'].isFirstChange()) {
+      this.getCitasRealizadas();
+    }
   }
 
-  dtOptions: DataTables.Settings = {}
-
   ngOnInit(): void {
+   
+    this.getCitasRealizadas();
+   
+
     this.dtOptions = {
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
       },
       pagingType: "numbers"
     }
+  }
+
+
+  
+  getCitasRealizadas(){
+  this.radiologoService.getCitasRealizadas(this.fecha, this.idUsaurio)
+      .subscribe(
+          response => {
+            this.citas = response.citas;
+            console.log(this.citas);
+            if (this.citas) {
+              this.cargado.emit(true); 
+            }
+          }
+      );
+  }
+
+  
+  onRowClick(cita: CitaResponse){
+    this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita} });
   }
 }

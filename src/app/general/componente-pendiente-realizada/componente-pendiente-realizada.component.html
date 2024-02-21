@@ -1,13 +1,4 @@
 
-<!-- <div class="row font">
-    <div class="col-1 text-center" [class.enabled]="activeTab === 'pendiente'" [class.disabled]="activeTab !== 'pendiente'" (click)="setActiveTab('pendiente')">
-        <a [routerLink]="[routaPendiente]">Pendiente</a>
-    </div>
-    <div class="col-1 text-center" [class.enabled]="activeTab === 'realizada'" [class.disabled]="activeTab !== 'realizada'" (click)="setActiveTab('realizada')">
-        <a [routerLink]="[routaRealizada]">Realizada</a>
-    </div>
-</div> -->
-
 <div class="row font">
     <div class="col-1 text-center" [class.enabled]="activeTab === 'pendiente'" [class.disabled]="activeTab !== 'pendiente'" (click)="setActiveTab('pendiente'); enviarDatoAlPadre('pendiente')">
         <span>Pendiente</span>
