@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-atender-paciente',
   templateUrl: './atender-paciente.component.html',
@@ -12,12 +13,17 @@ export class AtenderPacienteComponent {
 
 
   idUsaurio = localStorage.getItem('id_usuario');
-  nombreCompleto: String = "";
+  nombreCompleto: string = "";
+
+  id_paciente!: number;
+  id_cita!: number;
   
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.nombreCompleto = params['nombre'] + ' ' + params['apellido']; 
+      this.id_paciente = params['id_paciente'];
+      this.id_cita = params['id_cita'];
     })
   }
 }
