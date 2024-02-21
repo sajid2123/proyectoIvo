@@ -30,6 +30,10 @@ export class RadiologoService {
   postPruebaRadiologa(formData: any){
     return this.httpClient.post('http://localhost/api/v1/crear-prueba', formData);
   }
+  getPrueba(id: number){
+    return this.httpClient.get(`http://localhost/api/v1/prueba/${id}`);
+  }
+ 
   
   
 }

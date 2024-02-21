@@ -28,7 +28,7 @@ export class FormularioAtenderPacienteComponent {
 
   @Input() id_paciente!: number;
   @Input() id_cita!: number;
-  
+  id_usuario = localStorage.getItem('id_usuario');
 
   faCoffee = faCoffee;
   faFloppyDisk = faFloppyDisk;
@@ -41,14 +41,14 @@ export class FormularioAtenderPacienteComponent {
   };
   imagePreviews: any[] = [];
 
-  id_usuario = localStorage.getItem('id_usuario');
+  
 
   constructor(private radiologoService: RadiologoService ) {
 
   }
 
   ngOnInit() {
-    console.log('ID del paciente:', this.id_paciente);
+    this.getInformacionPrueba();
   }
 
   onSubmit() {
@@ -73,19 +73,25 @@ export class FormularioAtenderPacienteComponent {
       this.resetFormAndImages();
     }, error => {
     console.error('Ocurrió un error al enviar el formulario:', error);
-    // Aquí puedes manejar errores, como mostrar un mensaje al usuario
+      
     })
-
-
   }
+  getInformacionPrueba(){
+    this.radiologoService.getPrueba(8).subscribe( (response: any)  => {
+      console.log();
+      this.formData.informe = response.informe;
+      this.imagePreviews.push({
+        name: response.imagenes[0].nombre
+      }) 
+    })
+  }
+ 
   
   resetFormAndImages() {
-   
     this.formData = {
       informe: '',
       imagenes: [],
     };
-
     this.imagePreviews = [];
   }
   
@@ -110,9 +116,9 @@ export class FormularioAtenderPacienteComponent {
   }
 
   removeImage(index: number) {
-
     this.imagePreviews.splice(index, 1);
     this.formData.imagenes.splice(index, 1);
-}
+  }
+  
  
 }

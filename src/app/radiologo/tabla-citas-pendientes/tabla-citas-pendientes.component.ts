@@ -12,17 +12,16 @@ import { CitaResponse, RadiologoService } from '../servicio/radiologo.service';
 })
                         
 export class TablaCitasPendientesComponent {
-  @Input() fecha!: string;
+  @Input() fecha!: Date;
+  existir: boolean = false;
+  fechaCompleta:string = ""; 
   idUsaurio: number = parseInt(localStorage.getItem('id_usuario') || '0', 10 );
   citas!: CitaResponse[];
   dtOptions: DataTables.Settings = {};
-  @Output() cargado = new EventEmitter<boolean>(); // Añade esto
-
-
+ 
   constructor(private router: Router,private radiologoService: RadiologoService ) {}
 
 
- 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['fecha'] && !changes['fecha'].isFirstChange()) {
       this.getCitasPendientes();
@@ -45,14 +44,14 @@ export class TablaCitasPendientesComponent {
 
   
   getCitasPendientes(){
-  this.radiologoService.getCitasPendientes(this.fecha, this.idUsaurio)
+
+    this.fechaCompleta =this.fecha.getFullYear() + "-"  + (this.fecha.getUTCMonth()+1) + "-" + this.fecha.getDate();
+    this.radiologoService.getCitasPendientes(this.fechaCompleta, this.idUsaurio)
       .subscribe(
           response => {
+            this.existir = true;
             this.citas = response.citas;
-            console.log(this.citas);
-            if (this.citas) {
-              this.cargado.emit(true); // Emite true cuando citas está cargado
-            }
+            console.log(this.citas); 
           }
       );
   }
@@ -60,5 +59,18 @@ export class TablaCitasPendientesComponent {
   
   onRowClick(cita: CitaResponse){
     this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita} });
+  }
+  refrescarTabla(fechaEntrada:Date){
+    this.existir = false;
+    this.fechaCompleta = fechaEntrada.getFullYear() + "-"  + (fechaEntrada.getUTCMonth()+1) + "-" + fechaEntrada.getDate();
+
+    this.radiologoService.getCitasPendientes(this.fechaCompleta, this.idUsaurio)
+      .subscribe(
+          response => {
+            this.existir = true;
+            this.citas = response.citas;
+            console.log(this.citas); 
+          }
+      );
   }
 }
