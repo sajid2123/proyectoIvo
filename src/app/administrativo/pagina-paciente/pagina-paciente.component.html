@@ -40,7 +40,10 @@
                             <app-perfil-paciente></app-perfil-paciente>
                         </div>
 
+                        <div *ngSwitchCase="''">
+
                         <div *ngSwitchCase="'citas-pendientes'">
+
                             <app-tabla-citas-pendientes [pendienteRealizada]="citas"></app-tabla-citas-pendientes>
                         </div>
 
