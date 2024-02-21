@@ -34,10 +34,10 @@ export class PaginaLoginComponent {
 
         switch (Number(localStorage.getItem("rol"))) {
           case 2:
-            this.router.navigateByUrl('/app/paciente');
+            this.router.navigateByUrl('/app/medico');
           break;
           case 3:
-            this.router.navigateByUrl('/app/medico');
+            this.router.navigateByUrl('/app/paciente');
           break;
           case 4:
             this.router.navigateByUrl('/app/radiologo');
