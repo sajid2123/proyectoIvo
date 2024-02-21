@@ -16,6 +16,7 @@ export class CrearCitasComponent implements OnInit {
   idUsuarioAdministrativo: string = '';
   idUsuarioPaciente: string = '';
   nombrePaciente: string = '';
+  fechaCita:string = '';
   medicos: any[] = [];
   servicios: any[] = [];
   idMedico: string = '';
@@ -34,7 +35,9 @@ export class CrearCitasComponent implements OnInit {
       ],
       nombreMedico: ['', Validators.required],
       horasDisponibles: ['', Validators.required],
+      fecha: ['', Validators.required], // Agregar el control 'fecha' aquí
     });
+    
   }
 
   confirmar: boolean = false;
@@ -122,24 +125,18 @@ export class CrearCitasComponent implements OnInit {
     const especialidad = this.formularioCita.get('especialidad')?.value;
     const nombreMedico = this.formularioCita.get('nombreMedico')?.value;
     const horasDisponibles = this.formularioCita.get('horasDisponibles')?.value;
-
-    const fechaActual = new Date();
-    const fechaFormateada = `${fechaActual.getFullYear()}-${(
-      fechaActual.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, '0')}-${fechaActual.getDate().toString().padStart(2, '0')}`;
-
+  
     if (this.formularioCita.valid) {
       const crear = {
         id_usuario_paciente: this.idPaciente,
-        hora: fechaFormateada + ' ' + horasDisponibles + ':00',
+        hora: horasDisponibles,
+        fecha: this.formularioCita.get('fecha')?.value, // Obtener el valor del campo 'fecha' del formulario
         sip: this.sipPaciente,
         id_servicio: this.idServicio,
         id_usuario_medico: this.idMedico,
         id_usuario_administrativo: this.idUsuarioAdministrativo,
       };
-
+  
       this.administrativoService.crearCita(crear).subscribe(
         (response) => {
           console.log('Cita creada exitosamente:', response);
@@ -154,6 +151,7 @@ export class CrearCitasComponent implements OnInit {
       );
     }
   }
+  
 
 
 

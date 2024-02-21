@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AdministrativoServiceService } from '../administrativo-service.service';
 
 @Component({
-  selector: 'app-tabla-citas-pendientes',
-  templateUrl: './tabla-citas-pendientes.component.html',
-  styleUrls: ['./tabla-citas-pendientes.component.css']
+  selector: 'app-tabla-citas-realizadas',
+  templateUrl: './tabla-citas-realizadas.component.html',
+  styleUrls: ['./tabla-citas-realizadas.component.css']
 })
-export class TablaCitasPendientesComponent implements OnInit {
+export class TablaCitasRealizadasComponent implements OnInit {
 
   idPaciente: string = '';
 
@@ -22,7 +22,7 @@ export class TablaCitasPendientesComponent implements OnInit {
   servicio: string = '';
   hora: string = '';
   idCita: string ='';
-  estado: string = ''; 
+  estado: string = 'realizada'; 
   medico: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
@@ -65,11 +65,13 @@ export class TablaCitasPendientesComponent implements OnInit {
     );
   }
 
+  
+
   obtenerDatosCita(idPaciente: string): void {
     this.administrativoService.obtenerCitas(idPaciente, this.estado).subscribe(
       (response) => {
        
-        this.citas = response.citas.filter((cita: any) => cita.estado === 'pendiente').map((cita: any) => ({
+        this.citas = response.citas.filter((cita: any) => cita.estado === 'realizada').map((cita: any) => ({
           ...cita,
           nombreMedico: cita.nombre_medico
         }));
@@ -80,17 +82,6 @@ export class TablaCitasPendientesComponent implements OnInit {
       }
     );
   }
-
-  /*obtenerNombreMedico(idMedico: string): void {
-    this.administrativoService.obtenerNombreMedico(idMedico).subscribe(
-      (nombreMedico: string) => {
-        this.medico = nombreMedico;
-      },
-      (error) => {
-        console.error('Error al obtener el nombre del médico:', error);
-      }
-    );
-  }*/
 
   eliminarCita(idCita: string) {
     this.administrativoService.eliminarCita(idCita).subscribe(() => {
