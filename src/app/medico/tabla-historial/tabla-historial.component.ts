@@ -28,7 +28,7 @@ export class TablaHistorialComponent {
   constructor(private router: Router) {}
 
   onRowClick(historial: historial){
-    this.router.navigate(['/medico/atender-paciente/historial'], { queryParams: { fecha: historial.fecha } });
+    this.router.navigate(['/app/medico/atender-paciente/historial'], { queryParams: { fecha: historial.fecha } });
   }
 
   dtOptions: DataTables.Settings = {}
