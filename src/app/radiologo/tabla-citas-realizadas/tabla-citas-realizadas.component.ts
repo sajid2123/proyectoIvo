@@ -65,6 +65,7 @@ export class TablaCitasRealizadasComponent {
   onRowClick(cita: CitaResponse){
     this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita} });
   }
+
   
   refrescarTabla(fechaEntrada:Date){
     this.existir = false;
