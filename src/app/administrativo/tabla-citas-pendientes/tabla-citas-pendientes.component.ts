@@ -19,11 +19,11 @@ export class TablaCitasPendientesComponent implements OnInit {
   nombrePaciente: string = '';
   sipPaciente: string = '';
   apellido: string = '';
-  medico: string = '';
   servicio: string = '';
   hora: string = '';
   idCita: string ='';
   estado: string = 'pendiente'; // Definir el estado por defecto
+  medico: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
 
@@ -61,6 +61,17 @@ export class TablaCitasPendientesComponent implements OnInit {
       },
       (error) => {
         console.error('Error al obtener los datos de la cita:', error);
+      }
+    );
+  }
+
+  obtenerNombreMedico(idMedico: string): void {
+    this.administrativoService.obtenerNombreMedico(idMedico).subscribe(
+      (nombreMedico: string) => {
+        this.medico = nombreMedico;
+      },
+      (error) => {
+        console.error('Error al obtener el nombre del médico:', error);
       }
     );
   }

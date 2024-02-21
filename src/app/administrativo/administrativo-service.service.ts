@@ -52,6 +52,13 @@ export class AdministrativoServiceService {
     return this.http.get<any>(`http://localhost/api/v1/citas?id_usuario_paciente=${idPaciente}`);
   }
 
+  obtenerNombreMedico(idMedico: string): Observable<string> {
+    return this.http.get<any>(`http://localhost/api/v1/medicos/${idMedico}`);
+  }
+
+
+
+
 
 
 }
