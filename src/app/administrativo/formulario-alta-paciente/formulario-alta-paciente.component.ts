@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-
+import { FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { inject } from '@angular/core';
+import { AdministrativoServiceService } from '../administrativo-service.service';
+import { error } from 'jquery';
 @Component({
   selector: 'app-formulario-alta-paciente',
   templateUrl: './formulario-alta-paciente.component.html',
@@ -10,38 +15,53 @@ export class FormularioAltaPacienteComponent {
                                   // 0 -> Datos Personales | 1 -> Crear Cuenta | 2 -> Confirmar Datos |
                                   // Este valor incrementaria con el boton "Siguiente" y decrementaria con el boton "Anterior"
     enviarDatos:boolean = false;
-        
+    nombreSeccionFormulario:string = 'datosPersonales';
+    formulario:FormGroup;
 
-    cambiarSeccion(accion:string){
+  servicio = inject(AdministrativoServiceService);
+
+    constructor(fb:FormBuilder){
+
+      this.formulario = fb.group({
+          datosPersonales: fb.group({
+            dni: ['', [Validators.required]],
+            nombre: ['', [Validators.required]],
+            apellido1: ['', [Validators.required]],
+            apellido2: ['', [Validators.required]],
+            sexo: ['', [Validators.required]],
+            fechaNacimiento: ['', [Validators.required]],
+            telefono: ['', [Validators.required]],
+            correo: ['', [Validators.required]],
+            codigoPostal: ['', [Validators.required]],
+            direccion: ['', [Validators.required]],
+          }),
+          cuenta:fb.group({
+            usuario: ['', Validators.required],
+            email2: ['', Validators.required],
+            contrasena: ['', Validators.required],
+            contrasena2: ['', Validators.required],
+            rol: ['2']
+          })
+      })
+    }
+
+    cambiarSeccion(accion:string, puedeAvanzar:boolean){
+
       let columnas = $("#seccionesFormulario").children();
       $(columnas[this.seccionFormulario]).removeClass("barra-inferior");
       $(columnas[this.seccionFormulario]).removeClass("border-3");
 
+      if (puedeAvanzar && accion != "retroceder") {
       switch(accion){
-        case 'cancelar':
-            this.seccionFormulario = 0;
-        break;
-        case 'retroceder':
-          this.quitarBarra(this.seccionFormulario, columnas);
-            this.seccionFormulario-=2;
-            
-            if (this.seccionFormulario != 2) {
-              $(".col").find("input").prop("disabled", false);
-              $("#direccion").prop("disabled", false);
-              this.enviarDatos = false;
-            } 
-            $(columnas[this.seccionFormulario]).addClass("barra-inferior");
-            $(columnas[this.seccionFormulario]).addClass("border-3");
-        break;
+        
         case 'avanzar':
           
             if (this.enviarDatos == true) {
               
-              /*
-                Aqui se hará el envio de datos con la API
-              */
+             this.subirPaciente();
 
             } else {
+
               this.seccionFormulario+=2;
               this.meterBarra(this.seccionFormulario, columnas);
                 if (this.seccionFormulario == 4) {
@@ -50,11 +70,44 @@ export class FormularioAltaPacienteComponent {
                   this.enviarDatos = true;
                 } 
             }
+
         break;
-        
       }
+
+      } else if(accion == "retroceder"){
+            this.enviarDatos = false;
+            this.quitarBarra(this.seccionFormulario, columnas);
+            this.seccionFormulario-=2;
+            
+            if (this.seccionFormulario != 2) {
+              $(".col").find("input").prop("disabled", false);
+              $("#direccion").prop("disabled", false);
+            } 
+
+      } else if(accion == "cancelar"){
+            this.seccionFormulario = 0;
+      }
+
+      this.conocerNombreSeccionFormulario(this.seccionFormulario);
+
       $(columnas[this.seccionFormulario]).addClass("barra-inferior");
       $(columnas[this.seccionFormulario]).addClass("border-3");
+
+      console.log(this.formulario.get('datosPersonales')?.get('dni')?.value);
+    }
+
+    conocerNombreSeccionFormulario(entrada:number){
+
+      switch(entrada){
+        case 0:
+          this.nombreSeccionFormulario = "datosPersonales";
+        break;
+        case 2:
+          this.nombreSeccionFormulario = "cuenta";
+        break;
+      }
+
+
     }
 
     meterBarra(posicion:number, entrada:JQuery<HTMLElement>){
@@ -72,5 +125,54 @@ export class FormularioAltaPacienteComponent {
         $('#'+entrada[index].id).removeClass("border-3");
         console.log(entrada[index].id);
       }
+
   }
+
+  async subirPaciente(){
+
+    const paciente = {
+      dni: this.formulario.get('datosPersonales')?.get('dni')?.value,
+      nombre:  this.formulario.get('datosPersonales')?.get('nombre')?.value,
+      apellido1: this.formulario.get('datosPersonales')?.get('apellido1')?.value,
+      apellido2: this.formulario.get('datosPersonales')?.get('apellido2')?.value,
+      Sexo: this.formulario.get('datosPersonales')?.get('sexo')?.value,
+      fecha_nacimiento: this.formulario.get('datosPersonales')?.get('fechaNacimiento')?.value,
+      telefono: this.formulario.get('datosPersonales')?.get('telefono')?.value,
+      correo: this.formulario.get('datosPersonales')?.get('correo')?.value,
+      codigo_postal: this.formulario.get('datosPersonales')?.get('codigoPostal')?.value,
+      direccion: this.formulario.get('datosPersonales')?.get('direccion')?.value,
+      nombre_cuenta: this.formulario.get('cuenta')?.get('usuario')?.value,
+      password: this.formulario.get('cuenta')?.get('contrasena')?.value,
+      id_rol: this.formulario.get('cuenta')?.get('rol')?.value,
+    }
+    
+    this.servicio.darAltaPaciente(paciente).subscribe(
+      (response) => {
+        console.log('Usuario creado exitosamente: ', response);
+
+        const datos = {
+          dni_paciente: this.formulario.get('datosPersonales')?.get('dni')?.value,
+          id_admin: localStorage.getItem("id_usuario"),
+          sip: this.randomInt(100000000, 999999999),
+        }
+
+        this.servicio.enlazarAdministrativoConPacienteRecientementeCreado(datos).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.error('Error: ', error);
+          }
+        );
+      },
+      (error) => {
+        console.error('Error: ', error)
+      }
+    );
+    
+  }
+
+  randomInt(min:number, max:number){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+ }
 }

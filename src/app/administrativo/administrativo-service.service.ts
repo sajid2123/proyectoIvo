@@ -12,8 +12,20 @@ export class AdministrativoServiceService {
 
   constructor(private http: HttpClient) {}
 
+  darAltaPaciente(formulario:any): Observable<any> {
+    return this.http.post<any>(`http://localhost/api/v1/alta-paciente`, formulario);
+  }
+
+  enlazarAdministrativoConPacienteRecientementeCreado(paciente:any){
+    return this.http.post<any>(`http://localhost/api/v1/alta-paciente`, paciente);
+  }
+
   obtenerPaciente(idPaciente: string): Observable<any> {
     return this.http.get<any>(`http://localhost/api/v1/pacientes/${idPaciente}`);
+  }
+
+  obtenerCitasGenerales(){
+    return this.http.get<any>(`http://localhost/api/v1/citas-generales`);
   }
 
   obtenerCitas(idPaciente: string, estado: string): Observable<any> {
@@ -55,6 +67,7 @@ export class AdministrativoServiceService {
   obtenerNombreMedico(idMedico: string): Observable<string> {
     return this.http.get<any>(`http://localhost/api/v1/medicos/${idMedico}`);
   }
+
 
 
 
