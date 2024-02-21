@@ -15,9 +15,7 @@ export class ApiServicioService {
     this.baseUrl = 'http://localhost/api/v1/login';
   }
 
-  login(formValue: any){
-    return firstValueFrom(
-      this.httpClient.post<any>(this.baseUrl, formValue)
-    )
+  login(formValue: any) : Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl, formValue);
   }
 }
