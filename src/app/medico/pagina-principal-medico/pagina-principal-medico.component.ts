@@ -27,7 +27,7 @@ export class PaginaPrincipalMedicoComponent {
     this.selected = fecha;
     if (this.activeTab == "pendiente") {
       this.tablaPendiente.refrescarTabla(this.selected);
-    } else {
+    }else {
       this.tablaRealizada.refrescarTabla(this.selected);
     }
   }

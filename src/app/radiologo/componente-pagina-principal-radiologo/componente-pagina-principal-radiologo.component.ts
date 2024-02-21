@@ -28,6 +28,7 @@ export class ComponentePaginaPrincipalRadiologoComponent {
 
   calendario(fecha:Date){
     this.selected = fecha;
+    console.log(this.activeTab)
     if (this.activeTab == "pendiente") {
       this.tablaPendiente.refrescarTabla(this.selected);
     } else {

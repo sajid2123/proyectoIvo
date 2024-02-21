@@ -22,17 +22,11 @@ export class TablaCitasPendientesComponent {
   constructor(private router: Router,private radiologoService: RadiologoService ) {}
 
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['fecha'] && !changes['fecha'].isFirstChange()) {
-      this.getCitasPendientes();
-    }
-  }
-
+ 
   ngOnInit(): void {
     console.log(typeof this.idUsaurio);
     this.getCitasPendientes();
    
-    console.log(this.fecha);
     this.dtOptions = {
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"

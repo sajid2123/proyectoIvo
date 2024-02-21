@@ -25,7 +25,7 @@
                         ></app-tabla-citas-realizadas>
                     </div>
                   <div class="col-4 px-5">
-                    <mat-calendar [(selected)]="selected" class="mat-calendar"></mat-calendar>
+                    <mat-calendar [(selected)]="selected" (selectedChange) = "calendario(selected)" class="mat-calendar"></mat-calendar>
                   </div>
                 </div>
         </div>
