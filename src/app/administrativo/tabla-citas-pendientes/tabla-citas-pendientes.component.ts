@@ -65,7 +65,7 @@ export class TablaCitasPendientesComponent implements OnInit {
     );
   }
 
-  obtenerNombreMedico(idMedico: string): void {
+  /*obtenerNombreMedico(idMedico: string): void {
     this.administrativoService.obtenerNombreMedico(idMedico).subscribe(
       (nombreMedico: string) => {
         this.medico = nombreMedico;
@@ -74,7 +74,7 @@ export class TablaCitasPendientesComponent implements OnInit {
         console.error('Error al obtener el nombre del médico:', error);
       }
     );
-  }
+  }*/
 
   eliminarCita(idCita: string) {
     this.administrativoService.eliminarCita(idCita).subscribe(() => {

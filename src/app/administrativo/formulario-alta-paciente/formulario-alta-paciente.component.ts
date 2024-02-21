@@ -60,8 +60,7 @@ export class FormularioAltaPacienteComponent {
               
              this.subirPaciente();
 
-            } else {
-
+            } else { 
               this.seccionFormulario+=2;
               this.meterBarra(this.seccionFormulario, columnas);
                 if (this.seccionFormulario == 4) {
