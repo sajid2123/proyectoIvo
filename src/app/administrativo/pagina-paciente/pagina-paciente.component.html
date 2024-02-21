@@ -40,8 +40,12 @@
                             <app-perfil-paciente></app-perfil-paciente>
                         </div>
 
-                        <div *ngSwitchDefault>
+                        <div *ngSwitchCase="'citas-pendientes'">
                             <app-tabla-citas-pendientes [pendienteRealizada]="citas"></app-tabla-citas-pendientes>
+                        </div>
+
+                        <div *ngSwitchCase="'citas-realizadas'">
+                            <app-tabla-citas-realizadas></app-tabla-citas-realizadas>
                         </div>
                     </div>
 

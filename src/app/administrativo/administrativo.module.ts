@@ -40,6 +40,7 @@ import { TablaCitasGeneralesComponent } from './tabla-citas-generales/tabla-cita
 import { FormularioAltaPacienteComponent } from './formulario-alta-paciente/formulario-alta-paciente.component';
 import { PasosFormularioComponent } from './pasos-formulario/pasos-formulario.component';
 import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-formulario.component';
+import { TablaCitasRealizadasComponent } from './tabla-citas-realizadas/tabla-citas-realizadas.component';
 
 
 
@@ -71,6 +72,7 @@ import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-fo
       FormularioAltaPacienteComponent,
       PasosFormularioComponent,
       DosPasosFormularioComponent,
+      TablaCitasRealizadasComponent,
 
 
 

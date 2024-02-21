@@ -15,6 +15,8 @@ export class TablaCitasGeneralesComponent {
   resultado:any;
 
   ngOnInit():void{
+    
+
     this.obtenerCitas();
 
     this.dtOptions = {
@@ -22,6 +24,9 @@ export class TablaCitasGeneralesComponent {
     }
 
   }
+
+  
+  
 
   obtenerCitas(){
      this.servicio.obtenerCitasGenerales().subscribe(

@@ -13,6 +13,7 @@ export class DetallesCitaComponent implements OnInit {
   fecha: string = '';
   hora: string = '';
   idCita: string = '';
+  estado: string = '';
   idUsuarioPaciente: string = '';
 
   mostrarConfirma: boolean = false;
@@ -28,25 +29,16 @@ export class DetallesCitaComponent implements OnInit {
       this.idMedico = params.get('idMedico') ?? '';
       this.idServicio = params.get('idServicio') ?? '';
       this.idCita = params.get('idCita') ?? '';
-      const fechaHora = params.get('hora') ?? '';
+      this.hora = params.get('hora') ?? '';
+      this.fecha = params.get('fecha') ?? '';
 
-      // Parsear la fecha
-      const fecha = new Date(fechaHora);
-      // Obtener el nombre del día
-      const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-      const diaSemana = diasSemana[fecha.getDay()];
-      // Obtener el nombre del mes
-      const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-      const mes = meses[fecha.getMonth()];
-      // Formatear la fecha
-      this.fecha = `${diaSemana} ${fecha.getDate()} de ${mes} de ${fecha.getFullYear()}`;
-      // Asignar la hora
-      this.hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
 
       console.log("Medico:", this.idMedico);
       console.log("Servicio:", this.idServicio);
       console.log("Fecha:", this.fecha);
       console.log("Hora:", this.hora);
+      console.log("Fecha:", this.fecha);
     });
   }
 
