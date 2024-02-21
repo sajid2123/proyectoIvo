@@ -16,19 +16,16 @@
                 <div class="row mt-5">
                     <div class="col-8">
                         <app-tabla-citas-pendientes
-                        [hidden]="!mostrarComponentePendiente || activeTab !== 'pendiente'"
-                        (cargado)="handleCargadoPendiente($event)"
-                        [fecha]="formattedDate"
+                        [fecha]="selected"  
+                        *ngIf="activeTab === 'pendiente'"
                         ></app-tabla-citas-pendientes>
                         <app-tabla-citas-realizadas 
-                        [hidden]="!mostrarComponenteRealizada || activeTab !== 'realizada'"
-                        (cargado)="handleCargadoRealizada($event)"
-                        [fecha]="formattedDate"
+                        [fecha]="selected" 
+                        *ngIf="activeTab === 'realizada'"
                         ></app-tabla-citas-realizadas>
                     </div>
                   <div class="col-4 px-5">
                     <mat-calendar [(selected)]="selected" class="mat-calendar"></mat-calendar>
-                    <p>Selected date: {{formattedDate}}</p>
                   </div>
                 </div>
         </div>

@@ -23,14 +23,12 @@ export class PaginaPrincipalMedicoComponent {
     console.log(activeTab);
   }
 
-  calendario(entrada:any){
-    this.selected = entrada;
-
+  calendario(fecha:Date){
+    this.selected = fecha;
     if (this.activeTab == "pendiente") {
       this.tablaPendiente.refrescarTabla(this.selected);
     } else {
       this.tablaRealizada.refrescarTabla(this.selected);
     }
-    
   }
 }

@@ -15,11 +15,12 @@ interface Cita {
   styleUrls: ['./tabla-citas-realizadas.component.css']
 })
 export class TablaCitasRealizadasComponent {
-  @Input() fecha!: string;
+  @Input() fecha!: Date;
+  existir: boolean = false;
+  fechaCompleta:string = ""; 
   idUsaurio: number = parseInt(localStorage.getItem('id_usuario') || '0', 10 );
   citas!: CitaResponse[];
   dtOptions: DataTables.Settings = {};
-  @Output() cargado = new EventEmitter<boolean>(); // Añade esto
 
   constructor(private router: Router,private radiologoService: RadiologoService ) {}
 
@@ -47,14 +48,15 @@ export class TablaCitasRealizadasComponent {
 
   
   getCitasRealizadas(){
-  this.radiologoService.getCitasRealizadas(this.fecha, this.idUsaurio)
+
+  this.fechaCompleta =this.fecha.getFullYear() + "-"  + (this.fecha.getUTCMonth()+1) + "-" + this.fecha.getDate();
+  this.radiologoService.getCitasRealizadas(this.fechaCompleta, this.idUsaurio)
       .subscribe(
           response => {
+            this.existir = true;
             this.citas = response.citas;
             console.log(this.citas);
-            if (this.citas) {
-              this.cargado.emit(true); 
-            }
+            
           }
       );
   }
@@ -62,5 +64,19 @@ export class TablaCitasRealizadasComponent {
   
   onRowClick(cita: CitaResponse){
     this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita} });
+  }
+  
+  refrescarTabla(fechaEntrada:Date){
+    this.existir = false;
+    this.fechaCompleta = fechaEntrada.getFullYear() + "-"  + (fechaEntrada.getUTCMonth()+1) + "-" + fechaEntrada.getDate();
+
+    this.radiologoService.getCitasRealizadas(this.fechaCompleta , this.idUsaurio)
+      .subscribe(
+          response => {
+            this.existir = true;
+            this.citas = response.citas;
+            console.log(this.citas); 
+          }
+      );
   }
 }
