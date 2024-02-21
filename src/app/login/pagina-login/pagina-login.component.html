@@ -21,7 +21,13 @@
                         </span>
                         <input formControlName="correo" type="email" class="form-control" id="correo"
                             placeholder="administrativoGeneral@ivo.es">
+                            
                     </div>
+                    
+                    <span *ngIf="formulario.get('correo')?.errors?.['required']" class="form-text text-danger fs-6">*Este campo es obligatorio</span> 
+                    <span *ngIf="formulario.get('correo')?.errors?.['email']" class="form-text text-danger fs-6">*Formato incorrecto</span><br>
+                    
+
                     
                     <label for="contraseña" class="form-label mt-3" id="lContraseña">Contraseña</label>
                     <div class="input-group">
@@ -42,7 +48,12 @@
                         </span>
                         <input formControlName="password" type="password" class="form-control" id="password" placeholder="*******">
                     </div>
+                    <span *ngIf="formulario.get('password')?.errors?.['required']" class="form-text text-danger fs-6">*Este campo es obligatorio</span> 
                 </form>
+
+                <span *ngIf="teHasEquivocado" class="col-12 d-flex justify-content-center bg-danger text-white p-3 rounded mt-3 fs-5">Correo/contraseña erronea</span>
+                <span *ngIf="sesionCerrada" class="col-12 d-flex justify-content-center bg-success text-white p-3 rounded mt-3 fs-5">Sesion cerrada exitosamente</span>
+
 
                 <div class="form-check mt-4 d-flex justify-content-end">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -56,12 +67,7 @@
                 <div class="d-grid gap-2 col-3 mx-auto mt-4">
                     <button class="btn btn-custom" type="button" (click)="onSubmit()">Iniciar sesión</button>
                 </div>
-
-
             </div>
-
-
-
         </div>
     </div>
 </div>
