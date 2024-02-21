@@ -6,7 +6,7 @@
 
 <div class="row ms-5 font">
     <div class="col-11"> 
-        <table datatable class="table table-hover">
+        <table *ngIf="resultado" datatable [dtOptions]="dtOptions"  class="table table-hover">
 
             <thead>
                  <tr>
@@ -34,9 +34,9 @@
              <tbody> <!--Aqui estamos decidiendo que tipo de contenido se va a enseñar por pantalla-->
                 <tr *ngFor="let rdo of resultado">
                     <td>{{rdo.sip}}</td>
-                    <td>{{rdo.nombre}}</td>
-                    <td>{{rdo.apellido}}</td>
-                    <td>{{rdo.medico}}</td>
+                    <td>{{rdo.nombre_paciente}}</td>
+                    <td>{{rdo.apellidos_paciente}}</td>
+                    <td>{{rdo.nombre_medico}}</td>
                     <td>{{rdo.servicio}}</td>
                     <td>{{rdo.hora}}</td>
                 </tr>

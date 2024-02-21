@@ -11,17 +11,25 @@ import { error } from 'jquery';
   
 export class TablaCitasGeneralesComponent {
   servicio = inject(AdministrativoServiceService);
-
+  dtOptions: any = {};
   resultado:any;
 
   ngOnInit():void{
     this.obtenerCitas();
+
+    this.dtOptions = {
+      pagingType: "numbers"
+    }
+
   }
 
   obtenerCitas(){
      this.servicio.obtenerCitasGenerales().subscribe(
       (response) => {
         console.log("Lista traida");
+
+        console.log(response);
+
         this.resultado = response;
       },
       (error) => {
@@ -29,6 +37,4 @@ export class TablaCitasGeneralesComponent {
       } 
      )
   }
-
-
 }

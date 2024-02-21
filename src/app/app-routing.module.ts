@@ -134,7 +134,7 @@ const routes: Routes = [
         component: PaginaPrincipalPacienteComponent,
         canActivate: [rolGuard],
         data: {
-          idRol: 2,
+          idRol: 3,
         }
       }
       ,
@@ -142,14 +142,14 @@ const routes: Routes = [
         path: 'paciente/pruebas',
         component: PaginaCitaPruebasComponent,
         data: {
-          idRol: 2,
+          idRol: 3,
         }
       },
       {
         path: 'paciente/detalles',
         component: CitasPacienteDetallesComponent,
         data: {
-          idRol: 2,
+          idRol: 3,
         }
       },
       {
@@ -161,7 +161,7 @@ const routes: Routes = [
         component: PaginaPrincipalMedicoComponent,
         canActivate: [rolGuard],
         data: {
-          idRol: 3,
+          idRol: 2,
         }
       },
       {
@@ -169,7 +169,7 @@ const routes: Routes = [
         component: AtenderPacienteMedicoComponent,
         canActivate: [rolGuard],
         data: {
-          idRol: 3,
+          idRol: 2,
         }
       },
       {
@@ -177,7 +177,7 @@ const routes: Routes = [
         component: HistorialComponent,
         canActivate: [rolGuard],
         data: {
-          idRol: 3,
+          idRol: 2,
         }
       },
     ]
