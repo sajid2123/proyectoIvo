@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { inject } from '@angular/core';
 import { AdministrativoServiceService } from '../administrativo-service.service';
+import { error } from 'jquery';
 @Component({
   selector: 'app-formulario-alta-paciente',
   templateUrl: './formulario-alta-paciente.component.html',
@@ -148,11 +149,30 @@ export class FormularioAltaPacienteComponent {
     this.servicio.darAltaPaciente(paciente).subscribe(
       (response) => {
         console.log('Usuario creado exitosamente: ', response);
+
+        const datos = {
+          dni_paciente: this.formulario.get('datosPersonales')?.get('dni')?.value,
+          id_admin: localStorage.getItem("id_usuario"),
+          sip: this.randomInt(100000000, 999999999),
+        }
+
+        this.servicio.enlazarAdministrativoConPacienteRecientementeCreado(datos).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.error('Error: ', error);
+          }
+        );
       },
       (error) => {
         console.error('Error: ', error)
       }
     );
+    
   }
 
+  randomInt(min:number, max:number){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+ }
 }
