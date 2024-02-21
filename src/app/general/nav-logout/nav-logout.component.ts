@@ -42,7 +42,7 @@ export class NavLogoutComponent implements OnInit {
 
 
   logOut() {
-    localStorage.removeItem('token_usuario');
+    localStorage.setItem('token_usuario', 'sesionCerrada');
     this.router.navigateByUrl('/login');
   }
 }
