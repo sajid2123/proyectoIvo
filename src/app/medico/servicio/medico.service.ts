@@ -11,11 +11,15 @@ export class MedicoService {
   constructor(private http: HttpClient) { }
 
   obtenerCitasPendientesSegunIdMedicoYFecha(idMedico:number, fecha:string){
-    return this.http.get<any>(`http://localhost/api/v1/citas-pendiente/${fecha}/${idMedico}`);
+    return this.http.get<any>(`http://localhost/api/v1/citas-pendiente-medico/${fecha}/${idMedico}`);
   }
 
   obtenerCitasRealizadasSegunIdMedicoYFecha(idMedico:number, fecha:string){
-    return this.http.get<any>(`http://localhost/api/v1/citas-realizada/${fecha}/${idMedico}`);
+    return this.http.get<any>(`http://localhost/api/v1/citas-realizada-medico/${fecha}/${idMedico}`);
+  }
+
+  registrarDiagnostico(diagnostico:any){
+    return this.http.post<any>(`http://localhost/api/v1/registrar-diagnostico/`, diagnostico);
   }
 
 }
