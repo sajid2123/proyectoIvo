@@ -1,13 +1,14 @@
 <div class="row">
     <div class="col-12 p-0 mt-3">
-        <breadcrumb
-        [primeraRouta]="'/administrativo'"
+        <app-breadcrumb-tres-pasos
+        [primeraRouta]="'/app/administrativo/alta-paciente'"
         [primerNombre]="'Alta paciente'"
+        [segundaRouta]="'/app/administrativo/paciente/'+idPaciente"
         [segundonombre]="'Citas'"
-        [tercernombre]="'Modificar'"
-        [segundoActivo]="false"
+        [tercernombre]="'Modificar Cita'"
         [tercerActivo]="true"
-        ></breadcrumb>
+       
+        ></app-breadcrumb-tres-pasos>
     </div>
 </div>
 
@@ -38,6 +39,7 @@
           <div class="col ms-5">
             <label for="especialidad" class="form-label">Servicio</label>
             <select class="form-select" aria-label="Default select example"  (change)="obtenerIdServicio($event)">
+              <option disabled selected value="">Seleccionar servicio</option>
               <option *ngFor="let servicio of servicios" [value]="servicio.id_servicio">
                 {{ servicio.nombre_servicio }}
               </option>
@@ -46,7 +48,7 @@
 
           <div class="col ms-5">
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" aria-label="Fecha">
+            <input type="date" class="form-control" aria-label="Fecha" formControlName="fechaCita">
         </div>
         
         </div>
@@ -55,6 +57,7 @@
             <div class="col ms-5">
                 <label for="nombreMedico" class="form-label">Nombre de Médico</label>
                 <select class="form-select" aria-label="Seleccionar médico"  (change)="obtenerIdMedico($event)">
+                    <option disabled selected value="">Seleccionar médico</option>
                     <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
                       {{ medico.usuario.nombre }}
                     </option>
@@ -64,8 +67,8 @@
             </div>
 
             <div class="col ms-5">
-                <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
-                <input type="time" class="form-control" >
+                <label for="horasDisponibles" class="form-label" >Horas Disponibles</label>
+                <input type="time" class="form-control" formControlName="horasDisponibles" >
 
             </div>
         </div>
@@ -77,17 +80,17 @@
 <div class="row mt-3 p-5">
   <div class="col-12 d-flex justify-content-between align-items-center">
 
-        <app-btn-cancelar (click)="modificarCita()" [routerLink]="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
+        <app-btn-cancelar [routerLink]="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
 
         <div class="d-flex align-items-center">
           <app-btn-anterior *ngIf="confirmar" (click)="anterior()" class="me-4"></app-btn-anterior>
           <app-btn-siguiente
               [mostrarModal]="enviarDatos"
-              [idModal]="'confirmarCambios'"
+              [idModal]="'prueba'"
               (click)="siguiente()">
           </app-btn-siguiente>
 
-          <!-- Este es una prueba para el modal de modificar datos -->
+         
 
       </div>
     </div>
@@ -95,9 +98,8 @@
 
 
 
-<!-- Modales -->
-<app-confirmar-cambios [idModal]="'confirmarCambios'"></app-confirmar-cambios>
-<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita modificada exitosamente'"></app-mensaje-confirmacion>
+
+<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita modificada exitosamente'" [enlace]="'app/administrativo/paciente/'+idPaciente"></app-mensaje-confirmacion>
 
 
 

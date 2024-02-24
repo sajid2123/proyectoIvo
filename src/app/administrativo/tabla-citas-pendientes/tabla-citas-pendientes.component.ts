@@ -41,7 +41,8 @@ export class TablaCitasPendientesComponent implements OnInit {
           last: '',
           next: 'Siguiente',
           previous: 'Anterior'
-        }
+        },
+        emptyTable: '' // Eliminar el mensaje "No data available in table"
       }
     };
 
@@ -81,17 +82,6 @@ export class TablaCitasPendientesComponent implements OnInit {
     );
   }
 
-  /*obtenerNombreMedico(idMedico: string): void {
-    this.administrativoService.obtenerNombreMedico(idMedico).subscribe(
-      (nombreMedico: string) => {
-        this.medico = nombreMedico;
-      },
-      (error) => {
-        console.error('Error al obtener el nombre del médico:', error);
-      }
-    );
-  }*/
-
   eliminarCita(idCita: string) {
     this.administrativoService.eliminarCita(idCita).subscribe(() => {
       // Si la eliminación fue exitosa, actualiza la lista de citas
@@ -100,8 +90,8 @@ export class TablaCitasPendientesComponent implements OnInit {
     console.log(idCita);
   }
 
-  detallesCita(idMedico: string, idServicio: string, hora: string, fecha:string, idCita: string) {
-    this.router.navigate(['app/administrativo/detalles-citas', idMedico, idServicio, hora,fecha, idCita]);
+  detallesCita(idMedico: string, idServicio: string, hora: string, fecha:string, idCita: string, idPaciente: string) {
+    this.router.navigate(['app/administrativo/detalles-citas', idMedico, idServicio, hora,fecha, idCita, idPaciente]);
   }
 
   modificarCita(idCita: string, idPaciente:string): void {

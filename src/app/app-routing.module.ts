@@ -90,7 +90,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'administrativo/detalles-citas/:idMedico/:idServicio/:hora/:fecha/:idCita',
+        path: 'administrativo/detalles-citas/:nombreMedico/:nombreServicio/:hora/:fecha/:idCita/:idPaciente',
         component: DetallesCitaComponent,
         canActivate: [rolGuard],
         data: {
