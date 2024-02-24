@@ -17,7 +17,7 @@ export class AdministrativoServiceService {
   }
 
   enlazarAdministrativoConPacienteRecientementeCreado(paciente:any){
-    return this.http.post<any>(`http://localhost/api/v1/alta-paciente`, paciente);
+    return this.http.post<any>(`http://localhost/api/v1/registrar-paciente`, paciente);
   }
 
   obtenerPaciente(idPaciente: string): Observable<any> {
