@@ -31,8 +31,11 @@ export class MedicoService {
     return this.http.post<any>(`http://localhost/api/v1/modificar-diagnostico/${idCita}`, diagnostico);
   }
   
-  getAllPruebas(){
-    
 
+  getAllPruebas(id_paciente: number){
+    return this.http.get(`http://localhost/api/v1/pruebas-paciente/${id_paciente}`);
+  }
+  getPrueba(id: number){
+    return this.http.get(`http://localhost/api/v1/informacion-prueba/${id}`);
   }
 }

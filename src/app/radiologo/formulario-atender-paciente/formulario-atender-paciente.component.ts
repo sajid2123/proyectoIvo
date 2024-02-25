@@ -122,9 +122,7 @@ export class FormularioAtenderPacienteComponent {
         name: img.nombre,
       }));
     },error => {
-
       console.error('Ocurrió un error al enviar el formulario:', error);
-        
     })
   }
  

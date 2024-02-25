@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MedicoService } from '../servicio/medico.service';
 
 interface historial {
-  fecha: string;
-  servicio: string;
-  medico: string;
+  id_prueba: number,
+  informe: string,
+  fecha: string,
+  medico: string,
+  servicio:string,
 }
 
 @Component({
@@ -13,27 +16,22 @@ interface historial {
   styleUrls: ['./tabla-historial.component.css']
 })
 export class TablaHistorialComponent {
-  historiales: historial[] = [
-    { fecha: '19-06-2023', servicio: 'Radiólogo', medico: 'Marta Antonia' },
-    { fecha: '20-06-2023', servicio: 'General', medico: 'Marta Antonia' },
-    { fecha: '20-06-2023', servicio: 'General', medico: 'López Sánchez' },
-    { fecha: '20-06-2023', servicio: 'General', medico: 'Rafael Enrique' },
-    { fecha: '19-06-2023', servicio: 'Radiólogo', medico: 'Carla Sofía' },
-    { fecha: '20-06-2023', servicio: 'General', medico: 'López Sánchez' },
-    { fecha: '19-06-2023', servicio: 'Radiólogo', medico: 'Sánchez Martínez' },
-    { fecha: '20-06-2023', servicio: 'General', medico: 'Rafael Enrique' }
-  ];
+  @Input() id_paciente!: number;
+  historiales!: historial[] ;
+  existir: boolean = false;
+
   
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private medicoService: MedicoService) {}
 
   onRowClick(historial: historial){
-    this.router.navigate(['/app/medico/atender-paciente/historial'], { queryParams: { fecha: historial.fecha } });
+    this.router.navigate(['/app/medico/atender-paciente/historial'], { queryParams: { fecha: historial.fecha, id_prueba: historial.id_prueba} });
   }
 
   dtOptions: DataTables.Settings = {}
 
   ngOnInit(): void {
+    this.getAllPruebas();
     this.dtOptions = {
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
@@ -41,4 +39,21 @@ export class TablaHistorialComponent {
       pagingType: "numbers"
     }
   }
+  getAllPruebas(){
+    this.medicoService.getAllPruebas(this.id_paciente)
+    .subscribe(
+        (response: any) => {
+          this.existir = true;
+          this.historiales = response.data.map((response: historial) => ({
+            id_prueba: response.id_prueba,
+            informe: response.informe,
+            fecha: response.fecha,
+            medico: response.medico, 
+            servicio: response.servicio 
+          }))
+          console.log(response); 
+        }
+    );
+  }
+  
 }

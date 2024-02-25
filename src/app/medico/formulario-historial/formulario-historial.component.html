@@ -3,8 +3,7 @@
         <div class="col-6 p-0">
             <div class="form-group">
                 <label for="informe" class="label-style color mb-3">Informe</label>
-                <textarea class="form-control" name="informe" cols="10" rows="20" 
-                         required></textarea>
+                <textarea class="form-control" name="informe" cols="10" rows="20" [(ngModel)]="formData.informe"  required></textarea>
               </div>
         </div>
         <div class="col-6 px-5">
@@ -14,15 +13,16 @@
                        multiple required>
               </div>
               <div>
-                <div class="contenedor-style mt-3">
+                <div *ngFor="let img of formData.imagenes" class="contenedor-style mt-3">
                     <div class="color con-style">
                         <span class="mx-2">
-                            <!-- <fa-icon [icon]="faFileLines"></fa-icon> -->
+                            <fa-icon [icon]="faFileLines"></fa-icon>
+                            
                         </span>
-                        <p class="m-0"></p>
+                        <p class="m-0">{{ img.name }}</p>
                     </div>
-                    <span class="color">
-                        <!-- <fa-icon [icon]="faCircleXmark"></fa-icon> -->
+                    <span class="color pointer" (click)="descargarImagen(img.base64, img.name)">
+                        <fa-icon [icon]="faDownload"></fa-icon>
                     </span>
                 </div>
 

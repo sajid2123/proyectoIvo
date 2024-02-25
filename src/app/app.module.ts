@@ -19,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -40,7 +39,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     PacienteModule,
     LoginModule,
-    ToastrModule,
     HttpClientModule
   ],
   providers: [],
