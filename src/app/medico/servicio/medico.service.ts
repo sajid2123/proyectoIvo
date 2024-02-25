@@ -26,11 +26,17 @@ export class MedicoService {
     return this.http.get<any>(`http://localhost/api/v1/obtener-diagnostico/${idCita}`);
   }
 
-
   modificarDiagnostico(diagnostico:any, idCita:string){
     return this.http.post<any>(`http://localhost/api/v1/modificar-diagnostico/${idCita}`, diagnostico);
   }
   
+  subirVolante(volante:string, idCita:string){
+    return this.http.post<any>(`http://localhost/api/v1/modificar-volante/${idCita}`, volante);
+  }
+
+  mostrarVolante(idCita:string){
+    return this.http.get<any>(`http://localhost/api/v1/mostrar-volante/${idCita}`);
+  }
 
   getAllPruebas(id_paciente: number){
     return this.http.get(`http://localhost/api/v1/pruebas-paciente/${id_paciente}`);

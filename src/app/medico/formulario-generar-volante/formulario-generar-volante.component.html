@@ -1,13 +1,14 @@
-<form  (ngSubmit)="onSubmit()">
+<form *ngIf="formulario" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="row">
         <div class="col-12">
             <div class="form-group">
                 <label for="informe" class="color label-style mb-3">Volante</label>
-                <textarea class="form-control" name="informe" cols="10" rows="15" 
-                          [(ngModel)]="formData.volante" required></textarea>
+                <textarea formControlName="volante" class="form-control" name="informe" cols="10" rows="15"></textarea>
             </div>
         </div>
-       
+        <span *ngIf="errorVolante" class="d-flex bg-danger rounded text-white">
+            cola
+        </span>
         <div class="row">
             <div class="col-12 ">
                 <button type="submit" class="btn btn-personalized mt-5">

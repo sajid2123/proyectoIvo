@@ -27,10 +27,8 @@ export class FormularioDiagnosticarComponent {
   id_cita = '';
   textoModal = '';
 
-
   errorInforme:boolean = false;
   errorTratamiento:boolean = false;
-
 
   constructor(private route: ActivatedRoute){
     this.route.queryParams.subscribe(params => {
