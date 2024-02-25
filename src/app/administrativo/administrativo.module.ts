@@ -41,6 +41,9 @@ import { FormularioAltaPacienteComponent } from './formulario-alta-paciente/form
 import { PasosFormularioComponent } from './pasos-formulario/pasos-formulario.component';
 import { DosPasosFormularioComponent } from './dos-pasos-formulario/dos-pasos-formulario.component';
 import { TablaCitasRealizadasComponent } from './tabla-citas-realizadas/tabla-citas-realizadas.component';
+import { BreadcrumbTresPasosComponent } from './breadcrumb-tres-pasos/breadcrumb-tres-pasos.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -62,6 +65,7 @@ import { TablaCitasRealizadasComponent } from './tabla-citas-realizadas/tabla-ci
     ConfirmarModificarCitaComponent,
     TablaCitasPendientesComponent,
     ConfirmarModificarCitaComponent,
+    
 
     ComponentePendienteRealizadaPerfilComponent,
     PerfilPacienteComponent,
@@ -73,6 +77,9 @@ import { TablaCitasRealizadasComponent } from './tabla-citas-realizadas/tabla-ci
       PasosFormularioComponent,
       DosPasosFormularioComponent,
       TablaCitasRealizadasComponent,
+      BreadcrumbTresPasosComponent,
+      
+     
 
 
 
@@ -86,6 +93,7 @@ import { TablaCitasRealizadasComponent } from './tabla-citas-realizadas/tabla-ci
     MatNativeDateModule,
     MatInputModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     AppRoutingModule,
     DataTablesModule,
     HttpClientModule,

@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
   templateUrl: './perfil-paciente.component.html',
   styleUrls: ['./perfil-paciente.component.css']
 })
-export class PerfilPacienteComponent {
+export class PerfilPacienteComponent implements OnInit {
     poderEditar:boolean = false;
     idPaciente: string = '';
+    datosOriginales: any = {}; // Guarda los datos originales del paciente
+    // Variables para almacenar los datos del paciente
     dni:String = '';
     nombre:String = '';
     apellido1:String = '';
@@ -36,17 +38,36 @@ export class PerfilPacienteComponent {
 
     // Si esto esta en falso, quiere decir que se mostrarán los datos pero NO pondran ser editados.
 
-    editar(entrada:boolean){ // Si poderEditar es falso, cambiara a true y el administrativo podrá modificar los datos del paciente
+    editar(entrada:boolean) {
       if (entrada == false) {
         this.poderEditar = true;
-
-        $("input").prop("readonly", false);
-
-      } else { // En caso contrario, el administrativo solo podrá verlo mas no editarlo
+        // Guarda una copia de seguridad de los datos originales del paciente
+        this.datosOriginales = { 
+          dni: this.dni,
+          nombre: this.nombre,
+          apellido1: this.apellido1,
+          apellido2: this.apellido2,
+          sexo: this.sexo,
+          fecha: this.fecha,
+          correo: this.correo,
+          telefono: this.telefono,
+          codigoPostal: this.codigoPostal,
+          direccion: this.direccion
+        };
+      } else {
         this.poderEditar = false;
-        $("input").prop("readonly", true);
+        // Restaura los datos originales del paciente
+        this.dni = this.datosOriginales.dni;
+        this.nombre = this.datosOriginales.nombre;
+        this.apellido1 = this.datosOriginales.apellido1;
+        this.apellido2 = this.datosOriginales.apellido2;
+        this.sexo = this.datosOriginales.sexo;
+        this.fecha = this.datosOriginales.fecha;
+        this.correo = this.datosOriginales.correo;
+        this.telefono = this.datosOriginales.telefono;
+        this.codigoPostal = this.datosOriginales.codigoPostal;
+        this.direccion = this.datosOriginales.direccion;
       }
-
     }
 
     obtenerDatosPaciente(idPaciente: String): void {
@@ -65,17 +86,6 @@ export class PerfilPacienteComponent {
             this.direccion = response.usuario.direccion;
             this.telefono = response.usuario.telefono;
             this.correo = response.usuario.correo;
-
-            console.log(this.dni);
-            console.log(this.nombre);
-            console.log(this.apellido1);
-            console.log(this.apellido2);
-            console.log(this.sexo);
-            console.log(this.fecha);
-            console.log(this.codigoPostal);
-            console.log(this.direccion);
-            console.log(this.telefono);
-            console.log(idPaciente);
           },
           (error) => {
             console.error('Error al obtener el nombre del paciente:', error);

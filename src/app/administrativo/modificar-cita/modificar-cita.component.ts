@@ -39,7 +39,12 @@ export class ModificarCitaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.formularioCita = this.formBuilder.group({});
+    
+    this.formularioCita = this.formBuilder.group({
+      horasDisponibles: [''],
+      fechaCita: [''] 
+    });
+   
 
     this.route.queryParams.subscribe((params) => {
       this.idPaciente = params['id_usuario_paciente'];
@@ -63,6 +68,8 @@ export class ModificarCitaComponent implements OnInit {
     return format(fecha, 'dd/MM/yyyy');
   }
 
+  
+
   siguiente() {
     if (!this.confirmar) {
       // Si el administrativo le da a siguiente y no se encuentra en "confirmar datos", el formulario se desactivará para confirmar los datos con el paciente
@@ -78,7 +85,9 @@ export class ModificarCitaComponent implements OnInit {
 
       this.confirmar = true;
       this.enviarDatos = true;
+      
     }
+    this.modificarCita();
   }
 
   anterior() {
@@ -143,14 +152,23 @@ export class ModificarCitaComponent implements OnInit {
 
   modificarCita(): void {
     if (this.formularioCita.valid) {
+      // Obtener la hora seleccionada
+      const horasDisponiblesControl = this.formularioCita.get('horasDisponibles');
+      const hora = horasDisponiblesControl ? horasDisponiblesControl.value : '';
+  
+      // Obtener la fecha seleccionada
+      const fechaControl = this.formularioCita.get('fechaCita');
+      const fecha = fechaControl ? fechaControl.value : '';
+  
       const datosCita = {
         id_servicio: this.idServicio,
         id_usuario_medico: this.idMedico,
-        hora: this.formularioCita.get('horasDisponibles')?.value, // Obtener valor del campo horasDisponibles
-        fecha: this.fechaCita // Usar la fecha seleccionada del componente
+        hora: hora,
+        fecha: fecha
       };
-
-      // Realizar la solicitud HTTP para modificar la cita
+  
+      console.log('Datos de la cita a enviar:', datosCita);
+  
       this.administrativoService.modificarCita(datosCita, this.citaId).subscribe(
         (response) => {
           console.log('Cita modificada exitosamente', response);
@@ -160,8 +178,13 @@ export class ModificarCitaComponent implements OnInit {
         }
       );
     } else {
-      console.error('El formulario o alguno de sus campos no está disponible.');
+      console.error('El formulario o alguno de sus campos no es válido.');
     }
   }
+  
+  
+  
+  
+  
   
 }

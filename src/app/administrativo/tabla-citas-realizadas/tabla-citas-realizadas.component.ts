@@ -45,6 +45,11 @@ export class TablaCitasRealizadasComponent implements OnInit {
       }
     };
 
+    this.dtOptions.language = {
+      ...this.dtOptions.language,
+      zeroRecords: 'No se encontraron registros'
+    };
+
     this.route.params.subscribe((params) => {
       this.idPaciente = params['id_paciente'];
       this.obtenerDatosPaciente(this.idPaciente);
@@ -70,11 +75,16 @@ export class TablaCitasRealizadasComponent implements OnInit {
   obtenerDatosCita(idPaciente: string): void {
     this.administrativoService.obtenerCitas(idPaciente, this.estado).subscribe(
       (response) => {
-       
         this.citas = response.citas.filter((cita: any) => cita.estado === 'realizada').map((cita: any) => ({
           ...cita,
           nombreMedico: cita.nombre_medico
         }));
+  
+        // Imprimir información de cada cita en la consola
+        this.citas.forEach((cita) => {
+          console.log('Cita:', cita);
+        });
+  
         this.dtTrigger.next(null);
       },
       (error) => {
@@ -82,6 +92,7 @@ export class TablaCitasRealizadasComponent implements OnInit {
       }
     );
   }
+  
 
   eliminarCita(idCita: string) {
     this.administrativoService.eliminarCita(idCita).subscribe(() => {
@@ -91,8 +102,8 @@ export class TablaCitasRealizadasComponent implements OnInit {
     console.log(idCita);
   }
 
-  detallesCita(idMedico: string, idServicio: string, hora: string, fecha:string, idCita: string) {
-    this.router.navigate(['app/administrativo/detalles-citas', idMedico, idServicio, hora,fecha, idCita]);
+  detallesCita(nombreMedico: string, nombreServicio: string, hora: string, fecha:string, idCita: string, idPaciente:string) {
+    this.router.navigate(['app/administrativo/detalles-citas', nombreMedico, nombreServicio, hora,fecha, idCita, idPaciente]);
   }
 
   modificarCita(idCita: string, idPaciente:string): void {

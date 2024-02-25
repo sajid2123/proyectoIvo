@@ -17,6 +17,7 @@ export class AtenderPacienteComponent {
 
   id_paciente!: number;
   id_cita!: number;
+  estado!: string;
   
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class AtenderPacienteComponent {
       this.nombreCompleto = params['nombre'] + ' ' + params['apellido']; 
       this.id_paciente = params['id_paciente'];
       this.id_cita = params['id_cita'];
+      this.estado = params['estado'];
     })
   }
 }

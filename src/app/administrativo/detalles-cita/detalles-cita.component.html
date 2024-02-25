@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-12 p-0 mt-3">
-      <breadcrumb
-      [primeraRouta]="'/administrativo'"
-      [primerNombre]="'Alta paciente'"
-      [segundonombre]="'Citas'"
-      [tercernombre]="'Detalles De La Cita'"
-      [segundoActivo]="false"
-      [tercerActivo]="true"
-      ></breadcrumb>
+    <app-breadcrumb-tres-pasos
+    [primeraRouta]="'/app/administrativo/alta-paciente'"
+    [primerNombre]="'Alta paciente'"
+    [segundaRouta]="'/app/administrativo/paciente/'+idUsuarioPaciente"
+    [segundonombre]="'Citas'"
+    [tercernombre]="'Detalles de la Cita'"
+    [tercerActivo]="true"
+   
+    ></app-breadcrumb-tres-pasos>
   </div>
 </div>
 
@@ -19,29 +20,29 @@
 
 
 <div class="row ms-5 me-5 mt-3 mb-4 rounded-4 shadow" style="background-color: #EBF3FA;">
-  <div class="col-10">
+  <div class="col-10 ms-5 me-5">
     <div class="row mt-5">
-      <div class="col-md-6 d-flex justify-content-center">
+      <div class="col-md-6">
         <div>
           <h1>MÉDICO / ESPECIALISTA</h1>
-          <h2>{{idMedico}}</h2>
+          <h2>{{nombreMedico}}</h2>
         </div>
       </div>
-      <div class="col-md-6  d-flex justify-content-center">
+      <div class="col-md-6">
         <div>
           <h1>SERVICIO</h1>
-          <h2>{{idServicio}}</h2>
+          <h2>{{nombreServicio}}</h2>
         </div>
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-md-6 mb-5 d-flex justify-content-center">
+      <div class="col-md-6 mb-5">
         <div>
           <h1>FECHA</h1>
-          <h2 >{{fecha}}</h2>
+          <h2>{{fecha}}</h2>
         </div>
       </div>
-      <div class="col-md-6 mb-5 d-flex justify-content-center">
+      <div class="col-md-6 mb-5">
         <div>
           <h1>HORA</h1>
           <h2>{{hora}}</h2>
@@ -52,6 +53,7 @@
 </div>
 
 
+
 <div class="row">
   <div class="col-12 mt-5 ms-5">
     <button id="btnAnular" (click)="confirmarAnulacion()" data-bs-toggle="modal" data-bs-target="#exampleModal">Anular cita</button>
@@ -59,7 +61,9 @@
 </div>
 
 <div *ngIf="mostrarConfirma">
-  <app-confirma [idModal]="'prueba'" [texto]="'¿Desea anular la cita?'" [enlaceSi]="'administrativo/paciente'" (confirmacion)="confirmarEliminacion()"></app-confirma>
+  <app-confirma [idModal]="'prueba'" [texto]="'¿Desea anular la cita?'" [enlaceSi]="'administrativo/paciente/' + idUsuarioPaciente" (confirmacion)="confirmarEliminacion(idCita)"></app-confirma>
+
+
 </div>
 
 
