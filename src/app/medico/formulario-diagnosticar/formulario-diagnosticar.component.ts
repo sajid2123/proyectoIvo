@@ -76,26 +76,47 @@ export class FormularioDiagnosticarComponent {
       this.errorInforme = false;
       this.errorTratamiento = false;
       
+      if (this.estado == "pendiente") {
 
-      const diagnostico = {
-        informe: this.formData.get('informe')?.value,
-        tratamientos: this.formData.get('tratamientos')?.value,
-        fecha_creacion: this.fechaDeHoy.getFullYear() + "-"  + (this.fechaDeHoy.getUTCMonth()+1) + "-" + this.fechaDeHoy.getDate(),
-        id_medico: localStorage.getItem('id_usuario'),
-        id_cita: this.id_cita,
-        sip: this.sip,
-      }
-
-      console.log(this.formData.value);
-
-      this.servicio.registrarDiagnostico(diagnostico).subscribe(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
+        const diagnostico = {
+          informe: this.formData.get('informe')?.value,
+          tratamientos: this.formData.get('tratamientos')?.value,
+          fecha_creacion: this.fechaDeHoy.getFullYear() + "-"  + (this.fechaDeHoy.getUTCMonth()+1) + "-" + this.fechaDeHoy.getDate(),
+          id_medico: localStorage.getItem('id_usuario'),
+          id_cita: this.id_cita,
+          sip: this.sip,
         }
-      );
+  
+        console.log(this.formData.value);
+  
+        this.servicio.registrarDiagnostico(diagnostico).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+
+      } else if(this.estado == "realizada"){
+        
+      const diagnosticoModificado = {
+          informe: this.formData.get('informe')?.value,
+          tratamiento: this.formData.get('tratamientos')?.value,
+        }
+  
+        console.log(this.formData.value);
+  
+        this.servicio.modificarDiagnostico(diagnosticoModificado, this.id_cita).subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+
+      }
     }
   }
 }
