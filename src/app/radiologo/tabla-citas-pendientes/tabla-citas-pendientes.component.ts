@@ -26,7 +26,6 @@ export class TablaCitasPendientesComponent {
   ngOnInit(): void {
     console.log(typeof this.idUsaurio);
     this.getCitasPendientes();
-   
     this.dtOptions = {
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
@@ -38,11 +37,12 @@ export class TablaCitasPendientesComponent {
 
   
   getCitasPendientes(){
-
     this.fechaCompleta =this.fecha.getFullYear() + "-"  + (this.fecha.getUTCMonth()+1) + "-" + this.fecha.getDate();
+    console.log(this.fechaCompleta, this.idUsaurio)
     this.radiologoService.getCitasPendientes(this.fechaCompleta, this.idUsaurio)
       .subscribe(
           response => {
+            console.log(response); 
             this.existir = true;
             this.citas = response.citas;
             console.log(this.citas); 
@@ -52,7 +52,7 @@ export class TablaCitasPendientesComponent {
 
   
   onRowClick(cita: CitaResponse){
-    this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita} });
+    this.router.navigate(['/app/radiologo/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellidos, hora: cita.hora, id_paciente: cita.id_paciente, id_cita: cita.id_cita, estado: "pendiente"} });
   }
   refrescarTabla(fechaEntrada:Date){
     this.existir = false;
@@ -63,7 +63,7 @@ export class TablaCitasPendientesComponent {
           response => {
             this.existir = true;
             this.citas = response.citas;
-            console.log(this.citas); 
+            console.log(response); 
           }
       );
   }
