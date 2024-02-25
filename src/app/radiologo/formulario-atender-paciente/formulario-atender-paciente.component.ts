@@ -156,7 +156,6 @@ export class FormularioAtenderPacienteComponent {
         reader.readAsDataURL(file);
       }
     }
- 
   }
 
   removeImage(index: number) {
