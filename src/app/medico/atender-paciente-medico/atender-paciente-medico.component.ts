@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AtenderPacienteMedicoComponent {
 
   activeTab: string = "diagnosticar";
-
+  id_paciente!: number;
   constructor(private route: ActivatedRoute){}
 
 
@@ -17,6 +17,7 @@ export class AtenderPacienteMedicoComponent {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.nombreCompleto = params['nombre'] + ' ' + params['apellido']; 
+      this.id_paciente = params['id_paciente'];
     })
   }
 
