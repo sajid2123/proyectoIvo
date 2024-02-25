@@ -19,7 +19,7 @@ import { HistorialComponent } from './historial/historial.component';
 import { BreadcrumbHistorialComponent } from './breadcrumb-historial/breadcrumb-historial.component';
 import { FormularioHistorialComponent } from './formulario-historial/formulario-historial.component';
 import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
 // const routes: Routes = [
 //   { path: 'medico', component: PaginaPrincipalMedicoComponent },
 //   { path: 'medico/atender-paciente', component: AtenderPacienteMedicoComponent },
@@ -38,7 +38,7 @@ import { RouterModule } from '@angular/router';
        AtenderPacienteMedicoComponent,
        HistorialComponent,
        BreadcrumbHistorialComponent,
-       FormularioHistorialComponent
+       FormularioHistorialComponent,
   ],
   imports: [
     CommonModule,
@@ -49,7 +49,8 @@ import { RouterModule } from '@angular/router';
     DataTablesModule,
     FontAwesomeModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class MedicoModule { }

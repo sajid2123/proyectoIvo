@@ -22,4 +22,7 @@ export class MedicoService {
     return this.http.post<any>(`http://localhost/api/v1/registrar-diagnostico/`, diagnostico);
   }
 
+  obtenerDiagnostico(idCita:any){
+    return this.http.get<any>(`http://localhost/api/v1/obtener-diagnostico/${idCita}`);
+  }
 }

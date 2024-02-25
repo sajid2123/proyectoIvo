@@ -9,6 +9,8 @@ interface Cita {
   nombre: string;
   apellido: string;
   hora: string;
+  estado: string;
+  id_cita: string;
 }
 @Component({
   selector: 'tabla-citas-realizadas',
@@ -26,7 +28,7 @@ export class TablaCitasRealizadasComponent {
   constructor(private router: Router) {}
 
   onRowClick(cita: Cita){
-    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora } });
+    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora, estado: cita.estado, id_cita: cita.id_cita } });
   }
 
   dtOptions: DataTables.Settings = {}

@@ -9,6 +9,8 @@ interface Cita {
   nombre: string;
   apellido: string;
   hora: string;
+  id_cita: string;
+  estado: string;
 }
 
 @Component({
@@ -28,7 +30,7 @@ export class TablaCitasPendientesComponent {
   constructor(private router: Router) {}
 
   onRowClick(cita: Cita){
-    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora } });
+    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora, id_cita: cita.id_cita, estado: cita.estado }});
   }
 
   dtOptions: DataTables.Settings = {}
