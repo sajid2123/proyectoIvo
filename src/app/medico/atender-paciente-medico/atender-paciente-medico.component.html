@@ -22,9 +22,9 @@
             </div>
             <div class="row mt-5 px-5">
                 <div class="col-12 p-0">
-                    <app-formulario-diagnosticar *ngIf="activeTab === 'diagnosticar'"></app-formulario-diagnosticar>
-                    <app-tabla-historial *ngIf="activeTab === 'historial'"></app-tabla-historial>
-                    <app-formulario-generar-volante *ngIf="activeTab === 'volante'"></app-formulario-generar-volante>
+                    <app-formulario-diagnosticar [hidden]="activeTab !== 'diagnosticar'"></app-formulario-diagnosticar>
+                    <app-tabla-historial [hidden]="activeTab !== 'historial'"></app-tabla-historial>
+                    <app-formulario-generar-volante [hidden]="activeTab !== 'volante'"></app-formulario-generar-volante>
                 </div>
                 
             </div>

@@ -9,8 +9,9 @@ interface Cita {
   nombre: string;
   apellido: string;
   hora: string;
-  id_cita: string;
+  id_cita: number;
   estado: string;
+  id_paciente: number;
 }
 
 @Component({
@@ -30,7 +31,7 @@ export class TablaCitasPendientesComponent {
   constructor(private router: Router) {}
 
   onRowClick(cita: Cita){
-    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora, id_cita: cita.id_cita, estado: cita.estado }});
+    this.router.navigate(['/app/medico/atender-paciente'], { queryParams: { sip: cita.sip, nombre: cita.nombre, apellido: cita.apellido, hora: cita.hora, id_cita: cita.id_cita, estado: cita.estado, id_paciente: cita.id_paciente}});
   }
 
   dtOptions: DataTables.Settings = {}
@@ -48,6 +49,7 @@ export class TablaCitasPendientesComponent {
 
     this.servicioMedico.obtenerCitasPendientesSegunIdMedicoYFecha(this.idMedico, this.fechaCompleta).subscribe(
       (response) => {
+        console.log(response);
         this.existir = true;
         this.citas = response;
       }
@@ -60,6 +62,7 @@ export class TablaCitasPendientesComponent {
 
     this.servicioMedico.obtenerCitasPendientesSegunIdMedicoYFecha(this.idMedico,this.fechaCompleta).subscribe(
       (response) => {
+        
         this.existir = true;
         this.citas = response;
       }

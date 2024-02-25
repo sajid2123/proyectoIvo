@@ -25,4 +25,7 @@ export class MedicoService {
   obtenerDiagnostico(idCita:any){
     return this.http.get<any>(`http://localhost/api/v1/obtener-diagnostico/${idCita}`);
   }
+  getAllPruebas(){
+    
+  }
 }
