@@ -23,6 +23,8 @@ interface Cita {
 export class TablaCitasPendientesComponent {
   @Input() fecha!:Date;
   @Input() citas!: Cita[];
+  
+
   existir:boolean = false;
   idMedico:number = Number(localStorage.getItem("id_usuario"));
   fechaCompleta:string = ""; 

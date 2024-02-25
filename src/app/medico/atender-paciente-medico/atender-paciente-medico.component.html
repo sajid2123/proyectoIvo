@@ -23,10 +23,12 @@
             <div class="row mt-5 px-5">
                 <div class="col-12 p-0">
                     <app-formulario-diagnosticar [hidden]="activeTab !== 'diagnosticar'"></app-formulario-diagnosticar>
-                    <app-tabla-historial [hidden]="activeTab !== 'historial'"></app-tabla-historial>
+                    <app-tabla-historial 
+                    [hidden]="activeTab !== 'historial'"
+                    [id_paciente]="id_paciente"
+                    ></app-tabla-historial>
                     <app-formulario-generar-volante [hidden]="activeTab !== 'volante'"></app-formulario-generar-volante>
                 </div>
-                
             </div>
         </div>
     </div>

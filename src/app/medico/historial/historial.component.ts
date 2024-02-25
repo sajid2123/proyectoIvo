@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HistorialComponent {
   constructor(private route: ActivatedRoute){}
-
-
-  fecha : String = "";
+  fecha!: string;
+  id_prueba!: number;
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.fecha = params['fecha']; 
-    })
+      this.id_prueba = params['id_prueba'];
+    });
   }
-
+  
 }
