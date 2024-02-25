@@ -30,6 +30,7 @@ export class MedicoService {
   modificarDiagnostico(diagnostico:any, idCita:string){
     return this.http.post<any>(`http://localhost/api/v1/modificar-diagnostico/${idCita}`, diagnostico);
   }
+  
   getAllPruebas(){
     
 

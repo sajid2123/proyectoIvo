@@ -35,7 +35,8 @@ import { ConfirmarCambiosComponent } from './confirmar-cambios/confirmar-cambios
     NavLogoutComponent,
     PlantillaComponent,
     NoEncontradoComponent,
-    ConfirmarCambiosComponent
+    ConfirmarCambiosComponent,
+    MensajeConfirmacionComponent,
   ],
   imports: [
     CommonModule,
@@ -50,7 +51,8 @@ import { ConfirmarCambiosComponent } from './confirmar-cambios/confirmar-cambios
     ComponentePendienteRealizadaComponent,
     BreadcrumbComponent,
     PlantillaComponent,
-    ConfirmarCambiosComponent
+    ConfirmarCambiosComponent,
+    MensajeConfirmacionComponent,
   ]
 })
 export class GeneralModule { }

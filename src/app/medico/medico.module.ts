@@ -20,6 +20,7 @@ import { BreadcrumbHistorialComponent } from './breadcrumb-historial/breadcrumb-
 import { FormularioHistorialComponent } from './formulario-historial/formulario-historial.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+
 // const routes: Routes = [
 //   { path: 'medico', component: PaginaPrincipalMedicoComponent },
 //   { path: 'medico/atender-paciente', component: AtenderPacienteMedicoComponent },

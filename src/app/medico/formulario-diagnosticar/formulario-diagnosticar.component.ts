@@ -7,6 +7,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { MedicoService } from '../servicio/medico.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-formulario-diagnosticar',
   templateUrl: './formulario-diagnosticar.component.html',
@@ -24,6 +25,8 @@ export class FormularioDiagnosticarComponent {
   estado = '';
   sip = '';
   id_cita = '';
+  textoModal = '';
+
 
   errorInforme:boolean = false;
   errorTratamiento:boolean = false;
@@ -40,6 +43,8 @@ export class FormularioDiagnosticarComponent {
         informe: new FormControl('', Validators.required),
         tratamientos: new FormControl('', Validators.required),
       })
+
+      this.textoModal = 'Diagnostico creado';
     } else {
 
       this.servicio.obtenerDiagnostico(this.id_cita).subscribe(
@@ -53,11 +58,14 @@ export class FormularioDiagnosticarComponent {
           console.log(error);
         }
       )
+
+      this.textoModal = 'Diagnostico modificado';
     }
   }
 
 
   onSubmit() {
+
     if (this.formData.invalid) {
     
       if(this.formData.get("informe")?.status == "INVALID"){
@@ -71,7 +79,7 @@ export class FormularioDiagnosticarComponent {
       } else {
         this.errorTratamiento = false;
       }
-
+    
     } else {
       this.errorInforme = false;
       this.errorTratamiento = false;

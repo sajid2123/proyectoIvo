@@ -17,7 +17,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MensajeConfirmacionComponent } from '../general/mensaje-confirmacion/mensaje-confirmacion.component';
 
 import { ComponentePaginaPrincipalAdministrativoComponent } from './componente-pagina-principal-administrativo/componente-pagina-principal-administrativo.component';
 import { BarraLateralAdministrativoComponent } from './barra-lateral-administrativo/barra-lateral-administrativo.component';
@@ -56,7 +55,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BtnSiguienteComponent,
     BtnAnteriorComponent,
     BtnCancelarComponent,
-    MensajeConfirmacionComponent,
     ComponentePaginaPrincipalAdministrativoComponent,
     BarraLateralAdministrativoComponent,
     BreadcumbAdministrativoComponent,
@@ -65,11 +63,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ConfirmarModificarCitaComponent,
     TablaCitasPendientesComponent,
     ConfirmarModificarCitaComponent,
-    
-
     ComponentePendienteRealizadaPerfilComponent,
     PerfilPacienteComponent,
-
     BuscarPacienteComponent,
       PaginaPacienteComponent,
       TablaCitasGeneralesComponent,
@@ -78,11 +73,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       DosPasosFormularioComponent,
       TablaCitasRealizadasComponent,
       BreadcrumbTresPasosComponent,
-      
-     
-
-
-
   ],
   providers: [],
   imports: [
