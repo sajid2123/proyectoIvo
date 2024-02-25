@@ -24,6 +24,7 @@ export class TablaCitasPendientesComponent implements OnInit {
   idCita: string ='';
   estado: string = ''; 
   medico: string = '';
+  resultado:any;
 
   constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
 
@@ -31,7 +32,7 @@ export class TablaCitasPendientesComponent implements OnInit {
     this.dtOptions = {
       retrieve: true,
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 10,
       searching: false,
       lengthChange: false,
       language: {
@@ -75,6 +76,7 @@ export class TablaCitasPendientesComponent implements OnInit {
           nombreMedico: cita.nombre_medico
         }));
         this.dtTrigger.next(null);
+        this.resultado = response
       },
       (error) => {
         console.error('Error al obtener los datos de la cita:', error);

@@ -13,3 +13,10 @@ a:hover{
 .icon-calender{
     font-size: 18px;
 }
+
+.selected, .selected:hover, .selected a {
+   
+    background-color: #DCECFB; 
+    border-radius: 10px; 
+    color: #092C4C; 
+}

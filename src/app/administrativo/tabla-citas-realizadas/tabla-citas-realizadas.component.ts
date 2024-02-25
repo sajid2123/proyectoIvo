@@ -24,6 +24,7 @@ export class TablaCitasRealizadasComponent implements OnInit {
   idCita: string ='';
   estado: string = 'realizada'; 
   medico: string = '';
+  resultado:any;
 
   constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
 
@@ -31,7 +32,7 @@ export class TablaCitasRealizadasComponent implements OnInit {
     this.dtOptions = {
       retrieve: true,
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 10,
       searching: false,
       lengthChange: false,
       language: {
@@ -79,13 +80,10 @@ export class TablaCitasRealizadasComponent implements OnInit {
           ...cita,
           nombreMedico: cita.nombre_medico
         }));
-  
-        // Imprimir información de cada cita en la consola
-        this.citas.forEach((cita) => {
-          console.log('Cita:', cita);
-        });
+
   
         this.dtTrigger.next(null);
+        this.resultado = response
       },
       (error) => {
         console.error('Error al obtener los datos de la cita:', error);

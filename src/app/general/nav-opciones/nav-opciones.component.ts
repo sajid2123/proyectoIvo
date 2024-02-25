@@ -8,18 +8,22 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-nav-opciones',
   templateUrl: './nav-opciones.component.html',
-  styleUrls: ['./nav-opciones.component.css']
+  styleUrls: ['./nav-opciones.component.css'],
 })
 export class NavOpcionesComponent {
   faCalendar = faCalendar;
   faMagnifyingGlass = faMagnifyingGlass;
   faUserPlus = faUserPlus;
   faFile = faFile;
-  
-  rolDelUsuario?:number;
 
-  ngOnInit(){
+  rolDelUsuario?: number;
+  indiceSeleccionado: number = 1;
+
+  seleccionarElemento(indice: number): void {
+    this.indiceSeleccionado = indice;
+  }
+
+  ngOnInit() {
     this.rolDelUsuario = Number(localStorage.getItem('rol'));
   }
-   
 }

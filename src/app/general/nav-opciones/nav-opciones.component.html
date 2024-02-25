@@ -1,31 +1,29 @@
 
     <ul class="nav navbar-nav" [ngSwitch]="rolDelUsuario">
         <div *ngSwitchCase="5">
-
-            <li class="nav-item mt-3 ">
+            <li class="nav-item mt-3" (click)="seleccionarElemento(1)" [ngClass]="{'selected': indiceSeleccionado === 1}">
                 <a class="nav-link  px-3" routerLink="/app/administrativo">
                     <fa-icon [icon]="faCalendar" class="mx-2 icon-calender"></fa-icon>
                     Citas Administrativo
                 </a>
             </li>
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3" (click)="seleccionarElemento(2)" [ngClass]="{'selected': indiceSeleccionado === 2}">
                 <a class="nav-link  px-3" routerLink="/app/administrativo/alta-paciente">
                     <fa-icon [icon]="faUserPlus" class="mx-2 icon-calender"></fa-icon>
                     Alta Paciente
                 </a>
             </li>
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3" (click)="seleccionarElemento(3)" [ngClass]="{'selected': indiceSeleccionado === 3}">
                 <a class="nav-link  px-3" routerLink="/app/administrativo/buscar-paciente">
                     <fa-icon [icon]="faMagnifyingGlass" class="mx-2 icon-calender"></fa-icon>
-                    Busqueda Paciente
+                    Búsqueda Paciente
                 </a>
             </li>
-
         </div>
 
         <div *ngSwitchCase="2">
-            <li class="nav-item">
-                <a class="nav-link  px-3" routerLink="/medico">
+            <li class="nav-item" (click)="seleccionarElemento(1)" [ngClass]="{'selected': indiceSeleccionado === 1}">
+                <a class="nav-link  px-3" routerLink="/medico" >
                     <fa-icon [icon]="faCalendar" class="mx-2 icon-calender"></fa-icon>
                     Citas Medicas
                 </a>
@@ -33,7 +31,7 @@
         </div>
 
         <div *ngSwitchCase="4">
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3" (click)="seleccionarElemento(1)" [ngClass]="{'selected': indiceSeleccionado === 1}">
                 <a class="nav-link  px-3" routerLink="/radiologo">
                   <fa-icon [icon]="faCalendar" class="mx-2 icon-calender"></fa-icon>
                   Citas Radiologo
@@ -42,13 +40,13 @@
         </div>
 
         <div *ngSwitchCase="3">
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3" (click)="seleccionarElemento(1)" [ngClass]="{'selected': indiceSeleccionado === 1}">
                 <a class="nav-link  px-3" routerLink="">
                   <fa-icon [icon]="faCalendar" class="mx-2 icon-calender"></fa-icon>
                   Citas Paciente
               </a>
               </li>
-              <li class="nav-item mt-3">
+              <li class="nav-item mt-3" (click)="seleccionarElemento(2)" [ngClass]="{'selected': indiceSeleccionado === 2}">
                  <a class="nav-link  px-3" routerLink="">
                   <fa-icon [icon]="faFile" class="mx-2 icon-calender"></fa-icon>
                   Pruebas Paciente

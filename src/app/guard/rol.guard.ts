@@ -4,6 +4,8 @@ import { Router } from '@angular/router'
 export const rolGuard: CanActivateFn = (route, state) => {
 
   const rol = route.data['idRol']
+
+  
   
   if (Number(localStorage.getItem("rol")) == rol) {
 
@@ -30,5 +32,7 @@ export const rolGuard: CanActivateFn = (route, state) => {
 
     return false;
   }
+
+  
   
 };

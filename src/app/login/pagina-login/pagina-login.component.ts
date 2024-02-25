@@ -17,6 +17,7 @@ export class PaginaLoginComponent {
 
     correoEquivocado = false;
     passwordEquivocado = false;
+    sesionCerradaExitosamente: boolean = false;
 
     servicio = inject(ApiServicioService);
 
@@ -26,10 +27,14 @@ export class PaginaLoginComponent {
         password: new FormControl('', Validators.required)
       })
 
-      if (localStorage.getItem('token_usuario') == "sesionCerrada") {
+      if (localStorage.getItem('token_usuario') === null) {
         this.sesionCerrada = true;
       }
     }
+
+    
+
+    
 
     async onSubmit(){
       console.log("Datos de correo " + this.formulario.controls["correo"].value);
