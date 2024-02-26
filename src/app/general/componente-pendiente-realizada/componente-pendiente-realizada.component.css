@@ -5,6 +5,7 @@
     font-weight: 900;
     font-size: 1.3rem;
     cursor: pointer;
+    padding-bottom: 10px;
     
 }
 .disabled{
@@ -12,5 +13,6 @@
     color: #98A3B3 !important;
     border-bottom: 2px solid #98A3B3;
     cursor: pointer;
+    padding-bottom: 10px;
 }
 

@@ -28,7 +28,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-  
     PaginaPrincipalMedicoComponent,
        TabsAtenderPacienteComponent,
        TablaCitasPendientesComponent,
@@ -54,4 +53,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ]
 })
+
+
 export class MedicoModule { }
