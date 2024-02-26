@@ -20,7 +20,12 @@ export class TablaCitasGeneralesComponent {
     this.obtenerCitas();
 
     this.dtOptions = {
-      pagingType: "numbers"
+      pagingType: "numbers",
+      info: false,
+    }
+
+    language: {
+      emptyTable: '' // Eliminar el mensaje "No data available in table"
     }
 
   }

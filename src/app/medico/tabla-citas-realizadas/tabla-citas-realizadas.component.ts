@@ -37,9 +37,11 @@ export class TablaCitasRealizadasComponent {
 
     this.dtOptions = {
       language: {
-        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+        emptyTable: '',
       },
-      pagingType: "numbers"
+      pagingType: "numbers",
+      info: false,
     }
 
     this.fechaCompleta =this.fecha.getFullYear() + "-"  + (this.fecha.getUTCMonth()+1) + "-" + this.fecha.getDate();

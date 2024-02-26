@@ -31,19 +31,11 @@ export class TablaCitasRealizadasComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       retrieve: true,
-      pagingType: 'full_numbers',
+      pagingType: "numbers",
       pageLength: 10,
       searching: false,
       lengthChange: false,
-      language: {
-        info: ' ', // Personalizar el mensaje
-        paginate: {
-          first: '',
-          last: '',
-          next: 'Siguiente',
-          previous: 'Anterior'
-        }
-      }
+      info: false,
     };
 
     this.dtOptions.language = {

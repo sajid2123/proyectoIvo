@@ -15,6 +15,28 @@
     color: #092C4C;
 }
 
+#DataTables_Table_0_filter{
+    font-family: manrope;
+}
+
+#DataTables_Table_0_length{
+    font-family: manrope;
+}
+
+table > thead > tr > .sorting:nth-child(1){ 
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+   /* Sorting es la clase que se le asigna a los td/th que contengan el titulo del atributo de la tabla (SIP, Nombre, etc)*/
+}
+
+table > thead > tr > .sorting:nth-last-child(1){ 
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
+   /* Sorting es la clase que se le asigna a los td/th que contengan el titulo del atributo de la tabla (SIP, Nombre, etc)*/
+}
+
 table > thead > tr > .sorting{ 
     background-color: #092C4C;
     color: white;
@@ -31,7 +53,34 @@ table > thead > tr > .sorting::before .sorting::after{
     font-family: manrope;
     font-weight: bold;
 }
+/*Esto controla todos los estilos de los titulos de la tabla*/
+.table > thead > tr > .sorting {
+    padding: 15px;
+    font-size: 16px;
+}
 
+/*Esto controla todos los estilos de los td*/
+.table > tbody > tr > td {
+    padding: 15px;
+    font-size: 16px;
+}
+
+.mat-calendar-table > .mat-calendar-body > tr > td > .mat-calendar-body-active > .mat-calendar-body-cell {
+    background-color: #092C4C;
+}
+
+.mat-calendar-table > .mat-calendar-body > tr > td > .mat-calendar-body-active > .mat-calendar-body-selected {
+    background-color: #092C4C;
+}
+
+.mat-calendar-table > .mat-calendar-body > tr > td > .mat-calendar-body-active > .mat-focus-indicator {
+    background-color: #092C4C;
+}
+
+.pagination >  .page-item > .page-link {
+    background-color: #092C4C;
+    border-color: #092C4C;
+}
 
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }  */

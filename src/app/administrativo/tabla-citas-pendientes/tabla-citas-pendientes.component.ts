@@ -35,14 +35,8 @@ export class TablaCitasPendientesComponent implements OnInit {
       pageLength: 10,
       searching: false,
       lengthChange: false,
+      info: false,
       language: {
-        info: ' ', // Personalizar el mensaje
-        paginate: {
-          first: '',
-          last: '',
-          next: 'Siguiente',
-          previous: 'Anterior'
-        },
         emptyTable: '' // Eliminar el mensaje "No data available in table"
       }
     };
