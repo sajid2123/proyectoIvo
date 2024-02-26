@@ -16,16 +16,15 @@ export class TablaCitasGeneralesComponent {
 
   ngOnInit():void{
     
-
     this.obtenerCitas();
 
     this.dtOptions = {
+      language: {
+        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+        emptyTable: '',
+      },
       pagingType: "numbers",
       info: false,
-    }
-
-    language: {
-      emptyTable: '' // Eliminar el mensaje "No data available in table"
     }
 
   }

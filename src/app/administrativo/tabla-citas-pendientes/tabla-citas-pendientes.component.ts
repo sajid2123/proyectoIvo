@@ -29,17 +29,17 @@ export class TablaCitasPendientesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private administrativoService: AdministrativoServiceService) {}
 
   ngOnInit(): void {
-    this.dtOptions = {
-      retrieve: true,
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      searching: false,
-      lengthChange: false,
-      info: false,
-      language: {
-        emptyTable: '' // Eliminar el mensaje "No data available in table"
+      this.dtOptions = {
+        pagingType: 'numbers',
+        searching: false,
+        lengthChange: false,
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+          emptyTable: '',
+        },
+        info: false,
       }
-    };
+    
 
     this.route.params.subscribe((params) => {
       this.idPaciente = params['id_paciente'];
