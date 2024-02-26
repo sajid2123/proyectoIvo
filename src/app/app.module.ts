@@ -18,6 +18,7 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MedicoModule } from './medico/medico.module';
 
 
 
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     PacienteModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    MedicoModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}

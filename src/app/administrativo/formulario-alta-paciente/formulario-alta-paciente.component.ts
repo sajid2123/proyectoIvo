@@ -31,13 +31,13 @@ export class FormularioAltaPacienteComponent {
             sexo: ['', [Validators.required]],
             fechaNacimiento: ['', [Validators.required]],
             telefono: ['', [Validators.required]],
-            correo: ['', [Validators.required]],
-            codigoPostal: ['', [Validators.required]],
+            correo: ['', [Validators.required, Validators.email]],
+            codigoPostal: ['', [Validators.required, Validators.min(10000), Validators.max(99999)]],
             direccion: ['', [Validators.required]],
           }),
           cuenta:fb.group({
             usuario: ['', Validators.required],
-            email2: ['', Validators.required],
+            email2: ['', Validators.email],
             contrasena: ['', Validators.required],
             contrasena2: ['', Validators.required],
             rol: ['2']
@@ -45,8 +45,24 @@ export class FormularioAltaPacienteComponent {
       })
     }
 
+    passwordIguales(contra1:string, contra2:string){
+        if (contra1 == contra2) {
+          return true;
+        } else {
+          return false;
+        }
+    }
+
     cambiarSeccion(accion:string, puedeAvanzar:boolean){
 
+      if (this.seccionFormulario == 2 && !this.passwordIguales(this.formulario.get('cuenta')?.get('contrasena')?.value, this.formulario.get('cuenta')?.get('contrasena2')?.value) == true) {
+        puedeAvanzar = false;
+      } 
+
+      $("#correoCuenta").prop("disabled", true);
+
+      this.formulario.get('cuenta')?.get('email2')?.setValue(this.formulario.get('datosPersonales')?.get('correo')?.value);
+      this.formulario.get('cuenta')?.get('email2')?.disable;
       let columnas = $("#seccionesFormulario").children();
       $(columnas[this.seccionFormulario]).removeClass("barra-inferior");
       $(columnas[this.seccionFormulario]).removeClass("border-3");
@@ -65,6 +81,7 @@ export class FormularioAltaPacienteComponent {
               this.meterBarra(this.seccionFormulario, columnas);
                 if (this.seccionFormulario == 4) {
                   $(".col").find("input").prop("disabled", true);
+                  $(".col").find("select").prop("disabled", true);
                   $("#direccion").prop("disabled", true);
                   this.enviarDatos = true;
                 } 
@@ -96,7 +113,6 @@ export class FormularioAltaPacienteComponent {
     }
 
     conocerNombreSeccionFormulario(entrada:number){
-
       switch(entrada){
         case 0:
           this.nombreSeccionFormulario = "datosPersonales";
@@ -105,8 +121,6 @@ export class FormularioAltaPacienteComponent {
           this.nombreSeccionFormulario = "cuenta";
         break;
       }
-
-
     }
 
     meterBarra(posicion:number, entrada:JQuery<HTMLElement>){

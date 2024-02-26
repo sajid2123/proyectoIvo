@@ -26,7 +26,7 @@ export class FormularioGenerarVolanteComponent {
   formulario!:FormGroup;
   id_cita = '';
   errorVolante = false;
-
+  existir = true;
 
   constructor(private route: ActivatedRoute){
 
@@ -36,9 +36,12 @@ export class FormularioGenerarVolanteComponent {
 
     this.servicio.mostrarVolante(this.id_cita).subscribe(
       (response) =>{
+        this.existir = false;
           this.formulario = new FormGroup({
             volante: new FormControl(response, Validators.required),
           })
+
+          this.existir = true;
       },
       (error) => {
         console.log(error);
