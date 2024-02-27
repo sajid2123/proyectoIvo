@@ -190,11 +190,16 @@ const routes: Routes = [
   },
 
   //LOGIN
+  /*
   {
     path: 'login',
     component: PaginaLoginComponent
   },
-
+*/
+  {
+    path: '',
+    component: PaginaLoginComponent
+  },
 
   //RUTAS RADIÓLOGO
   /*
