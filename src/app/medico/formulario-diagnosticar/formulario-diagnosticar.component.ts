@@ -26,17 +26,19 @@ export class FormularioDiagnosticarComponent {
   sip = '';
   id_cita = '';
   textoModal = '';
-
+  existir = true;
   errorInforme:boolean = false;
   errorTratamiento:boolean = false;
 
   constructor(private route: ActivatedRoute){
+    this.existir = false;
     this.route.queryParams.subscribe(params => {
       this.sip = params['sip']; 
       this.id_cita = params['id_cita'];
       this.estado = params['estado'];
     })
     if (this.estado == 'pendiente') {
+      this.existir = true;
       this.formData = new FormGroup({
         informe: new FormControl('', Validators.required),
         tratamientos: new FormControl('', Validators.required),
@@ -47,6 +49,7 @@ export class FormularioDiagnosticarComponent {
 
       this.servicio.obtenerDiagnostico(this.id_cita).subscribe(
         (response) =>{
+          this.existir = true;
           this.formData = new FormGroup({
             informe: new FormControl(response.informe, Validators.required),
             tratamientos: new FormControl(response.tratamiento, Validators.required),

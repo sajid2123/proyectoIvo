@@ -14,11 +14,11 @@ import { RadiologoModule } from './radiologo/radiologo.module';
 import { FormsModule } from '@angular/forms';
 import { AdministrativoModule } from './administrativo/administrativo.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MedicoModule } from './medico/medico.module';
 
 
 
@@ -39,9 +39,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     PacienteModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    MedicoModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

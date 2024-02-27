@@ -22,25 +22,21 @@ export class BuscarPacienteComponent implements OnInit {
   sip: string = '';
   apellido: string = '';
   buscando: boolean = false;
+  existir: boolean = true;
+
 
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.dtOptions = {
-      retrieve: true,
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      searching: false,
-      lengthChange: false,
+      pagingType: 'numbers',
+      search: false,
+      dom: 'rtip',
       language: {
-        info: ' ', // Personalizar el mensaje
-        paginate: {
-          first: '',
-          last: '',
-          next: 'Siguiente',
-          previous: 'Anterior'
-        }
+        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+        emptyTable: '',
       },
+      info: false,
     };
   }
 
@@ -48,6 +44,7 @@ export class BuscarPacienteComponent implements OnInit {
   id_admin = localStorage.getItem('id_usuario');
 
   buscarPaciente(): void {
+    this.existir = false;
     this.buscando = true;
     this.http.get<ApiResponse>(`http://localhost/api/v1/pacientes?id_usuario_administrativo=${this.id_admin}`).subscribe(
       response => {
@@ -56,6 +53,7 @@ export class BuscarPacienteComponent implements OnInit {
           // Aplicar filtros según los valores de los campos de búsqueda
           this.resultados = pacientes.filter(paciente => {
             const usuario = paciente.usuario;
+            
             return (
               paciente.sip.includes(this.sip) &&
               usuario.dni.includes(this.dni) &&
@@ -70,8 +68,10 @@ export class BuscarPacienteComponent implements OnInit {
               apellido_usuario: usuario.apellido1,
               dni_usuario: usuario.dni,
               sip_usuario: paciente.sip,
+              
             };
           });
+          this.existir = true;
           this.dtTrigger.next(null);
         }
       },

@@ -29,7 +29,6 @@ import { PopupImagenComponent } from './popup-imagen/popup-imagen.component';
 
 @NgModule({
   declarations: [
-  
     PaginaPrincipalMedicoComponent,
        TabsAtenderPacienteComponent,
        TablaCitasPendientesComponent,
@@ -56,4 +55,6 @@ import { PopupImagenComponent } from './popup-imagen/popup-imagen.component';
     ReactiveFormsModule
   ]
 })
+
+
 export class MedicoModule { }

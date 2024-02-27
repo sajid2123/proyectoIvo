@@ -36,6 +36,10 @@ export class TablaCitasRealizadasComponent implements OnInit {
       searching: false,
       lengthChange: false,
       info: false,
+      language: {
+        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+        emptyTable: '',
+      },
     };
 
     this.dtOptions.language = {

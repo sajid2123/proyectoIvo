@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 import { TablaCitasPendientesComponent } from '../tabla-citas-pendientes/tabla-citas-pendientes.component';
 import { TablaCitasRealizadasComponent } from '../tabla-citas-realizadas/tabla-citas-realizadas.component';
 
+
 @Component({
   selector: 'app-pagina-principal-medico',
   templateUrl: './pagina-principal-medico.component.html',

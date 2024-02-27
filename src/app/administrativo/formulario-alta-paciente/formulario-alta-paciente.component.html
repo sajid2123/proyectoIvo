@@ -27,33 +27,41 @@
                     <div class="col">
                         <label for="dni" class="form-label">DNI</label>
                         <input type="text" class="form-control" formControlName="dni" name="dni">
-                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('dni')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
                     <div class="col">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" formControlName="nombre" name="nombre">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('nombre')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
                     <div class="col">
                         <label for="apellido1" class="form-label">Primer Apellido</label>
                         <input type="text" class="form-control" formControlName="apellido1" name="apellido1">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('apellido1')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col">
                         <label for="apellido2" class="form-label">Segundo Apellido</label>
                         <input type="text" class="form-control" formControlName="apellido2" name="apellido2">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('apellido2')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
                     <div class="col">
                         <label for="sexo" class="form-label">Sexo</label>
-                        <input type="text" class="form-control" formControlName="sexo" name="Sexo">
+                        <select formControlName="sexo" class="form-select">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                        </select>
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('sexo')?.invalid" class="form-text text-danger">*Debes seleccionar el sexo.</small>
                     </div>
             
                     <div class="col">
                         <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                        <input type="text" class="form-control" formControlName="fechaNacimiento" name="fecha_nacimiento">
+                        <input type="date" class="form-control" formControlName="fechaNacimiento" name="fecha_nacimiento">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('fechaNacimiento')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -61,16 +69,19 @@
                     <div class="col">
                         <label for="telefono" class="form-label">Telefono</label>
                         <input type="text" class="form-control" formControlName="telefono" name="telefono">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('telefono')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
                     <div class="col">
                         <label for="correo" class="form-label">Correo</label>
-                        <input type="text" class="form-control" formControlName="correo" name="correo">
+                        <input type="email" class="form-control" formControlName="correo" name="correo">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('correo')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
                     <div class="col">
                         <label for="codigoPostal" class="form-label">Codigo Postal</label>
-                        <input type="text" class="form-control" formControlName="codigoPostal" name="codigo_postal">
+                        <input type="number" class="form-control" formControlName="codigoPostal" name="codigo_postal" min="10000">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('codigoPostal')?.invalid" class="form-text text-danger">*Codigo postal invalido.</small>
                     </div>
                     
                 </div>
@@ -78,6 +89,7 @@
                     <div class="col-4">
                         <label for="direccion" class="form-label">Dirección</label>
                         <input type="text" class="form-control" formControlName="direccion" id="direccion" name="direccion">
+                        <small *ngIf="this.formulario.get('datosPersonales')?.get('direccion')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
                 </div>
             </div>
@@ -89,11 +101,12 @@
                         <div class="col-3">
                             <label for="usuario" class="form-label">Usuario</label>
                             <input type="text" class="form-control" formControlName="usuario" name="nombre_cuenta">
+                            <small *ngIf="this.formulario.get('cuenta')?.get('usuario')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                         </div>
         
                         <div class="col-3 ms-5">
                             <label for="email2" class="form-label">Correo Electronico</label>
-                            <input type="text" class="form-control" formControlName="email2">
+                            <input type="text" class="form-control" formControlName="email2" id="correoCuenta">
                         </div>
                     </div>
         
@@ -101,11 +114,13 @@
                         <div class="col-3">
                             <label for="contrasena" class="form-label">Contraseña</label>
                             <input type="text" class="form-control" formControlName="contrasena" name="password">
+                            <small *ngIf="this.formulario.get('cuenta')?.get('contrasena')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                         </div>
                         
                         <div class="col-3 ms-5">
                             <label for="contrasena2" class="form-label">Confirmar Contraseña</label>
                             <input type="text" class="form-control" formControlName="contrasena2">
+                            <small *ngIf="this.formulario.get('cuenta')?.get('contrasena2')?.value != this.formulario.get('cuenta')?.get('contrasena')?.value" class="form-text text-danger">*La contraseña no coincide</small>
                         </div>
 
                         <input type="text" class="form-control" formControlName="rol" hidden="true" name="id_rol">
@@ -113,8 +128,6 @@
             </div>
 
         </form>
-
-        
     </div>
 </div>
 
