@@ -8,9 +8,8 @@
         </div>
         <div class="col-6 px-5">
             <div class="form-group">
-                <label for="imagenes" class="label-style color mb-3">Subir Imágenes</label>
-                <input type="file" class="form-control" name="imagenes" 
-                       multiple required>
+                <label for="imagenes" class="label-style color mb-3">Imágenes</label>
+            
               </div>
               <div>
                 <div *ngFor="let img of formData.imagenes" class="contenedor-style mt-3">
@@ -23,6 +22,11 @@
                     </div>
                     <span class="color pointer" (click)="descargarImagen(img.base64, img.name)">
                         <fa-icon [icon]="faDownload"></fa-icon>
+
+                    </span>
+                    <span class="color pointer" (click)="seleccionarImagen(img.base64)">
+                        <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon>
+                        
                     </span>
                 </div>
 
@@ -30,4 +34,7 @@
         </div>
         
     </div>
+   
 </form>
+
+<app-popup-imagen></app-popup-imagen>
