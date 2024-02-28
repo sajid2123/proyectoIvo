@@ -9,13 +9,13 @@ import { Observable, firstValueFrom } from 'rxjs';
 export class ApiServicioService {
 
   private httpClient = inject(HttpClient);
-  private baseUrl: string;
+  private urlBase = '';
 
-  constructor(private http:HttpClient) { 
-    this.baseUrl = 'http://localhost/api/v1/login';
+  constructor(private http: HttpClient) {
+    this.urlBase = 'http://ivo-back.cloud/api/v1/';
   }
 
   login(formValue: any) : Observable<any> {
-    return this.httpClient.post<any>(this.baseUrl, formValue);
+    return this.httpClient.post<any>(this.urlBase, formValue);
   }
 }

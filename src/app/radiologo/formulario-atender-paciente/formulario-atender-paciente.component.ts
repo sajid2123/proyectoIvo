@@ -72,7 +72,6 @@ export class FormularioAtenderPacienteComponent {
 
     for (let i = 0; i < this.formData.imagenes.length; i++) {
       if(this.estado_cita == "realizada" && this.formData.imagenes[i].id_image == undefined){
-        console.log("if")
         form.append('imagesCode[]', this.formData.imagenes[i].base64);
         form.append('imagesName[]', this.formData.imagenes[i].name);
       }else if(this.estado_cita == "pendiente"){
@@ -96,7 +95,7 @@ export class FormularioAtenderPacienteComponent {
       console.log(response);
       this.resetFormAndImages();
     }, error => {
-    console.error('Ocurrió un error al enviar el formulario:', error);
+      console.error('Ocurrió un error al enviar el formulario:', error);
     });
   }
 
@@ -142,7 +141,6 @@ export class FormularioAtenderPacienteComponent {
       for (let file of files) {
         const reader = new FileReader();
         reader.onload = (e: any) => {
-          console.log(file);
           this.imagePreviews.push({
             name: file.name 
           });

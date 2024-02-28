@@ -17,8 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MedicoModule } from './medico/medico.module';
+import { InterceptorService } from './interceptors/interceptor.service';
 
 
 
@@ -43,7 +44,8 @@ import { MedicoModule } from './medico/medico.module';
     MedicoModule,
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
+    {provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

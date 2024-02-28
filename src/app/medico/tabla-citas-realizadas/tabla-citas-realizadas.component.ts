@@ -50,6 +50,9 @@ export class TablaCitasRealizadasComponent {
       (response) => {
         this.existir = true;
         this.citas = response;
+      },
+      (error) => {
+        console.log(error);
       }
     )
   }
@@ -62,6 +65,9 @@ export class TablaCitasRealizadasComponent {
       (response) => {
         this.existir = true;
         this.citas = response;
+      },
+      (error) => {
+        console.log(error);
       }
     )
   }

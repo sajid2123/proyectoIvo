@@ -9,69 +9,66 @@ export class AdministrativoServiceService {
   // Definir propiedades para almacenar médicos y servicios
   private medicos: any[] = [];
   private servicios: any[] = [];
+  private urlBase = '';
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) {
+    this.urlBase = 'http://ivo-back.cloud/api/v1/';
+  }
 
   darAltaPaciente(formulario:any): Observable<any> {
-    return this.http.post<any>(`http://localhost/api/v1/alta-paciente`, formulario);
+    return this.http.post<any>(`${this.urlBase}alta-paciente`, formulario);
   }
 
   enlazarAdministrativoConPacienteRecientementeCreado(paciente:any){
-    return this.http.post<any>(`http://localhost/api/v1/registrar-paciente`, paciente);
+    return this.http.post<any>(`${this.urlBase}registrar-paciente`, paciente);
   }
 
   obtenerPaciente(idPaciente: string): Observable<any> {
-    return this.http.get<any>(`http://localhost/api/v1/pacientes/${idPaciente}`);
+    return this.http.get<any>(`${this.urlBase}pacientes/${idPaciente}`);
   }
 
   obtenerCitasGenerales(){
-    return this.http.get<any>(`http://localhost/api/v1/citas-generales`);
+    return this.http.get<any>(`${this.urlBase}citas-generales`);
   }
 
   obtenerCitas(idPaciente: string, estado: string): Observable<any> {
-    return this.http.get<any>(`http://localhost/api/v1/citas?id_usuario_paciente=${idPaciente}&estado=${estado}`);
+    return this.http.get<any>(`${this.urlBase}citas?id_usuario_paciente=${idPaciente}&estado=${estado}`);
   }
 
   eliminarCita(idCita: string): Observable<any> {
-    return this.http.delete(`http://localhost/api/v1/citas/${idCita}`);
+    return this.http.delete(`${this.urlBase}citas/${idCita}`);
   }
 
   obtenerMedicos(): Observable<any> {
-    return this.http.get<any>('http://localhost/api/v1/medicos');
+    return this.http.get<any>('${this.urlBase}medicos');
   }
 
   obtenerServicios(): Observable<any> {
-    return this.http.get<any>('http://localhost/api/v1/servicios');
+    return this.http.get<any>('${this.urlBase}servicios');
   }
 
   crearCita(datosCita: any): Observable<any> {
-    return this.http.post<any>('http://localhost/api/v1/crear-citas', datosCita);
+    return this.http.post<any>('${this.urlBase}crear-citas', datosCita);
   }
 
   buscarPaciente(id_admin:string): Observable<any> {
-    return  this.http.get<any>(`http://localhost/api/v1/pacientes?id_usuario_administrativo=${id_admin}`);
+    return  this.http.get<any>(`${this.urlBase}pacientes?id_usuario_administrativo=${id_admin}`);
   }
 
   actualizarDatosPaciente(idPaciente: string, datosActualizados: any): Observable<any> {
-    return this.http.put<any>(`http://localhost/api/v1/usuarios/${idPaciente}`, datosActualizados);
+    return this.http.put<any>(`${this.urlBase}usuarios/${idPaciente}`, datosActualizados);
   }
 
   modificarCita(datosCita: any, citaId:string): Observable<any> {
-    return this.http.put<any>(`http://localhost/api/v1/citas/${citaId}`, datosCita);
+    return this.http.put<any>(`${this.urlBase}citas/${citaId}`, datosCita);
   }
 
   obtenerDetallesCita(idPaciente: string): Observable<any> {
-    return this.http.get<any>(`http://localhost/api/v1/citas?id_usuario_paciente=${idPaciente}`);
+    return this.http.get<any>(`${this.urlBase}citas?id_usuario_paciente=${idPaciente}`);
   }
 
   obtenerNombreMedico(idMedico: string): Observable<string> {
-    return this.http.get<any>(`http://localhost/api/v1/medicos/${idMedico}`);
+    return this.http.get<any>(`${this.urlBase}medicos/${idMedico}`);
   }
-
-
-
-
-
-
-
 }
