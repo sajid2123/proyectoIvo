@@ -1,11 +1,11 @@
 <div class="row justify-content-center">
   <div class="col-11">
-      <div class="col-8 d-flex align-items-center justify-content-between mx-auto">
+      <div class="col-8 ms-3 d-flex align-items-center justify-content-between mx-auto">
         <div>
-            <p class="mx-2 letra-login">{{nombre[0]}}</p>
+            <p class="mx-2 me-3 letra-login">{{nombre[0]}}</p>
         </div>
           <div class="d-flex flex-column justify-content-start ">
-              <p style="font-weight: 500;">{{nombre}} {{apellido}}</p>
+              <p style="font-weight: 500; text-align: start;">{{nombre}} {{apellido}}</p>
               <p style="font-weight: 200;">{{correo}}</p>
           </div>
           <fa-icon [icon]="faArrowRightFromBracket" class="mx-2 ms-4 mb-3 icon-calender white" (click)="logOut()"></fa-icon>

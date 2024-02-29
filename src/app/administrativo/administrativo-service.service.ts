@@ -41,8 +41,8 @@ export class AdministrativoServiceService {
     return this.http.delete(`${this.urlBase}citas/${idCita}`);
   }
 
-  obtenerMedicos(): Observable<any> {
-    return this.http.get<any>(`${this.urlBase}medicos`);
+  obtenerNombrePersonalClinico(id_rol:number): Observable<any> {
+    return this.http.get<any>(`${this.urlBase}obtener-personal/${id_rol}`);
   }
 
   obtenerServicios(): Observable<any> {

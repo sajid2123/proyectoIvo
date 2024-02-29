@@ -68,6 +68,7 @@ export class TablaCitasPendientesComponent implements OnInit {
         this.citas = response.citas.filter((cita: any) => cita.estado === 'pendiente').map((cita: any) => ({
           ...cita,
           nombreMedico: cita.nombre_medico
+          //nombreRadiologo: cita.
         }));
         this.dtTrigger.next(null);
         this.resultado = response

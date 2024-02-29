@@ -22,7 +22,7 @@ export class ModificarCitaComponent implements OnInit {
   medicos: any[] = [];
   servicios: any[] = [];
   idMedico: string = '';
-  idServicio: string = '';
+  idServicio: number = 2;
   citaId: string = '';
   fecha:Date = new Date();
   confirmar: boolean = false; // Confirmar es la variable que determina si el administrativo se encuentra en el apartado de "confirmar datos".
@@ -59,11 +59,11 @@ export class ModificarCitaComponent implements OnInit {
 
 
       // Aquí es donde debes llamar a tus métodos para obtener los médicos y servicios
-      this.obtenerMedicos();
+      this.obtenerMedicos(this.idServicio);
       this.obtenerServicios();
     });
 
-    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + (this.fecha.getMonth()+1) + '-' + this.fecha.getDate());
+    $("#fecha").attr('min', this.fecha.toISOString().split('T')[0]);
   }
 
   formatearFecha(fecha: Date): string {
@@ -114,8 +114,8 @@ export class ModificarCitaComponent implements OnInit {
     $('#botonPrueba').trigger('click');
   }
 
-  obtenerMedicos(): void {
-    this.administrativoService.obtenerMedicos().subscribe(
+  obtenerMedicos(id_rol:number): void {
+    this.administrativoService.obtenerNombrePersonalClinico(id_rol).subscribe(
       (response) => {
         this.medicos = response;
       },
@@ -150,6 +150,8 @@ export class ModificarCitaComponent implements OnInit {
   obtenerIdServicio(event: any) {
     const selectedValue = event.target.value;
     this.idServicio = selectedValue;
+
+    this.obtenerMedicos(this.idServicio);
   }
 
   modificarCita(): void {
@@ -161,7 +163,7 @@ export class ModificarCitaComponent implements OnInit {
       // Obtener la fecha seleccionada
       const fechaControl = this.formularioCita.get('fechaCita');
       const fecha = fechaControl ? fechaControl.value : '';
-  
+
       const datosCita = {
         id_servicio: this.idServicio,
         id_usuario_medico: this.idMedico,

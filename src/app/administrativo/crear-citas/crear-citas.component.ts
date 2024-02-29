@@ -20,8 +20,12 @@ export class CrearCitasComponent implements OnInit {
   medicos: any[] = [];
   servicios: any[] = [];
   idMedico: string = '';
-  idServicio: string = '';
+  idServicio: number = 2;
   fecha:Date = new Date();
+  mes?:number;
+  existir:boolean = true;
+
+
   constructor(
     private route: ActivatedRoute,
     private administrativoService: AdministrativoServiceService,
@@ -37,8 +41,6 @@ export class CrearCitasComponent implements OnInit {
       horasDisponibles: ['', Validators.required],
       fecha: ['', Validators.required], // Agregar el control 'fecha' aquí
     });
-    
-    
   }
 
   confirmar: boolean = false;
@@ -50,9 +52,11 @@ export class CrearCitasComponent implements OnInit {
       this.idPaciente = params['id_usuario_paciente'];
       this.obtenerDatosPaciente(this.idPaciente);
     });
-    this.obtenerMedicos();
+    
+    this.obtenerNombres(2);
     this.obtenerServicios();
-    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + (this.fecha.getMonth()+1) + '-' + this.fecha.getDate());
+
+    $("#fecha").attr('min', this.fecha.toISOString().split('T')[0]);
   }
 
   siguiente() {
@@ -98,10 +102,12 @@ export class CrearCitasComponent implements OnInit {
   obtenerDatosPaciente(idPaciente: string): void {
     this.administrativoService.obtenerPaciente(idPaciente).subscribe(
       (response) => {
+        this.existir = false;
         this.nombrePaciente = response.usuario.nombre;
         this.idUsuarioAdministrativo = response.id_usuario_administrativo;
         this.idUsuarioPaciente = response.id_usuario_paciente;
         this.sipPaciente = response.sip;
+        this.existir = true;
       },
       (error) => {
         console.error('Error al obtener los datos del paciente:', error);
@@ -109,8 +115,8 @@ export class CrearCitasComponent implements OnInit {
     );
   }
 
-  obtenerMedicos(): void {
-    this.administrativoService.obtenerMedicos().subscribe(
+  obtenerNombres(id_cita:number): void {
+    this.administrativoService.obtenerNombrePersonalClinico(id_cita).subscribe(
       (response) => {
         this.medicos = response;
       },
@@ -147,33 +153,56 @@ export class CrearCitasComponent implements OnInit {
     const horasDisponibles = this.formularioCita.get('horasDisponibles')?.value;
   
     if (this.formularioCita.valid) {
-      const crear = {
-        id_usuario_paciente: this.idPaciente,
-        hora: horasDisponibles,
-        fecha: this.formularioCita.get('fecha')?.value, // Obtener el valor del campo 'fecha' del formulario
-        sip: this.sipPaciente,
-        id_servicio: this.idServicio,
-        id_usuario_medico: this.idMedico,
-        id_usuario_administrativo: this.idUsuarioAdministrativo,
-      };
-  
-      this.administrativoService.crearCita(crear).subscribe(
-        (response) => {
-          console.log('Cita creada exitosamente:', response);
-        },
-        (error) => {
-          console.error('Error al crear la cita:', error);
-        }
-      );
+      
+      if (this.idServicio == 1) {
+        const crear = {
+          id_usuario_paciente: this.idPaciente,
+          hora: horasDisponibles,
+          fecha: this.formularioCita.get('fecha')?.value, // Obtener el valor del campo 'fecha' del formulario
+          sip: this.sipPaciente,
+          id_servicio: this.idServicio,
+          id_usuario_medico: this.idMedico,
+          id_usuario_administrativo: this.idUsuarioAdministrativo,
+        };
+
+        this.administrativoService.crearCita(crear).subscribe(
+          (response) => {
+            console.log('Cita creada exitosamente:', response);
+          },
+          (error) => {
+            console.error('Error al crear la cita:', error);
+          }
+        );
+
+      } else if(this.idServicio == 2){
+
+        const crear = {
+          id_usuario_paciente: this.idPaciente,
+          hora: horasDisponibles,
+          fecha: this.formularioCita.get('fecha')?.value, // Obtener el valor del campo 'fecha' del formulario
+          sip: this.sipPaciente,
+          id_servicio: this.idServicio,
+          id_usuario_radiologo: this.idMedico,
+          id_usuario_administrativo: this.idUsuarioAdministrativo,
+        };
+
+        this.administrativoService.crearCita(crear).subscribe(
+          (response) => {
+            console.log('Cita creada exitosamente:', response);
+          },
+          (error) => {
+            console.error('Error al crear la cita:', error);
+          }
+        );
+      
+      }
+
     } else {
       console.error(
         'El formulario no es válido. No se pueden obtener los valores.'
       );
     }
   }
-  
-
-
 
   obtenerIdMedico(event: any) {
     const selectedValue = event.target.value;
@@ -183,5 +212,12 @@ export class CrearCitasComponent implements OnInit {
   obtenerIdServicio(event: any) {
     const selectedValue = event.target.value;
     this.idServicio = selectedValue;
+
+    if (this.idServicio == 1) {
+      this.obtenerNombres(2);
+    } else if(this.idServicio == 2){
+      this.obtenerNombres(4);
+    }
+    
   }
 }

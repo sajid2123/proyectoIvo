@@ -16,7 +16,7 @@
     </div>
 
     <div class="row d-flex justify-content-start">
-        <div class="col-4 text-center mt-3 ms-3">
+        <div class="col-11 text-center mt-3">
             <app-dos-pasos-formulario></app-dos-pasos-formulario>
         </div>
     </div>
@@ -47,7 +47,7 @@
 
               <div class="col ms-5">
                 <label for="especialidad" class="form-label">Fecha</label>
-                <input type="date" class="form-control" aria-label="Fecha" formControlName="fecha" minDate="0" id="fecha">
+                <input type="date" class="form-control" aria-label="Fecha" formControlName="fecha" id="fecha">
                 <h4 [style.visibility]="(formularioCita.get('fecha')?.invalid && (formularioCita.get('fecha')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
                   *La fecha es requerida.
                 </h4>
@@ -55,11 +55,11 @@
             </div>
 
             <div class="row mb-2 mt-5">
-                <div class="col ms-5">
+                <div  class="col ms-5">
                     <label for="nombreMedico" class="form-label">Nombre de Médico</label>
-                    <select class="form-select" aria-label="Seleccionar médico" formControlName="nombreMedico" (change)="obtenerIdMedico($event)">
+                    <select *ngIf="existir" class="form-select" aria-label="Seleccionar médico" formControlName="nombreMedico" (change)="obtenerIdMedico($event)">
                         <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
-                          {{ medico.usuario.nombre }}
+                          {{ medico.nombre }}
                         </option>
                     </select>
                     <h4 [style.visibility]="(formularioCita.get('nombreMedico')?.invalid && (formularioCita.get('nombreMedico')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
