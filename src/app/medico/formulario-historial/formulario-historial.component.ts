@@ -45,7 +45,7 @@ export class FormularioHistorialComponent {
   }
   @ViewChild(PopupImagenComponent) popupComponent!: PopupImagenComponent;
   seleccionarImagen(base64: string) {
-    this.popupComponent.mostrarImagenEnModal(base64);
+    this.popupComponent.mostrarImagenEnModal(base64);         
   }
   getInformacionPrueba(){
     this.medicoService.getPrueba(this.id_prueba).subscribe( (response: any)  => {

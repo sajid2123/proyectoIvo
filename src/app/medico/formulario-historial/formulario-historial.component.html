@@ -20,11 +20,11 @@
                         </span>
                         <p class="m-0">{{ img.name }}</p>
                     </div>
-                    <span class="color pointer" (click)="descargarImagen(img.base64, img.name)">
+                    <!-- <span class="color pointer" (click)="descargarImagen(img.base64, img.name)">
                         <fa-icon [icon]="faDownload"></fa-icon>
 
-                    </span>
-                    <span class="color pointer" (click)="seleccionarImagen(img.base64)">
+                    </span> -->
+                    <span class="color pointer" (click)="seleccionarImagen(img.base64)"  data-bs-toggle="modal" data-bs-target="#popup">
                         <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon>
                         
                     </span>
