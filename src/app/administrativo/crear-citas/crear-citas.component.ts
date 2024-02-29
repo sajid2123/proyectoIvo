@@ -52,7 +52,7 @@ export class CrearCitasComponent implements OnInit {
     });
     this.obtenerMedicos();
     this.obtenerServicios();
-    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + this.fecha.getMonth()+1 + '-' + this.fecha.getDate());
+    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + (this.fecha.getMonth()+1) + '-' + this.fecha.getDate());
   }
 
   siguiente() {

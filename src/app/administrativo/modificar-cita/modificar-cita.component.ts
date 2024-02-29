@@ -63,7 +63,7 @@ export class ModificarCitaComponent implements OnInit {
       this.obtenerServicios();
     });
 
-    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + this.fecha.getMonth()+1 + '-' + this.fecha.getDate());
+    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + (this.fecha.getMonth()+1) + '-' + this.fecha.getDate());
   }
 
   formatearFecha(fecha: Date): string {
