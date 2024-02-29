@@ -84,7 +84,7 @@
 <div class="row mt-3 p-5">
   <div class="col-12 d-flex justify-content-between align-items-center">
 
-        <app-btn-cancelar [routerLink]="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
+        <app-btn-cancelar [enlace] ="'/app/administrativo/paciente/' + idPaciente"></app-btn-cancelar>
 
         <div class="d-flex align-items-center">
           <app-btn-anterior *ngIf="confirmar" (click)="anterior()" class="me-4"></app-btn-anterior>
