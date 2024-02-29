@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, ViewChild, ElementRef } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +33,8 @@ export class FormularioAtenderPacienteComponent {
   id_prueba: number = 0;
   id_image: number = 0;
   id_usuario = localStorage.getItem('id_usuario');
-
+  
+  mostrarErrores:boolean = false;
   faCoffee = faCoffee;
   faFloppyDisk = faFloppyDisk;
   faFileLines = faFileLines;
@@ -45,7 +46,9 @@ export class FormularioAtenderPacienteComponent {
   };
   imagePreviews: any[] = [];
 
-  
+
+  @ViewChild('botonModalPendiente') botonModalPendiente!: ElementRef;
+  @ViewChild('botonModalRealizada') botonModalRealizada!: ElementRef;
 
   constructor(private radiologoService: RadiologoService ) {
 
@@ -81,12 +84,20 @@ export class FormularioAtenderPacienteComponent {
       
     }
   
-    if(this.estado_cita == "realizada"){
-      this.actualizarFormulario(form, this.id_prueba);
-      console.log(form);
+    if (this.formData.informe.trim().length === 0 ||  this.formData.imagenes.length === 0) {
+      this.mostrarErrores = true;
     }else{
-      this.insertarFromulario(form);
-      console.log(form);
+      this.mostrarErrores = false;
+      if(this.estado_cita == "realizada"){
+        
+        this.actualizarFormulario(form, this.id_prueba);
+        this.botonModalRealizada.nativeElement.click();
+        console.log(form);
+      }else{
+        this.insertarFromulario(form);
+        this.botonModalPendiente.nativeElement.click();
+        console.log(form);
+      }
     }
   }
 
