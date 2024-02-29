@@ -15,7 +15,6 @@ a:hover{
 }
 
 .selected, .selected:hover, .selected a {
-   
     background-color: #DCECFB; 
     border-radius: 10px; 
     color: #092C4C; 

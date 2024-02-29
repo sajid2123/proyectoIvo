@@ -11,6 +11,7 @@ export class NavLogoutComponent implements OnInit {
   nombre: string = '';
   apellido: string = '';
   correo: string = '';
+  nombreLetra: string = '';
   faArrowRightFromBracket = faArrowRightFromBracket;
 
   constructor(private router: Router) {}
@@ -31,6 +32,7 @@ export class NavLogoutComponent implements OnInit {
         this.nombre = payload.nombre;
         this.apellido = payload.apellido1;
         this.correo = payload.correo;
+
 
       } catch (error) {
         console.error('Error al analizar el token JSON:', error);

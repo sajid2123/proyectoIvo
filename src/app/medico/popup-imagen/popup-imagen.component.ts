@@ -16,10 +16,6 @@ export class PopupImagenComponent {
   mostrarImagenEnModal(imagenBase64: string) {
     this.imagen = imagenBase64;
     this.mostrar = true;
-    console.log(this.imagen);
-    console.log(this.mostrar);
   }
-  cerrar() {
-    this.mostrar = false;
-  }
+  
 }
