@@ -1,4 +1,11 @@
-
+    <div *ngIf="mostrarErrores" class="alert alert-danger">
+        <ul>
+            <li>El informe es obligatorio.</li>
+            <li>Debe seleccionar al menos una imagen.</li>
+        </ul>
+       
+        
+    </div>
     <form #myForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-6">
@@ -43,4 +50,14 @@
             
         </div>
     </form>
+   <!--Abrir Modal--> 
+    <button #botonModalPendiente type="button" style="display: none;" data-bs-toggle="modal" data-bs-target="#modalPendiente"></button>
+    <button #botonModalRealizada type="button" style="display: none;" data-bs-toggle="modal" data-bs-target="#modalRealizada"></button>
+
+
+    
+<app-mensaje-confirmacion [texto]="'Prueba relizada '" [idModal]="'modalPendiente'" [enlace]="'/app/radiologo/'"></app-mensaje-confirmacion>
+<app-mensaje-confirmacion [texto]="'Prueba modificada '" [idModal]="'modalRealizada'" [enlace]="'/app/radiologo/'"></app-mensaje-confirmacion>
+
+
 
