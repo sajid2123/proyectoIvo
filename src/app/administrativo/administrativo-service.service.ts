@@ -13,7 +13,8 @@ export class AdministrativoServiceService {
 
 
   constructor(private http: HttpClient) {
-    this.urlBase = 'http://ivo-back.cloud/api/v1/';
+    //this.urlBase = 'http://ivo-back.cloud/api/v1/';
+    this.urlBase = 'http://localhost/api/v1/';
   }
 
   darAltaPaciente(formulario:any): Observable<any> {
@@ -41,15 +42,15 @@ export class AdministrativoServiceService {
   }
 
   obtenerMedicos(): Observable<any> {
-    return this.http.get<any>('${this.urlBase}medicos');
+    return this.http.get<any>(`${this.urlBase}medicos`);
   }
 
   obtenerServicios(): Observable<any> {
-    return this.http.get<any>('${this.urlBase}servicios');
+    return this.http.get<any>(`${this.urlBase}servicios`);
   }
 
   crearCita(datosCita: any): Observable<any> {
-    return this.http.post<any>('${this.urlBase}crear-citas', datosCita);
+    return this.http.post<any>(`${this.urlBase}crear-citas`, datosCita);
   }
 
   buscarPaciente(id_admin:string): Observable<any> {

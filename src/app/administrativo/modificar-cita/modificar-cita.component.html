@@ -44,11 +44,13 @@
                 {{ servicio.nombre_servicio }}
               </option>
             </select>
+            
           </div>
 
           <div class="col ms-5">
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" aria-label="Fecha" formControlName="fechaCita">
+            <input type="date" class="form-control" aria-label="Fecha" formControlName="fechaCita" id="fecha">
+            
         </div>
         
         </div>
@@ -63,6 +65,7 @@
                     </option>
                 </select>
 
+                
 
             </div>
 
@@ -70,6 +73,7 @@
                 <label for="horasDisponibles" class="form-label" >Horas Disponibles</label>
                 <input type="time" class="form-control" formControlName="horasDisponibles" >
 
+                
             </div>
         </div>
 
@@ -99,7 +103,7 @@
 
 
 
-<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita modificada exitosamente'" [enlace]="'app/administrativo/paciente/'+idPaciente"></app-mensaje-confirmacion>
+<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cita modificada '" [enlace]="'app/administrativo/paciente/'+idPaciente"></app-mensaje-confirmacion>
 
 
 

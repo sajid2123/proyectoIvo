@@ -24,7 +24,7 @@ export class ModificarCitaComponent implements OnInit {
   idMedico: string = '';
   idServicio: string = '';
   citaId: string = '';
-
+  fecha:Date = new Date();
   confirmar: boolean = false; // Confirmar es la variable que determina si el administrativo se encuentra en el apartado de "confirmar datos".
   // Si esta en false, significa que no esta en "confirmar datos".
   enviarDatos: boolean = false;
@@ -62,6 +62,8 @@ export class ModificarCitaComponent implements OnInit {
       this.obtenerMedicos();
       this.obtenerServicios();
     });
+
+    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + this.fecha.getMonth()+1 + '-' + this.fecha.getDate());
   }
 
   formatearFecha(fecha: Date): string {

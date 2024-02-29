@@ -25,12 +25,21 @@ export class AtenderPacienteMedicoComponent {
           this.textoModal = 'Diagnostico creado';
       } else if(params['estado'] == "realizada"){
         this.textoModal = 'Diagnostico modificado';
-      }
+      } 
     })
   }
 
   recibirDato(activeTab: string){
     this.activeTab = activeTab;
+
+    if (activeTab == "volante") {
+      this.textoModal = 'Volante generado';
+    } else if (this.estado == "pendiente") {
+      this.textoModal = 'Diagnostico creado';
+    } else if(this.estado == "realizada"){
+      this.textoModal = 'Diagnostico modificado';
+    } 
+
     console.log(activeTab);
   }
 }

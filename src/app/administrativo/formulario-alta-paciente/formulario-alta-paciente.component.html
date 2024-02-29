@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-12 mt-5 mb-4">
         <h1 class="ms-5 title">Alta paciente</h1>
@@ -68,7 +69,7 @@
             
                     <div class="col">
                         <label for="telefono" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" formControlName="telefono" name="telefono">
+                        <input type="text" class="form-control" formControlName="telefono" name="telefono" maxlength="9">
                         <small *ngIf="this.formulario.get('datosPersonales')?.get('telefono')?.invalid" class="form-text text-danger">*Este campo es obligatorio.</small>
                     </div>
             
@@ -80,7 +81,7 @@
             
                     <div class="col">
                         <label for="codigoPostal" class="form-label">Codigo Postal</label>
-                        <input type="number" class="form-control" formControlName="codigoPostal" name="codigo_postal" min="10000">
+                        <input type="number" class="form-control" formControlName="codigoPostal" name="codigo_postal" min="10000" max="99999">
                         <small *ngIf="this.formulario.get('datosPersonales')?.get('codigoPostal')?.invalid" class="form-text text-danger">*Codigo postal invalido.</small>
                     </div>
                     
@@ -132,18 +133,71 @@
 </div>
 
 <div class="row pe-5 ps-5">
-    <div class="col-12 d-flex justify-content-between ">
-            <app-btn-cancelar></app-btn-cancelar>
+    <div class="col-12 d-flex justify-content-between">
+            <app-btn-cancelar [enlace]="'/app/administrativo'"></app-btn-cancelar>
 
             <div class="d-flex align-items-center">
                 <app-btn-anterior *ngIf="seccionFormulario > 0;" (click)="cambiarSeccion('retroceder', formulario.get(nombreSeccionFormulario)!.valid)" class="me-4"></app-btn-anterior>
             <app-btn-siguiente
                 [mostrarModal]="enviarDatos"
-                [idModal]="'prueba'"
+                [idModal]="'idModal'"
                 (click)="cambiarSeccion('avanzar', formulario.get(nombreSeccionFormulario)!.valid)">
             </app-btn-siguiente>
             </div>
     </div>
 </div>
 
-<app-mensaje-confirmacion [idModal]="'prueba'" [texto]="'Cuenta creada'"></app-mensaje-confirmacion>
+<div class="modal fade" data-bs-keyboard="false" tabindex="-1" data-bs-backdrop="static" id="idModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body rounded-3">
+  
+          <div class="row p-5">
+            <div class="col-12 d-flex justify-content-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+                <path d="M50 100C63.2608 100 75.9785 94.7322 85.3553 85.3553C94.7322 75.9785 100 63.2608 100 50C100 36.7392 94.7322 24.0215 85.3553 14.6447C75.9785 5.26784 63.2608 0 50 0C36.7392 0 24.0215 5.26784 14.6447 14.6447C5.26784 24.0215 0 36.7392 0 50C0 63.2608 5.26784 75.9785 14.6447 85.3553C24.0215 94.7322 36.7392 100 50 100ZM72.0703 40.8203L47.0703 65.8203C45.2344 67.6562 42.2656 67.6562 40.4492 65.8203L27.9492 53.3203C26.1133 51.4844 26.1133 48.5156 27.9492 46.6992C29.7852 44.8828 32.7539 44.8633 34.5703 46.6992L43.75 55.8789L65.4297 34.1797C67.2656 32.3438 70.2344 32.3438 72.0508 34.1797C73.8672 36.0156 73.8867 38.9844 72.0508 40.8008L72.0703 40.8203Z" fill="#27C100"/>
+              </svg>
+            </div>
+          </div>
+  
+         <div class="row ">
+          <div class="col-12 d-flex justify-content-center ">
+            <p class="fs-3 text-center">Cuenta creada <br> <br> exitosamente</p>
+          </div>
+         </div>
+  
+         <div class="row p-5">
+          <div class="col-12 d-flex justify-content-center">
+              <button type="button" class="fs-5" data-bs-toggle="modal" data-bs-target="#preguntaAltaPaciente">Continuar</button>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" data-bs-keyboard="false" tabindex="-1" data-bs-backdrop="static" id="preguntaAltaPaciente">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body  rounded-3">
+         <div class="row">
+          <div class="col-12 d-flex justify-content-center p-5 mt-3">
+            <p class="fs-2 text-center">¿Desea crear una cita para <br> <br> {{this.formulario.get('datosPersonales')?.get('nombre')?.value}} {{this.formulario.get('datosPersonales')?.get('apellido1')?.value}} {{this.formulario.get('datosPersonales')?.get('apellido2')?.value}}?</p>
+          </div>
+         </div>
+         <div class="row p-4">
+          <div class="col-12 d-flex justify-content-center">
+            <div>
+                <a href="/app/administrativo">
+                    <button type="button" class="no fs-5">No</button>
+                </a>
+                <a href="/app/administrativo/crear-citas?id_usuario_paciente={{id_paciente}}">
+                    <button type="button" class="si fs-5 ms-3">Si</button>
+                </a>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+</div>

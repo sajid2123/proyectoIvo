@@ -24,6 +24,7 @@ export class PerfilPacienteComponent implements OnInit {
     telefono:String = '';
     codigoPostal:String = '';
     direccion:String = '';
+    recargar = true;
 
     constructor(private route: ActivatedRoute, private http: HttpClient, private administrativoService: AdministrativoServiceService) {}
 
@@ -99,23 +100,38 @@ export class PerfilPacienteComponent implements OnInit {
         nombre: this.nombre,
         apellido1: this.apellido1,
         apellido2: this.apellido2,
-        sexo: this.sexo,
+        Sexo: this.sexo,
         fecha_nacimiento: this.fecha,
         codigoPostal: this.codigoPostal,
         direccion: this.direccion,
         telefono: this.telefono,
         correo: this.correo
       };
+      console.log("formulario "+ this.sexo);
 
+      console.log("realidad"+datosActualizados.Sexo);
+
+      this.recargarFormulario();
       this.administrativoService.actualizarDatosPaciente(this.idPaciente, datosActualizados)
         .subscribe(
           response => {
             console.log('Datos del paciente actualizados con éxito:', response);
+            this.obtenerDatosPaciente(this.idPaciente);
+            this.editar(false);
+            this.recargarFormulario();
           },
           error => {
             console.error('Error al actualizar los datos del paciente:', error);
           }
         );
+    }
+
+    recargarFormulario():void{
+      if (this.recargar == true) {
+        this.recargar = false;
+      } else {
+        this.recargar = true;
+      }
     }
 
 }

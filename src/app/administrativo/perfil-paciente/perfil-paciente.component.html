@@ -1,19 +1,19 @@
-<form>
+<form *ngIf="recargar">
     <div class="row mb-2">
 
         <div class="col">
             <label for="dni" class="form-label">DNI</label>
-            <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="dni"  [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="dni"  [disabled]="!poderEditar">
         </div>
 
         <div class="col">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" [disabled]="!poderEditar">
         </div>
 
         <div class="col">
             <label for="apellido1" class="form-label">Primer Apellido</label>
-            <input type="text" class="form-control" id="apellido1" name="apellido1" [(ngModel)]="apellido1" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="apellido1" name="apellido1" [(ngModel)]="apellido1" [disabled]="!poderEditar">
         </div>
 
     </div>
@@ -22,17 +22,22 @@
 
         <div class="col">
             <label for="apellido2" class="form-label">Segundo Apellido</label>
-            <input type="text" class="form-control" id="apellido2" name="apellido2" [(ngModel)]="apellido2" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="apellido2" name="apellido2" [(ngModel)]="apellido2" [disabled]="!poderEditar">
         </div>
 
-        <div class="col">
+        <div class="col" *ngIf="recargar">
             <label for="sexo" class="form-label">Sexo</label>
-            <input type="text" class="form-control" id="sexo"  name="sexo" [(ngModel)]="sexo" [readonly]="!poderEditar">
+            <select class="form-select" name="sexo" id="sexo" [(ngModel)]="sexo" [disabled]="!poderEditar">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+
+         <!--  <input type="text" class="form-control" id="sexo"  name="sexo" [(ngModel)]="sexo" [disabled]="!poderEditar">--> 
         </div>
 
         <div class="col">
             <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-            <input type="text" class="form-control" id="fechaNacimiento" name="fecha" [(ngModel)]="fecha" [readonly]="!poderEditar">
+            <input type="date" class="form-control" id="fechaNacimiento" name="fecha" [(ngModel)]="fecha" [disabled]="!poderEditar">
         </div>
 
 
@@ -42,17 +47,17 @@
 
         <div class="col">
             <label for="telefono" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="telefono" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="telefono" name="telefono" minlength="9" maxlength="9" [(ngModel)]="telefono" [disabled]="!poderEditar">
         </div>
 
         <div class="col">
             <label for="correo" class="form-label">Correo</label>
-            <input type="text" class="form-control" id="correo" name="correo" [(ngModel)]="correo" [readonly]="!poderEditar">
+            <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="correo" [disabled]="!poderEditar">
         </div>
 
         <div class="col">
             <label for="codigoPostal" class="form-label">Codigo Postal</label>
-            <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" [(ngModel)]="codigoPostal" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" minlength="5" maxlength="5" [(ngModel)]="codigoPostal" [disabled]="!poderEditar">
         </div>
 
     </div>
@@ -61,7 +66,7 @@
 
         <div class="col-4">
             <label for="direccion" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="direccion" [readonly]="!poderEditar">
+            <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="direccion" [disabled]="!poderEditar">
         </div>
 
     </div>
@@ -72,7 +77,7 @@
   <button type="button" class="btn btn-primary ms-4" (click)="guardarCambios()">Guardar</button>-->
 
   <button type="button" class="btn-lg" (click)="editar(poderEditar)">Cancelar</button>
-  <button type="button" class="btn-lg ms-5" (click)="guardarCambios()">Guardar</button>
+  <button type="button" class="btn-lg ms-5" (click)="guardarCambios()" data-bs-toggle="modal" data-bs-target="#modificarUsuario">Guardar</button>
 </div>
 
 <ng-template #noEditando>

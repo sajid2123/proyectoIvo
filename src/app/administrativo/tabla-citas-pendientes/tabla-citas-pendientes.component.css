@@ -6,5 +6,30 @@
     margin-right: 10px; /* Espacio entre los SVG */
   }
 
+.si {
+    padding: 19px 72.257px 19.385px 72px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--Color---Primary, #092C4C);
+    color: white;
+}
+
+.no {
+    padding: 19px 72.257px 19.385px 72px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border-color: var(--Color---Primary, #092C4C);
+    background-color: #EBF3FA;
+    color: black;
+}
+
+.modal-body{
+  background-color: #EBF3FA;
+}
+
 
   

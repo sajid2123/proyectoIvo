@@ -41,13 +41,16 @@
                   </option>
                 </select>
                 <h4 [style.visibility]="(formularioCita.get('especialidad')?.invalid && (formularioCita.get('especialidad')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
-                  El servicio es requerido.
+                  *El servicio es requerido.
                 </h4>
               </div>
 
               <div class="col ms-5">
                 <label for="especialidad" class="form-label">Fecha</label>
-                <input type="date" class="form-control" aria-label="Fecha" formControlName="fecha">
+                <input type="date" class="form-control" aria-label="Fecha" formControlName="fecha" minDate="0" id="fecha">
+                <h4 [style.visibility]="(formularioCita.get('fecha')?.invalid && (formularioCita.get('fecha')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
+                  *La fecha es requerida.
+                </h4>
               </div>
             </div>
 
@@ -60,7 +63,7 @@
                         </option>
                     </select>
                     <h4 [style.visibility]="(formularioCita.get('nombreMedico')?.invalid && (formularioCita.get('nombreMedico')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
-                      El nombre del medico es requerido.
+                      *El nombre del medico es requerido.
                     </h4>
 
                 </div>
@@ -69,7 +72,7 @@
                     <label for="horasDisponibles" class="form-label">Horas Disponibles</label>
                     <input type="time" class="form-control" formControlName="horasDisponibles">
                     <h4 [style.visibility]="(formularioCita.get('horasDisponibles')?.invalid && (formularioCita.get('horasDisponibles')?.dirty || isSubmitted)) ? 'visible' : 'hidden'" class="text-danger">
-                     La hora de la cita es requerida.
+                     *La hora de la cita es requerida.
                     </h4>
                 </div>
             </div>

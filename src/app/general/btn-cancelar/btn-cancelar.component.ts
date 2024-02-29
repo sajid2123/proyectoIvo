@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-btn-cancelar',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./btn-cancelar.component.css']
 })
 export class BtnCancelarComponent {
-
+  @Input() enlace = "";
 }

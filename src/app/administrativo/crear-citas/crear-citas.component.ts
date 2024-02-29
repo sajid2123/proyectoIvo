@@ -21,7 +21,7 @@ export class CrearCitasComponent implements OnInit {
   servicios: any[] = [];
   idMedico: string = '';
   idServicio: string = '';
-
+  fecha:Date = new Date();
   constructor(
     private route: ActivatedRoute,
     private administrativoService: AdministrativoServiceService,
@@ -38,6 +38,7 @@ export class CrearCitasComponent implements OnInit {
       fecha: ['', Validators.required], // Agregar el control 'fecha' aquí
     });
     
+    
   }
 
   confirmar: boolean = false;
@@ -51,6 +52,7 @@ export class CrearCitasComponent implements OnInit {
     });
     this.obtenerMedicos();
     this.obtenerServicios();
+    $("#fecha").attr('min', this.fecha.getFullYear() + '-' + this.fecha.getMonth()+1 + '-' + this.fecha.getDate());
   }
 
   siguiente() {
@@ -60,8 +62,17 @@ export class CrearCitasComponent implements OnInit {
       if (this.confirmar) {
         this.crearCita();
       } else {
+      $('input').prop('disabled', true);
+      $('select').prop('disabled', true);
+
+      $('#flecha').addClass('border-3');
+      $('#flecha').addClass('barra-inferior');
+
+      $('#paso2').addClass('border-3');
+      $('#paso2').addClass('barra-inferior');
         this.confirmar = true;
         this.enviarDatos = true;
+      
       }
     } else {
       this.formularioCita.markAllAsTouched();
@@ -70,6 +81,15 @@ export class CrearCitasComponent implements OnInit {
 
   anterior() {
     if (this.confirmar) {
+      $('input').prop('disabled', false);
+      $('select').prop('disabled', false);
+
+      $('#flecha').removeClass('border-3');
+      $('#flecha').removeClass('barra-inferior');
+
+      $('#paso2').removeClass('border-3');
+      $('#paso2').removeClass('barra-inferior');
+
       this.confirmar = false;
       this.enviarDatos = false;
     }

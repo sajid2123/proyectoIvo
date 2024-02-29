@@ -7,8 +7,8 @@
                           formControlName='informe'></textarea>
             </div>
 
-            <span *ngIf="errorInforme" class="d-flex bg-danger rounded text-white">
-                cola
+            <span *ngIf="errorInforme" class="d-flex text-danger">
+                *Este campo es obligatorio
             </span>
         </div>
         <div class="col-6 px-5">
@@ -17,8 +17,8 @@
                 <textarea class="form-control" name="informe" cols="10" rows="20" 
                 formControlName='tratamientos'></textarea>
             </div>
-            <span *ngIf="errorTratamiento" class="d-flex bg-danger rounded text-white">
-                cola
+            <span *ngIf="errorTratamiento" class="d-flex text-danger">
+                *Este campo es obligatorio
             </span>
         </div>
         <div class="row">

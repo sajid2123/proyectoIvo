@@ -17,7 +17,7 @@ export class FormularioAltaPacienteComponent {
     enviarDatos:boolean = false;
     nombreSeccionFormulario:string = 'datosPersonales';
     formulario:FormGroup;
-
+    id_paciente!:string;
   servicio = inject(AdministrativoServiceService);
 
     constructor(fb:FormBuilder){
@@ -30,7 +30,7 @@ export class FormularioAltaPacienteComponent {
             apellido2: ['', [Validators.required]],
             sexo: ['', [Validators.required]],
             fechaNacimiento: ['', [Validators.required]],
-            telefono: ['', [Validators.required]],
+            telefono: ['', [Validators.required, Validators.minLength(9)]],
             correo: ['', [Validators.required, Validators.email]],
             codigoPostal: ['', [Validators.required, Validators.min(10000), Validators.max(99999)]],
             direccion: ['', [Validators.required]],
@@ -98,6 +98,7 @@ export class FormularioAltaPacienteComponent {
             if (this.seccionFormulario != 2) {
               $(".col").find("input").prop("disabled", false);
               $("#direccion").prop("disabled", false);
+              $(".col").find("select").prop("disabled", false);
             } 
 
       } else if(accion == "cancelar"){
@@ -171,7 +172,8 @@ export class FormularioAltaPacienteComponent {
 
         this.servicio.enlazarAdministrativoConPacienteRecientementeCreado(datos).subscribe(
           (response) => {
-            console.log(response);
+            console.log("id de paciente: " + response);
+            this.id_paciente = response;
           },
           (error) => {
             console.error('Error: ', error);
