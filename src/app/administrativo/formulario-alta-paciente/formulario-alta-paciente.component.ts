@@ -40,7 +40,7 @@ export class FormularioAltaPacienteComponent {
             email2: ['', Validators.email],
             contrasena: ['', Validators.required],
             contrasena2: ['', Validators.required],
-            rol: ['2']
+            rol: ['3']
           })
       })
     }

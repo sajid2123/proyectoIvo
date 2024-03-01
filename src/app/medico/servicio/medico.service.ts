@@ -22,7 +22,7 @@ export class MedicoService {
   }
 
   registrarDiagnostico(diagnostico:any){
-    return this.http.post<any>(`${this.urlBase}registrar-diagnostico/`, diagnostico);
+    return this.http.post<any>(`${this.urlBase}registrar-diagnostico`, diagnostico);
   }
 
   obtenerDiagnostico(idCita:any){
