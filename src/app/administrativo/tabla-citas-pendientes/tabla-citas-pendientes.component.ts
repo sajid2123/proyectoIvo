@@ -64,18 +64,25 @@ export class TablaCitasPendientesComponent implements OnInit {
   obtenerDatosCita(idPaciente: string): void {
     this.administrativoService.obtenerCitas(idPaciente, this.estado).subscribe(
       (response) => {
+       console.log(response);
+       this.citas = response;
+       console.log(this.citas);
        
-        this.citas = response.citas.filter((cita: any) => cita.estado === 'pendiente').map((cita: any) => ({
-          ...cita,
-          nombreMedico: cita.nombre_medico
-          //nombreRadiologo: cita.
-        }));
-        this.dtTrigger.next(null);
+        // this.citas = response.citas.filter((cita: any) => cita.estado === 'pendiente').map((cita: any) => ({
+        //   ...cita,
+        //   nombreMedico: cita.nombre_medico,
+        //   nombreRadiologo: cita.nombre_radiologo,
+          
+        // }));
+
+        
+        // this.dtTrigger.next(null);
         this.resultado = response
       },
       (error) => {
         console.error('Error al obtener los datos de la cita:', error);
       }
+      
     );
   }
 

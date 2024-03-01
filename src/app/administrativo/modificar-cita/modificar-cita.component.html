@@ -61,7 +61,7 @@
                 <select class="form-select" aria-label="Seleccionar médico"  (change)="obtenerIdMedico($event)">
                     <option disabled selected value="">Seleccionar médico</option>
                     <option *ngFor="let medico of medicos" [value]="medico.id_usuario_medico">
-                      {{ medico.usuario.nombre }}
+                      {{ medico.nombre }}
                     </option>
                 </select>
 
