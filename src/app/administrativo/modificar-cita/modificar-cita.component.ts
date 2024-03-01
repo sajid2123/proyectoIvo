@@ -59,7 +59,7 @@ export class ModificarCitaComponent implements OnInit {
 
 
       // Aquí es donde debes llamar a tus métodos para obtener los médicos y servicios
-      this.obtenerMedicos(this.idServicio);
+      this.obtenerNombres(2);
       this.obtenerServicios();
     });
 
@@ -114,7 +114,7 @@ export class ModificarCitaComponent implements OnInit {
     $('#botonPrueba').trigger('click');
   }
 
-  obtenerMedicos(id_rol:number): void {
+  obtenerNombres(id_rol:number): void {
     this.administrativoService.obtenerNombrePersonalClinico(id_rol).subscribe(
       (response) => {
         this.medicos = response;
@@ -145,13 +145,19 @@ export class ModificarCitaComponent implements OnInit {
   obtenerIdMedico(event: any) {
     const selectedValue = event.target.value;
     this.idMedico = selectedValue;
+
+
   }
 
   obtenerIdServicio(event: any) {
     const selectedValue = event.target.value;
     this.idServicio = selectedValue;
 
-    this.obtenerMedicos(this.idServicio);
+    if (this.idServicio == 1) {
+      this.obtenerNombres(2);
+    } else if(this.idServicio == 2){
+      this.obtenerNombres(4);
+    }
   }
 
   modificarCita(): void {
@@ -164,23 +170,44 @@ export class ModificarCitaComponent implements OnInit {
       const fechaControl = this.formularioCita.get('fechaCita');
       const fecha = fechaControl ? fechaControl.value : '';
 
-      const datosCita = {
-        id_servicio: this.idServicio,
-        id_usuario_medico: this.idMedico,
-        hora: hora,
-        fecha: fecha
-      };
+
+      if (this.idServicio == 1) {
+        const datosCita = {
+          id_servicio: this.idServicio,
+          id_usuario_medico: this.idMedico,
+          hora: hora,
+          fecha: fecha
+        };
+        this.administrativoService.modificarCita(datosCita, this.citaId).subscribe(
+          (response) => {
+            console.log('Cita modificada exitosamente', response);
+          },
+          (error) => {
+            console.error('Error al modificar la cita', error);
+          }
+        );
+        console.log('Datos de la cita a enviar:', datosCita);
+      } else if(this.idServicio == 2) {
+        const datosCita = {
+          id_servicio: this.idServicio,
+          id_usuario_radiologo: this.idMedico,
+          hora: hora,
+          fecha: fecha
+        };
+        this.administrativoService.modificarCita(datosCita, this.citaId).subscribe(
+          (response) => {
+            console.log('Cita modificada exitosamente', response);
+          },
+          (error) => {
+            console.error('Error al modificar la cita', error);
+          }
+        );
+
+        console.log('Datos de la cita a enviar:', datosCita);
+      }
+      
   
-      console.log('Datos de la cita a enviar:', datosCita);
-  
-      this.administrativoService.modificarCita(datosCita, this.citaId).subscribe(
-        (response) => {
-          console.log('Cita modificada exitosamente', response);
-        },
-        (error) => {
-          console.error('Error al modificar la cita', error);
-        }
-      );
+      
     } else {
       console.error('El formulario o alguno de sus campos no es válido.');
     }

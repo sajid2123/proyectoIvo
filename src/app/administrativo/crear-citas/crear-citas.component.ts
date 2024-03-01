@@ -213,6 +213,8 @@ export class CrearCitasComponent implements OnInit {
     const selectedValue = event.target.value;
     this.idServicio = selectedValue;
 
+    
+
     if (this.idServicio == 1) {
       this.obtenerNombres(2);
     } else if(this.idServicio == 2){

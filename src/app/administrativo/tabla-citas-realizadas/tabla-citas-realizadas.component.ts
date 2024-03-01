@@ -72,13 +72,14 @@ export class TablaCitasRealizadasComponent implements OnInit {
   obtenerDatosCita(idPaciente: string): void {
     this.administrativoService.obtenerCitas(idPaciente, this.estado).subscribe(
       (response) => {
-        this.citas = response.citas.filter((cita: any) => cita.estado === 'realizada').map((cita: any) => ({
-          ...cita,
-          nombreMedico: cita.nombre_medico
-        }));
+        this.citas = response;
+        // this.citas = response.citas.filter((cita: any) => cita.estado === 'realizada').map((cita: any) => ({
+        //   ...cita,
+        //   nombreMedico: cita.nombre_medico
+        // }));
 
   
-        this.dtTrigger.next(null);
+        // this.dtTrigger.next(null);
         this.resultado = response
       },
       (error) => {
