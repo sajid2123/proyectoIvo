@@ -18,7 +18,10 @@ export class MedicoExternoService {
   getContratos(id:number){
     return this.http.get<any>(`${this.urlBase}${id}/contracts`);
   }
-  sendContractByEmail(id:number){
+  downloadContract(id:number){
     return this.http.get<any>(`${this.urlBase}${id}/download/contract`);
+  }
+  downloadInvoice(id:number){
+    return this.http.get<any>(`${this.urlBase}${id}/download/invoice`);
   }
 }
