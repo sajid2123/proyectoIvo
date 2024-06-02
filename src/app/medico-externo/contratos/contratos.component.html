@@ -1,0 +1,39 @@
+<div class="row px-5">
+    <div class="col-12">
+        <div class="row my-5">
+            <div class="col-12">
+                <h1 class="title color">Contratos</h1>
+            </div>
+        </div>
+        <table datatable [dtOptions]="dtOptions"  *ngIf="existir" class="table table-hover font">
+          <thead>
+            <tr style="background-color: #0062ca;">
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+              <th>Sección</th>
+              <th>Nº habitaciones</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contrato of contratos" class="pointer">
+              <td>{{contrato.start_date}}</td>
+              <td>{{contrato.end_date}}</td>
+              <td>{{contrato.section}}</td>
+              <td>{{contrato.section}}</td>
+              <td class="d-flex justify-content-center">
+                <!-- <div>
+                  <fa-icon [icon]="faEye" class="mx-2 icon-calender"></fa-icon>
+                </div> -->
+                <div (click)="download(contrato)">
+                  <fa-icon [icon]="faDownload" class="mx-2 icon-calender"></fa-icon>
+                </div>
+                <!-- <div>
+                  <fa-icon [icon]="faEnvelope" class="mx-2 icon-calender"></fa-icon>
+                </div> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

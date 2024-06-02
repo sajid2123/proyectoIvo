@@ -23,7 +23,7 @@ export class PaginaLoginComponent {
 
     constructor(private router: Router){
       this.formulario = new FormGroup({
-        correo: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', Validators.required)
       })
 
@@ -37,11 +37,11 @@ export class PaginaLoginComponent {
     
 
     async onSubmit(){
-      console.log("Datos de correo " + this.formulario.controls["correo"].value);
+      // console.log("Datos de correo " + this.formulario.controls["email"].value);
 
       if (this.formulario.invalid) {
 
-        if (this.formulario.get('correo')?.invalid) {
+        if (this.formulario.get('email')?.invalid) {
           this.correoEquivocado = true;
         } else {
           this.correoEquivocado = false;
@@ -58,10 +58,10 @@ export class PaginaLoginComponent {
         this.passwordEquivocado = false;
         this.servicio.login(this.formulario.value).subscribe(
           (response) => {
-          console.log("Login hecho");
+          console.log(response);
             localStorage.setItem('token_usuario', response.token);
-            localStorage.setItem('id_usuario', response.user.id_usuario);
-            localStorage.setItem('rol', response.user.id_rol);
+            localStorage.setItem('id_usuario', response.id_usuario);
+            localStorage.setItem('rol', response.rol);
     
             switch (Number(localStorage.getItem("rol"))) {
               case 2:
@@ -75,6 +75,9 @@ export class PaginaLoginComponent {
               break;
               case 5:
                 this.router.navigateByUrl('/app/administrativo');
+              break;
+              case 6:
+                this.router.navigateByUrl('/app/medico-externo/contratos');
               break;
             }
         },

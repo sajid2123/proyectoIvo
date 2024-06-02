@@ -1,21 +1,21 @@
-.white{
-    color: #DCECFB;
-}
-a{
-    text-decoration: none;
-    color: #DCECFB;
-}
-a:hover{
-    background-color: #DCECFB;
-    border-radius: 10px;
-    color: #092C4C;
-}
-.icon-calender{
-    font-size: 18px;
-}
 
-.selected, .selected:hover, .selected a {
-    background-color: #DCECFB; 
-    border-radius: 10px; 
-    color: #092C4C; 
+.sidebar{
+    width: 200px;
+    background-color:  #092C4C;
+}
+.selected{ 
+    background-color: #DCECFB ;
+    color: #092C4C;
+    font-weight: bolder;
+    border-radius: 0px 20px 20px 0px ;
+}
+.not-selected{
+    color: #DCECFB;
+}
+li{
+  margin-right: 20px;
+  padding: 3px 0px;
+}
+i{
+  margin-right: 5px;
 }

@@ -1,5 +1,5 @@
 
-    <ul class="nav navbar-nav" [ngSwitch]="rolDelUsuario">
+    <ul class="nav nav-pills flex-column mb-auto mt-5 pe-3" [ngSwitch]="rolDelUsuario">
         <div *ngSwitchCase="5">
             <li class="nav-item mt-3" (click)="seleccionarElemento(1)" [ngClass]="{'selected': indiceSeleccionado === 1}">
                 <a class="nav-link  px-3" routerLink="/app/administrativo">
@@ -53,9 +53,24 @@
               </a>
               </li>
         </div>
-
+        
+        <div *ngSwitchCase="6">
+            <li class="nav-item mt-3">
+                <a class="nav-link  px-3" routerLink="/app/medico-externo/contratos" (click)="seleccionarElemento(1)" [ngClass]="{ 'selected': indiceSeleccionado === 1, 'not-selected': indiceSeleccionado !== 1 }">
+                  <fa-icon [icon]="faFileSignature" class="mx-2 icon-calender"></fa-icon>
+                  Contratos
+              </a>
+              </li>
+              <li class="nav-item mt-3"  >
+                 <a class="nav-link  px-3" routerLink="/app/medico-externo/facturas" (click)="seleccionarElemento(2)" [ngClass]="{ 'selected': indiceSeleccionado == 2, 'not-selected': indiceSeleccionado != 2 }">
+                  <fa-icon [icon]="faFileInvoiceDollar" class="mx-2 icon-calender"></fa-icon>
+                  Facturas
+              </a>
+              </li>
+        </div>
         <div *ngSwitchDefault>
 
         </div>
     </ul>
+   
 
