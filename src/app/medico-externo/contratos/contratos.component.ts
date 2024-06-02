@@ -36,7 +36,7 @@ export class ContratosComponent  {
     )
   }
   download(contrato: any) {
-    this.servicio.sendContractByEmail(contrato.id).subscribe(
+    this.servicio.downloadContract(contrato.id).subscribe(
       (response) => { 
         console.log(response)
         const pdfData = response.pdfData; // Assuming your JSON response has a key 'pdfData' containing the base64-encoded PDF data
@@ -47,7 +47,7 @@ export class ContratosComponent  {
           uint8Array[i] = binaryData.charCodeAt(i);
         }
         const blob = new Blob([uint8Array], { type: 'application/pdf' }); // Create Blob from binary data
-        saveAs(blob, 'contract.pdf'); // Save the Blob as PDF file
+        saveAs(blob, 'contracto.pdf'); // Save the Blob as PDF file
       },
       (error) => {
         console.error('Error downloading contract:', error);

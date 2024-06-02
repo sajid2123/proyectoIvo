@@ -5,21 +5,25 @@
                 <h1 class="title color">Facturas</h1>
             </div>
         </div>
-        <table datatable [dtOptions]="dtOptions" class="table table-hover font">
+        <table *ngIf="existir" datatable [dtOptions]="dtOptions" class="table table-hover font">
           <thead>
             <tr style="background-color: #0062ca;">
-              <th>SIP</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Hora</th>
+              <th>Nº Hab</th>
+              <th>Fecha de creación</th>
+              <th>Importe</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr class="pointer">
-              <td>SIP</td>
-              <td>SIP</td>
-              <td>SIP</td>
-              <td>SIP</td>
+            <tr *ngFor="let factura of facturas" class="pointer">
+              <td>{{factura.id}}</td>
+              <td>{{factura.date}}</td>
+              <td>{{factura.amount}}</td>
+              <td>
+                <div (click)="download(factura)">
+                  <fa-icon [icon]="faDownload" class="mx-2 icon-calender pointer"></fa-icon>
+                </div>
+            </td>
             </tr>
           </tbody>
         </table>
