@@ -21,3 +21,8 @@ p {
   border: 1px solid white;
   font-weight: bolder;
 }
+
+.profile{
+  width: 50px !important;
+  height: 50px !important;
+}

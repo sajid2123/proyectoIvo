@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { MensajeConfirmacionComponent } from './general/mensaje-confirmacion/mensaje-confirmacion.component';
@@ -20,6 +20,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MedicoModule } from './medico/medico.module';
 import { InterceptorService } from './interceptors/interceptor.service';
+import { MedicoExternoModule } from './medico-externo/medico-externo.module';
 
 
 
@@ -42,6 +43,8 @@ import { InterceptorService } from './interceptors/interceptor.service';
     LoginModule,
     HttpClientModule,
     MedicoModule,
+    DataTablesModule,
+    MedicoExternoModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES' },

@@ -1,4 +1,8 @@
 .background{
     background-color: #092C4C;;
     height: 100vh;
+    font-family: 'Poppins';
+}
+.width{
+    width: 190px;
 }

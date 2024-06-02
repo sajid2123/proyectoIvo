@@ -35,6 +35,8 @@ import { PaginaLoginComponent } from './login/pagina-login/pagina-login.componen
 import { loginGuard } from './guard/login.guard';
 import { rolGuard } from './guard/rol.guard';
 import { NoEncontradoComponent } from './general/no-encontrado/no-encontrado.component';
+import { ContratosComponent } from './medico-externo/contratos/contratos.component';
+import { FacturasComponent } from './medico-externo/facturas/facturas.component';
 
 
 
@@ -170,6 +172,22 @@ const routes: Routes = [
         canActivate: [rolGuard],
         data: {
           idRol: 2,
+        }
+      },
+      {
+        path: 'medico-externo/contratos',
+        component: ContratosComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 6,
+        }
+      },
+      {
+        path: 'medico-externo/facturas',
+        component: FacturasComponent,
+        canActivate: [rolGuard],
+        data: {
+          idRol: 6,
         }
       },
       {
