@@ -10,7 +10,7 @@ export class MedicoExternoService {
   urlBase = '';
   constructor(private http: HttpClient) { 
     // this.urlBase = 'http://ivo-back.cloud/api/v1/';
-    this.urlBase = 'http://localhost/api/';
+    this.urlBase = 'http://13.51.150.61/api/';
   }
   getFacturas(id:number){
     return this.http.get<any>(`${this.urlBase}${id}/invoices`);
