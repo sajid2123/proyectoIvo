@@ -5,6 +5,10 @@
                 <h1 class="title color">Facturas</h1>
             </div>
         </div>
+        <div *ngIf="!existir" class="d-flex justify-content-center my-3">
+          <div class="loader">
+          </div>
+        </div>
         <table *ngIf="existir" datatable [dtOptions]="dtOptions" class="table table-hover font">
           <thead>
             <tr style="background-color: #0062ca;">
