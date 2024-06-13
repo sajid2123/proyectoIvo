@@ -31,7 +31,7 @@ export class ContratosComponent  {
     this.servicio.getContratos(this.idMedico).subscribe(
       (response) => {
         this.existir = true;
-        this.contratos = response;
+        this.contratos = response.data;
       }
     )
   }

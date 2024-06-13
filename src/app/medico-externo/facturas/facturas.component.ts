@@ -27,7 +27,7 @@ export class FacturasComponent {
     this.servicio.getFacturas(this.idMedico).subscribe(
       (response: any) => {
         this.existir = true;
-        this.facturas = response;
+        this.facturas = response.data;
       }
     )
   }
