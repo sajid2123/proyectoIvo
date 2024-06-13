@@ -14,14 +14,16 @@
             <tr style="background-color: #0062ca;">
               <th>Nº Hab</th>
               <th>Fecha de creación</th>
+              <th>Mes</th>
               <th>Importe</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let factura of facturas" class="pointer">
-              <td>{{factura.id}}</td>
+              <td>{{factura.room_number}}</td>
               <td>{{factura.date}}</td>
+              <td>{{factura.month}}</td>
               <td>{{factura.amount}}</td>
               <td>
                 <div (click)="download(factura)">

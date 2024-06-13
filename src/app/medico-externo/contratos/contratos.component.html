@@ -14,7 +14,6 @@
             <tr style="background-color: #0062ca;">
               <th>Fecha Inicio</th>
               <th>Fecha Fin</th>
-              <th>Sección</th>
               <th>Nº habitaciones</th>
               <th></th>
             </tr>
@@ -23,8 +22,7 @@
             <tr *ngFor="let contrato of contratos" class="pointer">
               <td>{{contrato.start_date}}</td>
               <td>{{contrato.end_date}}</td>
-              <td>{{contrato.section}}</td>
-              <td>{{contrato.section}}</td>
+              <td>{{contrato.room_number}}</td>
               <td class="d-flex justify-content-center">
                 <!-- <div>
                   <fa-icon [icon]="faEye" class="mx-2 icon-calender"></fa-icon>
