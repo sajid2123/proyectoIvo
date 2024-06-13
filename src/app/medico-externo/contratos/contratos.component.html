@@ -5,6 +5,10 @@
                 <h1 class="title color">Contratos</h1>
             </div>
         </div>
+        <div *ngIf="!existir" class="d-flex justify-content-center my-3">
+          <div class="loader">
+          </div>
+        </div>
         <table datatable [dtOptions]="dtOptions"  *ngIf="existir" class="table table-hover font">
           <thead>
             <tr style="background-color: #0062ca;">
@@ -25,8 +29,8 @@
                 <!-- <div>
                   <fa-icon [icon]="faEye" class="mx-2 icon-calender"></fa-icon>
                 </div> -->
-                <div (click)="download(contrato)" class="pointer">
-                  <fa-icon [icon]="faDownload" class="mx-2 icon-calender pointer"></fa-icon>
+                <div (click)="download(contrato)">
+                  <fa-icon [icon]="faDownload" class="mx-2 icon-calender pointer-per"></fa-icon>
                 </div>
                 <!-- <div>
                   <fa-icon [icon]="faEnvelope" class="mx-2 icon-calender"></fa-icon>
